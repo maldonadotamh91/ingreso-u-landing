@@ -1,0 +1,35 @@
+{
+  "_nota": "Fase 2: estos testimonios se cargarán y filtrarán automáticamente. Reemplazar los de ejemplo con testimonios reales (con permiso del alumno y datos difuminados).",
+  "testimonios": [
+    {
+      "id": 1,
+      "nombre": "[POR CONFIRMAR]",
+      "nivel": "facultad",
+      "area": "salud",
+      "carrera": "[POR CONFIRMAR]",
+      "facultad": "[POR CONFIRMAR]",
+      "imagen": "assets/testimonios/testimonio-1.jpg",
+      "texto": "[POR CONFIRMAR: texto del testimonio con permiso del alumno, datos difuminados]"
+    },
+    {
+      "id": 2,
+      "nombre": "[POR CONFIRMAR]",
+      "nivel": "facultad",
+      "area": "ingenierias",
+      "carrera": "[POR CONFIRMAR]",
+      "facultad": "[POR CONFIRMAR]",
+      "imagen": "assets/testimonios/testimonio-2.jpg",
+      "texto": "[POR CONFIRMAR]"
+    },
+    {
+      "id": 3,
+      "nombre": "[POR CONFIRMAR]",
+      "nivel": "prepa",
+      "area": null,
+      "carrera": null,
+      "facultad": null,
+      "imagen": "assets/testimonios/testimonio-3.jpg",
+      "texto": "[POR CONFIRMAR]"
+    }
+  ]
+}

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ingreso U · Preparación para el examen de admisión UANL, prepa y facultad</title>
+  <meta name="description" content="Cursos presenciales y en línea para el examen de admisión a preparatoria y licenciatura de la UANL en Monterrey. Examen de diagnóstico gratis." />
+
+  <!-- Open Graph / redes sociales -->
+  <meta property="og:title"       content="Ingreso U · Preparación para el examen de admisión UANL" />
+  <meta property="og:description" content="Cursos presenciales y en línea para el examen de admisión a preparatoria y licenciatura de la UANL en Monterrey. Examen de diagnóstico gratis." />
+  <meta property="og:image"       content="assets/marca/imagen-para-compartir.jpg" />
+  <meta property="og:type"        content="website" />
+
+  <!-- Favicon -->
+  <link rel="icon"             type="image/x-icon" href="assets/iconos/favicon.ico" />
+  <link rel="icon"             type="image/png" sizes="32x32" href="assets/iconos/icono-32.png" />
+  <link rel="apple-touch-icon" href="assets/iconos/icono-180.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       1. ENCABEZADO FIJO
+  ══════════════════════════════════════ -->
+  <header class="encabezado" role="banner">
+    <div class="contenedor encabezado__inner">
+      <a href="/" class="encabezado__logo-link" aria-label="Ingreso U – página de inicio">
+        <img
+          src="assets/logos/ingreso-u-horizontal-fondo-blanco-sin-fondo.svg"
+          alt="Ingreso U"
+          class="encabezado__logo"
+          width="160" height="40"
+        />
+      </a>
+      <a href="#" class="btn btn-primario js-wa-btn" data-mensaje="hola-info">
+        Escríbenos por WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <!-- Botón flotante WhatsApp — aparece al hacer scroll en celular -->
+  <a href="#" id="wa-flotante" class="wa-flotante js-wa-btn" data-mensaje="hola-info" aria-label="Escríbenos por WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="28" height="28" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+  </a>
+
+  <main>
+
+    <!-- ══════════════════════════════════════
+         2. PORTADA / HERO
+    ══════════════════════════════════════ -->
+    <section class="hero" aria-labelledby="hero-titular">
+      <div class="contenedor hero__inner">
+        <span class="etiqueta">EXAMEN DE ADMISIÓN UANL · PREPA Y FACULTAD</span>
+        <h1 id="hero-titular" class="titular-xl">VAMOS POR TU LUGAR EN LA PREPA O FACULTAD QUE QUIERES</h1>
+        <p class="hero__texto">
+          Te preparamos para el examen de admisión a preparatoria y licenciatura de la UANL,
+          presencial o en línea, con maestros universitarios, material con la misma estructura
+          y nivel del examen, y simulacros para que llegues con confianza.
+        </p>
+        <div class="hero__ctas">
+          <a href="#" class="btn btn-cta-hero js-wa-btn" data-mensaje="diagnostico">
+            Quiero mi examen de diagnóstico gratis
+          </a>
+          <a href="#precios" class="btn btn-secundario">
+            Ver modalidades y precios
+          </a>
+        </div>
+        <p class="nota hero__sesion-proxima">
+          Próxima sesión muestra gratuita: <strong>[POR CONFIRMAR: día y hora]</strong>
+        </p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         3. SELECTOR DE NIVEL
+    ══════════════════════════════════════ -->
+    <section class="selector-nivel" aria-labelledby="selector-titular">
+      <div class="contenedor">
+        <h2 id="selector-titular" class="titular centrado">¿PARA QUÉ EXAMEN TE PREPARAS?</h2>
+        <p class="selector-nivel__subtitulo">
+          Elige tu nivel y los botones de esta página ajustarán su mensaje.
+        </p>
+        <div class="selector-nivel__tarjetas">
+
+          <button class="tarjeta-nivel" data-nivel="prepa" aria-pressed="false">
+            <div class="tarjeta-nivel__icono" aria-hidden="true">
+              <!-- Graduación / prepa -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="40" height="40">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+              </svg>
+            </div>
+            <strong class="tarjeta-nivel__nombre">Preparatoria</strong>
+            <p class="tarjeta-nivel__detalle">
+              Un examen al año. Te preparamos para llegar con el puntaje que pide la prepa que quieres.
+            </p>
+          </button>
+
+          <button class="tarjeta-nivel" data-nivel="facultad" aria-pressed="false">
+            <div class="tarjeta-nivel__icono" aria-hidden="true">
+              <!-- Universidad / facultad -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="40" height="40">
+                <path d="M2 20h20"/>
+                <path d="M5 20V8h14v12"/>
+                <path d="M5 8l7-6 7 6"/>
+                <path d="M9 20v-5h6v5"/>
+              </svg>
+            </div>
+            <strong class="tarjeta-nivel__nombre">Facultad</strong>
+            <p class="tarjeta-nivel__detalle">
+              Dos oportunidades al año. Material por módulos según la carrera que eliges.
+            </p>
+          </button>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         4. LO QUE HACE DIFÍCIL EL EXAMEN
+    ══════════════════════════════════════ -->
+    <section class="dificultades" aria-labelledby="dificultades-titular">
+      <div class="contenedor">
+        <h2 id="dificultades-titular" class="titular centrado">NO ES SOLO SABER, ES SABER RESPONDER A TIEMPO</h2>
+        <div class="dificultades__bloques">
+
+          <div class="dificultad-bloque">
+            <div class="dificultad-bloque__icono" aria-hidden="true">
+              <!-- Libro -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="36" height="36">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+              </svg>
+            </div>
+            <h3 class="subtitulo">Dominar el contenido</h3>
+            <p>Matemáticas, comprensión lectora, redacción y las áreas de tu carrera.</p>
+          </div>
+
+          <div class="dificultad-bloque">
+            <div class="dificultad-bloque__icono" aria-hidden="true">
+              <!-- Reloj -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="36" height="36">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <h3 class="subtitulo">El tiempo límite</h3>
+            <p>Muchos saben la respuesta pero no alcanzan a terminar.</p>
+          </div>
+
+          <div class="dificultad-bloque">
+            <div class="dificultad-bloque__icono" aria-hidden="true">
+              <!-- Pulso -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="36" height="36">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <h3 class="subtitulo">La presión del día</h3>
+            <p>Los nervios hacen que fallen temas que sí sabían.</p>
+          </div>
+
+        </div>
+        <p class="dificultades__cierre">
+          Nuestro curso trabaja las tres cosas: <strong>contenido, estrategia de tiempo y manejo de estrés.</strong>
+        </p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         5. CÓMO FUNCIONA
+    ══════════════════════════════════════ -->
+    <section class="como-funciona" aria-labelledby="como-funciona-titular">
+      <div class="contenedor">
+        <h2 id="como-funciona-titular" class="titular centrado">CÓMO FUNCIONA</h2>
+        <ol class="pasos">
+          <li class="paso">
+            <span class="paso__numero" aria-hidden="true">1</span>
+            <div class="paso__contenido">
+              <h3 class="subtitulo">Presenta tu diagnóstico gratis</h3>
+              <p>Sabrás tu puntaje de hoy y qué tan lejos estás del que pide tu meta.</p>
+            </div>
+          </li>
+          <li class="paso">
+            <span class="paso__numero" aria-hidden="true">2</span>
+            <div class="paso__contenido">
+              <h3 class="subtitulo">Prepárate con método</h3>
+              <p>Clases por área, material por carrera, repasos y Pre-Matemáticas si lo necesitas.</p>
+            </div>
+          </li>
+          <li class="paso">
+            <span class="paso__numero" aria-hidden="true">3</span>
+            <div class="paso__contenido">
+              <h3 class="subtitulo">Practica con simulacros</h3>
+              <p>Llegas al examen habiendo resuelto uno igual en estructura y tiempo.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         6. QUÉ INCLUYE
+    ══════════════════════════════════════ -->
+    <section class="que-incluye" aria-labelledby="que-incluye-titular">
+      <div class="contenedor">
+        <h2 id="que-incluye-titular" class="titular centrado">QUÉ INCLUYE EL CURSO</h2>
+        <ul class="lista-incluye">
+          <li class="lista-incluye__item">
+            <svg class="icono-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Curso completo de preparación
+          </li>
+          <li class="lista-incluye__item">
+            <svg class="icono-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Material por módulos según tu carrera
+          </li>
+          <li class="lista-incluye__item">
+            <svg class="icono-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Examen de diagnóstico
+          </li>
+          <li class="lista-incluye__item">
+            <svg class="icono-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Examen de simulación
+          </li>
+          <li class="lista-incluye__item">
+            <svg class="icono-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Curso Pre-Matemáticas
+          </li>
+          <li class="lista-incluye__item">
+            <svg class="icono-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Sesiones de repaso
+          </li>
+          <li class="lista-incluye__item">
+            <svg class="icono-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Asesoría para el proceso de admisión
+          </li>
+          <li class="lista-incluye__item">
+            <svg class="icono-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Paquete de libros
+          </li>
+          <li class="lista-incluye__item">
+            <svg class="icono-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Maestros universitarios expertos en cada área
+          </li>
+          <li class="lista-incluye__item">
+            <svg class="icono-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Sesiones para manejar el estrés y los nervios
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         7. MODALIDADES Y PRECIOS
+    ══════════════════════════════════════ -->
+    <section class="precios" id="precios" aria-labelledby="precios-titular">
+      <div class="contenedor">
+        <h2 id="precios-titular" class="titular centrado">ELIGE CÓMO PREPARARTE</h2>
+        <div class="precios__tarjetas">
+
+          <div class="tarjeta-precio">
+            <div class="tarjeta-precio__encabezado">
+              <h3 class="tarjeta-precio__titulo">Presencial</h3>
+              <p class="tarjeta-precio__descripcion">En sucursal, con tus maestros frente a ti</p>
+            </div>
+            <div class="tarjeta-precio__monto">
+              <span class="tarjeta-precio__total">$4,499</span>
+              <span class="tarjeta-precio__divisa">MXN</span>
+            </div>
+            <p class="tarjeta-precio__forma-pago">Inscripción de $499 + 6 pagos semanales</p>
+            <a href="#" class="btn btn-primario js-wa-btn" data-mensaje="presencial">
+              Apartar mi lugar presencial
+            </a>
+          </div>
+
+          <div class="tarjeta-precio tarjeta-precio--destacada">
+            <div class="tarjeta-precio__encabezado">
+              <h3 class="tarjeta-precio__titulo">En línea</h3>
+              <p class="tarjeta-precio__descripcion">Clases en vivo desde casa (On-live)</p>
+            </div>
+            <div class="tarjeta-precio__monto">
+              <span class="tarjeta-precio__total">$3,599</span>
+              <span class="tarjeta-precio__divisa">MXN</span>
+            </div>
+            <p class="tarjeta-precio__forma-pago">Inscripción de $499 + 6 pagos semanales</p>
+            <a href="#" class="btn btn-primario js-wa-btn" data-mensaje="en-linea">
+              Apartar mi lugar en línea
+            </a>
+          </div>
+
+        </div>
+        <p class="precios__nota nota">Aparta tu lugar con la inscripción de $499.</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         8. HORARIOS Y SUCURSALES
+    ══════════════════════════════════════ -->
+    <section class="horarios" aria-labelledby="horarios-titular">
+      <div class="contenedor">
+        <h2 id="horarios-titular" class="titular centrado">HORARIOS Y SUCURSALES</h2>
+        <div class="horarios__grupos">
+          <div class="grupo-horario">
+            <h3 class="subtitulo">Grupo sabatino</h3>
+            <p>Inicio: <strong>[POR CONFIRMAR: fecha]</strong></p>
+            <p>Horario: <strong>[POR CONFIRMAR]</strong></p>
+          </div>
+          <div class="grupo-horario">
+            <h3 class="subtitulo">Grupo entre semana</h3>
+            <p>Inicio: <strong>[POR CONFIRMAR: fecha]</strong></p>
+            <p>Horario: <strong>[POR CONFIRMAR]</strong></p>
+          </div>
+        </div>
+        <div class="horarios__sucursales">
+          <h3 class="subtitulo">Sucursales</h3>
+          <div class="sucursales__lista">
+            <div class="sucursal">
+              <strong class="sucursal__nombre">San Nicolás</strong>
+              <p class="nota">[POR CONFIRMAR: Av. Central 734C, Col. Chapultepec, San Nicolás]</p>
+              <a href="#" class="enlace sucursal__mapa">[POR CONFIRMAR: enlace a Google Maps]</a>
+            </div>
+            <div class="sucursal">
+              <strong class="sucursal__nombre">Mitras Norte</strong>
+              <p class="nota">[POR CONFIRMAR: calle Ixtapa, número 507 o 509]</p>
+              <a href="#" class="enlace sucursal__mapa">[POR CONFIRMAR: enlace a Google Maps]</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         9. SESIÓN MUESTRA GRATUITA
+    ══════════════════════════════════════ -->
+    <section class="sesion-muestra" aria-labelledby="sesion-titular">
+      <div class="contenedor sesion-muestra__inner">
+        <h2 id="sesion-titular" class="titular">CONÓCENOS ANTES DE INSCRIBIRTE</h2>
+        <p class="sesion-muestra__texto">
+          Una sesión gratuita en línea de una hora: presentas tu examen de diagnóstico,
+          te explicamos cómo es el examen sección por sección y tomas una clase muestra.
+          Te recomendamos verla junto con tu mamá o tu papá.
+        </p>
+        <p class="sesion-muestra__horarios">
+          Miércoles y sábado — <strong>[POR CONFIRMAR: horas]</strong>
+        </p>
+        <a href="#" class="btn btn-sesion js-wa-btn" data-mensaje="sesion">
+          Apartar mi lugar en la sesión
+        </a>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         10. TESTIMONIOS
+    ══════════════════════════════════════ -->
+    <section class="testimonios" aria-labelledby="testimonios-titular">
+      <div class="contenedor">
+        <h2 id="testimonios-titular" class="titular centrado">ELLOS YA ENTRARON</h2>
+        <!-- Fase 2: cargar desde data/testimonios.json con filtros por nivel y área -->
+        <div class="testimonios__grid">
+
+          <article class="testimonio testimonio--ejemplo">
+            <div class="testimonio__imagen-placeholder" aria-hidden="true"></div>
+            <div class="testimonio__contenido">
+              <p class="testimonio__texto">
+                [TESTIMONIO DE EJEMPLO, reemplazar] "Gracias a Ingreso U pude entrar a la carrera que siempre quise."
+              </p>
+              <footer class="testimonio__pie">
+                <strong class="testimonio__nombre">Nombre de pila</strong>
+                <span class="testimonio__carrera">Carrera · Facultad</span>
+              </footer>
+            </div>
+          </article>
+
+          <article class="testimonio testimonio--ejemplo">
+            <div class="testimonio__imagen-placeholder" aria-hidden="true"></div>
+            <div class="testimonio__contenido">
+              <p class="testimonio__texto">
+                [TESTIMONIO DE EJEMPLO, reemplazar] "El curso me ayudó a mejorar mi puntaje considerablemente."
+              </p>
+              <footer class="testimonio__pie">
+                <strong class="testimonio__nombre">Nombre de pila</strong>
+                <span class="testimonio__carrera">Carrera · Facultad</span>
+              </footer>
+            </div>
+          </article>
+
+          <article class="testimonio testimonio--ejemplo">
+            <div class="testimonio__imagen-placeholder" aria-hidden="true"></div>
+            <div class="testimonio__contenido">
+              <p class="testimonio__texto">
+                [TESTIMONIO DE EJEMPLO, reemplazar] "Los maestros explican muy bien y el material está completo."
+              </p>
+              <footer class="testimonio__pie">
+                <strong class="testimonio__nombre">Nombre de pila</strong>
+                <span class="testimonio__carrera">Preparatoria</span>
+              </footer>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         11. PREGUNTAS FRECUENTES
+    ══════════════════════════════════════ -->
+    <section class="faq" aria-labelledby="faq-titular">
+      <div class="contenedor">
+        <h2 id="faq-titular" class="titular centrado">PREGUNTAS FRECUENTES</h2>
+        <div class="faq__lista">
+
+          <div class="faq__item">
+            <h3 class="faq__encabezado">
+              <button class="faq__pregunta" aria-expanded="false" aria-controls="faq-1">
+                ¿Y si no es bueno para matemáticas?
+                <svg class="faq__flecha" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </h3>
+            <div id="faq-1" class="faq__respuesta" hidden>
+              <p>El curso incluye Pre-Matemáticas para reforzar las bases antes de los temas del examen. Muchos de nuestros alumnos aceptados empezaron así.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3 class="faq__encabezado">
+              <button class="faq__pregunta" aria-expanded="false" aria-controls="faq-2">
+                ¿Cómo se paga?
+                <svg class="faq__flecha" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </h3>
+            <div id="faq-2" class="faq__respuesta" hidden>
+              <p>Inscripción de $499 para apartar tu lugar y el resto en 6 pagos semanales. <strong>[POR CONFIRMAR: formas de pago aceptadas].</strong></p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3 class="faq__encabezado">
+              <button class="faq__pregunta" aria-expanded="false" aria-controls="faq-3">
+                ¿Presencial o en línea?
+                <svg class="faq__flecha" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </h3>
+            <div id="faq-3" class="faq__respuesta" hidden>
+              <p>Las dos modalidades llevan el mismo contenido y material. En línea las clases son en vivo; presencial, en sucursal.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3 class="faq__encabezado">
+              <button class="faq__pregunta" aria-expanded="false" aria-controls="faq-4">
+                ¿Qué pasa si falto a una clase?
+                <svg class="faq__flecha" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </h3>
+            <div id="faq-4" class="faq__respuesta" hidden>
+              <p><strong>[POR CONFIRMAR: política de clases grabadas o reposición].</strong></p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3 class="faq__encabezado">
+              <button class="faq__pregunta" aria-expanded="false" aria-controls="faq-5">
+                ¿Garantizan el ingreso?
+                <svg class="faq__flecha" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </h3>
+            <div id="faq-5" class="faq__respuesta" hidden>
+              <p>Nadie puede garantizar un resultado: depende del puntaje de cada alumno y del cupo de cada escuela. Lo que sí garantizamos es preparación completa, material actualizado y acompañamiento hasta el día del examen.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3 class="faq__encabezado">
+              <button class="faq__pregunta" aria-expanded="false" aria-controls="faq-6">
+                ¿Puedo conocer la forma de enseñar antes de pagar?
+                <svg class="faq__flecha" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </h3>
+            <div id="faq-6" class="faq__respuesta" hidden>
+              <p>Sí: en la sesión muestra gratuita tomas una clase de prueba.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         12. CIERRE
+    ══════════════════════════════════════ -->
+    <section class="cierre" aria-label="Cierre">
+      <div class="contenedor cierre__inner">
+        <h2 class="titular-xl">TU LUGAR SE PREPARA DESDE HOY</h2>
+        <a href="#" class="btn btn-cta-cierre js-wa-btn" data-mensaje="diagnostico">
+          Quiero mi examen de diagnóstico gratis
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════
+       PIE DE PÁGINA
+  ══════════════════════════════════════ -->
+  <footer class="pie" role="contentinfo">
+    <div class="contenedor pie__inner">
+
+      <div class="pie__marca">
+        <img
+          src="assets/logos/ingreso-u-horizontal-fondo-azul-sin-fondo.svg"
+          alt="Ingreso U"
+          class="pie__logo"
+          width="140" height="auto"
+        />
+        <p class="pie__descriptor">ASESORÍAS · EXAMEN DE ADMISIÓN</p>
+      </div>
+
+      <div class="pie__contacto">
+        <p class="pie__titulo-col">Contacto</p>
+        <a href="#" class="btn btn-wa-pie js-wa-btn" data-mensaje="hola-info">WhatsApp</a>
+        <p class="pie__pendiente">[POR CONFIRMAR: redes sociales]</p>
+      </div>
+
+      <div class="pie__sucursales">
+        <p class="pie__titulo-col">Sucursales</p>
+        <p class="pie__pendiente"><strong>San Nicolás:</strong> [POR CONFIRMAR]</p>
+        <p class="pie__pendiente"><strong>Mitras Norte:</strong> [POR CONFIRMAR]</p>
+      </div>
+
+    </div>
+    <div class="pie__legal">
+      <div class="contenedor">
+        <p>Ingreso U es un servicio independiente de asesorías y no está afiliado a la Universidad Autónoma de Nuevo León (UANL).</p>
+        <p><a href="#" class="pie__aviso">[POR CONFIRMAR: Aviso de privacidad]</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

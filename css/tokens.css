@@ -1,0 +1,42 @@
+/* Ingreso U · tokens de diseño. Todos los colores y medidas del sitio salen de aquí. */
+:root {
+  /* Marca */
+  --amarillo: #FFC000;
+  --azul: #0049E3;
+  --azul-noche: #161C4D;
+  --negro: #000000;
+  --blanco: #FFFFFF;
+
+  /* Interfaz */
+  --fondo: #FFFFFF;
+  --fondo-suave: #FFF6D9;
+  --tinta: #0B1020;
+  --tinta-suave: #4A5068;
+  --linea: #D9DCE6;
+  --foco: #0049E3;
+
+  /* Tipografía */
+  --font-titular: "Oswald", "Arial Narrow", sans-serif;
+  --font-texto: "Montserrat", Arial, sans-serif;
+  --text-titular-xl: clamp(40px, 7vw, 64px);
+  --text-titular: clamp(28px, 4.5vw, 40px);
+  --text-subtitulo: 24px;
+  --text-cuerpo: 16px;
+  --text-etiqueta: 12px;
+  --text-nota: 13px;
+  --tracking-etiqueta: 0.14em;
+
+  /* Espaciado */
+  --espacio-1: 4px;
+  --espacio-2: 8px;
+  --espacio-3: 16px;
+  --espacio-4: 24px;
+  --espacio-5: 40px;
+  --espacio-6: 64px;
+
+  /* Esquinas */
+  --radio-sm: 6px;
+  --radio-md: 12px;
+  --radio-lg: 24px;
+  --radio-pill: 999px;
+}
