@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Examen diagnóstico — Ingreso U</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script src="exam_data.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --am:#FFC000;
+  --az:#0049E3;
+  --an:#161C4D;
+  --bl:#FFFFFF;
+  --ts:#5A5F7A;
+  --li:rgba(0,0,0,.08);
+  --ok:#16A34A;
+  --err:#DC2626;
+}
+body{font-family:'Montserrat',sans-serif;background:#F7F8FC;min-height:100vh;display:flex;flex-direction:column}
+
+/* ── HEADER ── */
+.exam-header{background:white;border-bottom:3px solid var(--am);padding:12px 20px;position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:12px}
+.exam-brand{font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;color:var(--an);text-transform:uppercase;text-decoration:none;flex-shrink:0}
+.exam-brand em{color:var(--am);font-style:normal}
+.section-pills{display:flex;gap:5px;flex:1;justify-content:center;overflow:hidden}
+.pill{width:28px;height:6px;border-radius:3px;background:var(--li);flex-shrink:0;transition:background .3s}
+.pill.done{background:var(--ok)}
+.pill.active{background:var(--am)}
+.pill.pending{background:#E5E7EB}
+.section-label{font-size:11px;font-weight:700;color:var(--ts);text-align:right;white-space:nowrap;flex-shrink:0;letter-spacing:.03em}
+
+/* ── MAIN ── */
+main{flex:1;max-width:720px;margin:0 auto;width:100%;padding:24px 16px 100px}
+
+/* section transition */
+.section-screen{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;text-align:center;gap:20px;padding:40px 16px}
+.section-icon{width:72px;height:72px;border-radius:50%;background:var(--an);display:flex;align-items:center;justify-content:center;margin-bottom:4px}
+.section-name{font-family:'Oswald',sans-serif;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ts)}
+.section-score-big{font-family:'Oswald',sans-serif;font-size:56px;font-weight:700;color:var(--an);line-height:1}
+.section-score-big em{color:var(--am);font-style:normal}
+.section-pct{font-size:14px;color:var(--ts)}
+.section-next-btn{background:var(--an);color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;padding:16px 36px;border-radius:12px;border:none;cursor:pointer;transition:background .2s}
+.section-next-btn:hover{background:var(--az)}
+
+/* question area */
+.q-meta{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.q-section-tag{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:white;background:var(--an);padding:4px 10px;border-radius:20px}
+.q-counter{font-size:12px;color:var(--ts);font-weight:600}
+
+.reading-box{background:#EFF6FF;border-left:4px solid var(--az);border-radius:0 10px 10px 0;padding:16px 18px;margin-bottom:20px;font-size:13px;color:#1E3A5F;line-height:1.75;max-height:220px;overflow-y:auto}
+.reading-label{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--az);margin-bottom:8px}
+
+.q-card{background:white;border:1.5px solid var(--li);border-radius:14px;padding:24px 20px}
+.q-text{font-size:15px;font-weight:600;color:var(--an);line-height:1.6;margin-bottom:20px}
+
+.options{display:flex;flex-direction:column;gap:10px}
+.opt-btn{width:100%;background:#F9FAFB;border:1.5px solid #E5E7EB;border-radius:10px;padding:14px 18px;text-align:left;font-family:'Montserrat',sans-serif;font-size:13.5px;font-weight:500;color:var(--an);cursor:pointer;transition:border-color .15s,background .15s;line-height:1.5;display:flex;align-items:flex-start;gap:10px}
+.opt-btn:hover:not(:disabled){border-color:var(--az);background:#EEF2FF}
+.opt-btn:disabled{cursor:default}
+.opt-letter{font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:var(--ts);flex-shrink:0;min-width:16px}
+
+.opt-btn.selected{border-color:var(--az);background:#EEF2FF}
+.opt-btn.correct{border-color:var(--ok)!important;background:#F0FDF4!important}
+.opt-btn.correct .opt-letter{color:var(--ok)}
+.opt-btn.wrong{border-color:var(--err)!important;background:#FEF2F2!important}
+.opt-btn.wrong .opt-letter{color:var(--err)}
+
+/* ── FOOTER ── */
+.exam-footer{position:fixed;bottom:0;left:0;right:0;background:white;border-top:1px solid var(--li);padding:12px 20px;display:flex;align-items:center;gap:14px}
+.total-progress{flex:1}
+.total-bar{height:5px;background:#E5E7EB;border-radius:3px;overflow:hidden;margin-bottom:4px}
+.total-fill{height:100%;background:var(--az);border-radius:3px;transition:width .4s}
+.total-label{font-size:10px;color:var(--ts);font-weight:600}
+.next-btn{background:var(--an);color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;padding:12px 22px;border-radius:10px;border:none;cursor:pointer;transition:background .2s,opacity .2s;white-space:nowrap;flex-shrink:0}
+.next-btn:hover:not(:disabled){background:var(--az)}
+.next-btn:disabled{opacity:.35;cursor:not-allowed}
+
+/* ── RESULTS ── */
+.results-screen{max-width:600px;margin:0 auto;padding:40px 16px 100px;display:flex;flex-direction:column;gap:24px}
+.results-title{text-align:center}
+.results-title h1{font-family:'Oswald',sans-serif;font-size:clamp(28px,5vw,44px);font-weight:700;text-transform:uppercase;color:var(--an)}
+.results-title h1 em{color:var(--am);font-style:normal}
+.results-title p{font-size:14px;color:var(--ts);margin-top:8px}
+.results-card{background:white;border:1.5px solid var(--li);border-radius:14px;overflow:hidden}
+.results-row{display:flex;align-items:center;padding:14px 18px;border-bottom:1px solid var(--li);gap:14px}
+.results-row:last-child{border-bottom:none}
+.results-row-label{flex:1;font-size:13px;font-weight:600;color:var(--an)}
+.results-row-score{font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;color:var(--am);white-space:nowrap}
+.results-row-pct{font-size:11px;color:var(--ts);white-space:nowrap;width:40px;text-align:right}
+.results-row-bar{width:80px;height:6px;background:#E5E7EB;border-radius:3px;overflow:hidden;flex-shrink:0}
+.results-row-bar-fill{height:100%;border-radius:3px;background:var(--az)}
+.results-row.total-row{background:#F0F4FF}
+.results-row.total-row .results-row-label{font-weight:800;color:var(--an)}
+.results-row.total-row .results-row-score{font-size:24px;color:var(--an)}
+
+.results-cta{background:var(--an);border-radius:16px;padding:36px 24px;text-align:center}
+.results-cta h2{font-family:'Oswald',sans-serif;font-size:clamp(20px,3.5vw,30px);font-weight:700;text-transform:uppercase;color:white;margin-bottom:8px}
+.results-cta h2 em{color:var(--am);font-style:normal}
+.results-cta p{font-size:13px;color:rgba(255,255,255,.65);margin-bottom:24px;line-height:1.65}
+.wa-btn{display:inline-flex;align-items:center;gap:10px;background:var(--am);color:var(--an);font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;padding:14px 28px;border-radius:10px;text-decoration:none;transition:transform .2s}
+.wa-btn:hover{transform:translateY(-2px)}
+
+/* NO DATA */
+.no-module{background:#FEF3C7;border:1.5px solid var(--am);border-radius:12px;padding:24px;text-align:center;margin:40px 0}
+.no-module h3{font-family:'Oswald',sans-serif;font-size:18px;color:#92400E;margin-bottom:8px;text-transform:uppercase}
+.no-module p{font-size:13px;color:#92400E;line-height:1.65}
+
+@media(max-width:480px){
+  .section-pills{gap:3px}
+  .pill{width:20px}
+  .q-text{font-size:14px}
+  .opt-btn{font-size:12.5px;padding:12px 14px}
+}
+</style>
+</head>
+<body>
+
+<header class="exam-header">
+  <a href="mockup-v2.html" class="exam-brand">INGRESO <em>U</em></a>
+  <div class="section-pills" id="sectionPills"></div>
+  <div class="section-label" id="sectionLabel"></div>
+</header>
+
+<main id="mainArea"></main>
+
+<div class="exam-footer" id="examFooter">
+  <div class="total-progress">
+    <div class="total-bar"><div class="total-fill" id="totalFill" style="width:0%"></div></div>
+    <div class="total-label" id="totalLabel">0 de 138 preguntas</div>
+  </div>
+  <button class="next-btn" id="nextBtn" disabled onclick="handleNext()">Siguiente →</button>
+</div>
+
+<script>
+// ── MODULE KEY MAP ──────────────────────────────────────────────────────────
+const MOD_KEY = {
+  "Administración":"admin",
+  "Aritmética":"aritmetica",
+  "Biología":"biologia",
+  "Ciencias de la Salud":"ciencias_salud",
+  "Derecho":"derecho",
+  "Física":"fisica",
+  "Historia":"historia",
+  "Literatura":"literatura",
+  "Probabilidad y Estadística":"probabilidad",
+  "Psicología":"psicologia",
+  "Química":"quimica",
+  "Filosofía":null
+};
+
+// ── FACULTY DATA ─────────────────────────────────────────────────────────────
+const FACULTADES = {
+  medicina:{nombre:"Medicina",modulos:["Biología","Ciencias de la Salud"]},
+  odontologia:{nombre:"Odontología",modulos:["Biología","Ciencias de la Salud"]},
+  psicologia:{nombre:"Psicología",modulos:["Psicología","Ciencias de la Salud"]},
+  enfermeria_uanl:{nombre:"Enfermería UANL",modulos:["Biología","Ciencias de la Salud"]},
+  enfermeria_imss:{nombre:"Enfermería IMSS",modulos:["Biología","Ciencias de la Salud"]},
+  nutricion:{nombre:"Salud Pública y Nutrición",modulos:["Química","Ciencias de la Salud"]},
+  veterinaria:{nombre:"Medicina Veterinaria y Zootecnia",modulos:["Aritmética","Biología"]},
+  deportiva:{nombre:"Organización Deportiva",modulos:["Biología","Ciencias de la Salud"]},
+  fime:{nombre:"Ing. Mecánica y Eléctrica",modulos:["Aritmética","Física"]},
+  civil:{nombre:"Ingeniería Civil",modulos:["Aritmética","Física"]},
+  fisico_mat:{nombre:"Ciencias Físico Matemáticas",modulos:["Aritmética","Probabilidad y Estadística"]},
+  ciencias_quimicas:{nombre:"Ciencias Químicas",modulos:["Aritmética","Química"]},
+  ciencias_biologicas:{nombre:"Ciencias Biológicas",modulos:["Química","Biología"]},
+  agronomia:{nombre:"Agronomía",modulos:["Biología","Química"]},
+  facpya:{nombre:"FACPYA",modulos:["Administración","Probabilidad y Estadística"]},
+  economia:{nombre:"Economía",modulos:["Administración","Probabilidad y Estadística"]},
+  comunicacion:{nombre:"Ciencias de la Comunicación",modulos:["Administración","Probabilidad y Estadística"]},
+  derecho:{nombre:"Derecho y Criminología",modulos:["Derecho","Historia"]},
+  ciencias_politicas:{nombre:"Ciencias Políticas y RR.II.",modulos:["Administración","Historia"]},
+  filosofia:{nombre:"Filosofía y Letras",modulos:["Literatura","Historia"]},
+  trabajo_social:{nombre:"Trabajo Social y Desarrollo Humano",modulos:["Psicología","Probabilidad y Estadística"]},
+  arquitectura:{nombre:"Arquitectura",modulos:["Aritmética","Historia"]},
+  artes_visuales:{nombre:"Artes Visuales",modulos:["Filosofía","Historia"]},
+  artes_escenicas:{nombre:"Artes Escénicas",modulos:["Filosofía","Historia"]},
+  musica:{nombre:"Música",modulos:["Administración","Historia"]}
+};
+
+// ── INIT ─────────────────────────────────────────────────────────────────────
+const params = new URLSearchParams(location.search);
+const facSlug = params.get('fac') || 'medicina';
+const fac = FACULTADES[facSlug] || FACULTADES.medicina;
+
+// Build sections array
+const BASE_SECTIONS = [
+  {key:'pensamiento_mat', label:'Pensamiento Matemático', short:'Pens. Matemático'},
+  {key:'redaccion',       label:'Redacción Indirecta',   short:'Redacción'},
+  {key:'comprension',     label:'Comprensión Lectora',   short:'Comprensión'},
+];
+
+const modSections = fac.modulos.map(m => ({
+  key: MOD_KEY[m] || null,
+  label: 'Módulo ' + m,
+  short: m,
+  moduleName: m
+}));
+
+const SECTIONS = [...BASE_SECTIONS, ...modSections];
+const TOTAL_Q = SECTIONS.reduce((s, sec) => s + (sec.key ? (EXAMEN[sec.key] || []).length : 0), 0);
+
+document.title = `Diagnóstico ${fac.nombre} — Ingreso U`;
+
+// ── STATE ─────────────────────────────────────────────────────────────────────
+let secIdx = 0;        // current section index
+let qIdx   = 0;        // current question within section
+let answered = false;  // has current q been answered?
+let secScores = SECTIONS.map(() => ({correct:0, total:0}));
+let totalAnswered = 0;
+
+// ── RENDER HELPERS ────────────────────────────────────────────────────────────
+function renderPills() {
+  const pills = document.getElementById('sectionPills');
+  pills.innerHTML = SECTIONS.map((s,i) => {
+    const cls = i < secIdx ? 'done' : i === secIdx ? 'active' : 'pending';
+    return `<div class="pill ${cls}" title="${s.label}"></div>`;
+  }).join('');
+  const sec = SECTIONS[secIdx];
+  document.getElementById('sectionLabel').textContent = sec ? (sec.short + (sec.key ? ` ${qIdx+1}/${(EXAMEN[sec.key]||[]).length}` : '')) : '';
+}
+
+function renderProgress() {
+  const pct = TOTAL_Q > 0 ? Math.round(totalAnswered / TOTAL_Q * 100) : 0;
+  document.getElementById('totalFill').style.width = pct + '%';
+  document.getElementById('totalLabel').textContent = `${totalAnswered} de ${TOTAL_Q} preguntas`;
+}
+
+function renderQuestion() {
+  const sec = SECTIONS[secIdx];
+  const qs  = sec.key ? (EXAMEN[sec.key] || []) : [];
+  const q   = qs[qIdx];
+
+  if(!q) { renderSectionTransition(); return; }
+
+  answered = false;
+  document.getElementById('nextBtn').disabled = true;
+  document.getElementById('nextBtn').textContent = (qIdx < qs.length - 1) ? 'Siguiente →' : 'Finalizar sección →';
+
+  let html = `
+    <div class="q-meta">
+      <span class="q-section-tag">${sec.label}</span>
+      <span class="q-counter">Pregunta ${qIdx+1} de ${qs.length}</span>
+    </div>`;
+
+  if(q.r) {
+    html += `<div class="reading-box"><div class="reading-label">📄 Lectura</div>${escHtml(q.r)}</div>`;
+  }
+
+  html += `<div class="q-card">
+    <div class="q-text">${escHtml(q.q)}</div>
+    <div class="options">`;
+  q.o.forEach(opt => {
+    html += `<button class="opt-btn" onclick="selectAnswer('${opt.l}')" data-letter="${opt.l}">
+      <span class="opt-letter">${opt.l})</span>
+      <span>${escHtml(opt.t.replace(/^[a-d]\)\s*/i,''))}</span>
+    </button>`;
+  });
+  html += `</div></div>`;
+
+  document.getElementById('mainArea').innerHTML = html;
+  renderPills();
+  renderProgress();
+  document.getElementById('examFooter').style.display = 'flex';
+}
+
+function renderSectionTransition() {
+  const sc = secScores[secIdx];
+  const sec = SECTIONS[secIdx];
+  const isLast = secIdx >= SECTIONS.length - 1;
+  const pct = sc.total > 0 ? Math.round(sc.correct / sc.total * 100) : 0;
+
+  const nextLabel = isLast ? 'Ver resultados →' : `Continuar: ${SECTIONS[secIdx+1].label} →`;
+
+  let icon = `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+
+  document.getElementById('mainArea').innerHTML = `
+    <div class="section-screen">
+      <div class="section-icon">${icon}</div>
+      <div class="section-name">${sec.label} completada</div>
+      <div class="section-score-big">${sc.correct}<em>/${sc.total}</em></div>
+      <div class="section-pct">${pct}% de respuestas correctas</div>
+      <button class="section-next-btn" onclick="advanceSection()">${nextLabel}</button>
+    </div>`;
+
+  document.getElementById('examFooter').style.display = 'none';
+  renderPills();
+  renderProgress();
+}
+
+function renderNoModule(sec) {
+  document.getElementById('mainArea').innerHTML = `
+    <div class="no-module">
+      <h3>Módulo próximamente</h3>
+      <p>El módulo de <strong>${sec.moduleName}</strong> estará disponible pronto. Por ahora puedes continuar con las demás secciones o contactarnos para obtener materiales de estudio.</p>
+    </div>
+    <div style="text-align:center;margin-top:24px">
+      <button class="section-next-btn" onclick="advanceSection()">Continuar →</button>
+    </div>`;
+  document.getElementById('examFooter').style.display = 'none';
+  renderPills();
+}
+
+function renderResults() {
+  document.getElementById('examFooter').style.display = 'none';
+  renderPills();
+
+  let totalCorr = 0, totalTot = 0;
+  let rows = SECTIONS.map((sec, i) => {
+    const sc = secScores[i];
+    totalCorr += sc.correct;
+    totalTot  += sc.total;
+    const pct = sc.total > 0 ? Math.round(sc.correct / sc.total * 100) : 0;
+    const barW = pct;
+    return `<div class="results-row">
+      <div class="results-row-label">${sec.label}</div>
+      <div class="results-row-bar"><div class="results-row-bar-fill" style="width:${barW}%"></div></div>
+      <div class="results-row-pct">${pct}%</div>
+      <div class="results-row-score">${sc.correct}/${sc.total}</div>
+    </div>`;
+  }).join('');
+
+  const totalPct = totalTot > 0 ? Math.round(totalCorr / totalTot * 100) : 0;
+
+  const waMsg = encodeURIComponent(`Hola, acabo de completar mi diagnóstico para la Facultad de ${fac.nombre} y obtuve ${totalCorr}/${totalTot} (${totalPct}%). Me interesa recibir asesoría personalizada.`);
+
+  document.getElementById('mainArea').innerHTML = `
+    <div class="results-screen">
+      <div class="results-title">
+        <h1>Diagnóstico <em>completado</em></h1>
+        <p>${fac.nombre} · Facultad UANL</p>
+      </div>
+      <div class="results-card">
+        ${rows}
+        <div class="results-row total-row">
+          <div class="results-row-label">Total</div>
+          <div class="results-row-bar"><div class="results-row-bar-fill" style="width:${totalPct}%"></div></div>
+          <div class="results-row-pct">${totalPct}%</div>
+          <div class="results-row-score">${totalCorr}/${totalTot}</div>
+        </div>
+      </div>
+      <div class="results-cta">
+        <h2>¿Listo para <em>mejorar</em> tu puntaje?</h2>
+        <p>Nuestros asesores analizan tu resultado y diseñan un plan de estudio personalizado para que alcances el puntaje mínimo de ingreso.</p>
+        <a href="https://wa.me/528118201968?text=${waMsg}" target="_blank" rel="noopener" class="wa-btn">
+          <svg width="18" height="18" viewBox="0 0 32 32" fill="white"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.738 5.47 2.028 7.773L0 32l8.473-2.009A15.937 15.937 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.278 13.278 0 01-6.802-1.868l-.487-.29-5.03 1.193 1.218-4.896-.318-.504A13.282 13.282 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.284-9.927c-.4-.2-2.364-1.165-2.73-1.299-.366-.133-.633-.2-.9.2-.266.4-1.033 1.299-1.265 1.565-.232.267-.465.3-.865.1-.4-.2-1.688-.622-3.215-1.983-1.188-1.06-1.99-2.37-2.223-2.77-.232-.4-.025-.616.175-.816.18-.18.4-.466.6-.7.199-.232.265-.4.398-.665.133-.267.067-.5-.033-.7-.1-.2-.9-2.167-1.233-2.966-.324-.78-.653-.674-.9-.686l-.765-.013c-.267 0-.7.1-1.067.5s-1.4 1.367-1.4 3.333 1.433 3.867 1.633 4.133c.2.267 2.82 4.3 6.832 6.033.954.413 1.7.66 2.28.844.958.305 1.83.262 2.52.159.769-.114 2.364-.966 2.698-1.9.332-.933.332-1.733.232-1.9-.099-.166-.365-.266-.765-.466z"/></svg>
+          Hablar con un asesor
+        </a>
+      </div>
+    </div>`;
+}
+
+// ── INTERACTIONS ──────────────────────────────────────────────────────────────
+function selectAnswer(letter) {
+  if(answered) return;
+  answered = true;
+
+  const sec = SECTIONS[secIdx];
+  const qs  = EXAMEN[sec.key] || [];
+  const q   = qs[qIdx];
+
+  const isCorrect = letter === q.c;
+  if(isCorrect) secScores[secIdx].correct++;
+  secScores[secIdx].total++;
+  totalAnswered++;
+
+  // Update button styles
+  document.querySelectorAll('.opt-btn').forEach(btn => {
+    btn.disabled = true;
+    const l = btn.dataset.letter;
+    if(l === q.c)   btn.classList.add('correct');
+    if(l === letter && letter !== q.c) btn.classList.add('wrong');
+  });
+
+  document.getElementById('nextBtn').disabled = false;
+  renderProgress();
+}
+
+function handleNext() {
+  if(!answered) return;
+  const sec = SECTIONS[secIdx];
+  const qs  = sec.key ? (EXAMEN[sec.key] || []) : [];
+  qIdx++;
+  if(qIdx >= qs.length) {
+    renderSectionTransition();
+  } else {
+    renderQuestion();
+  }
+}
+
+function advanceSection() {
+  secIdx++;
+  qIdx = 0;
+  if(secIdx >= SECTIONS.length) {
+    renderResults();
+    return;
+  }
+  const sec = SECTIONS[secIdx];
+  if(!sec.key) {
+    renderNoModule(sec);
+  } else {
+    renderQuestion();
+  }
+}
+
+function escHtml(s) {
+  return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── START ─────────────────────────────────────────────────────────────────────
+// Init section totals
+SECTIONS.forEach((sec, i) => {
+  secScores[i].total = 0;
+  secScores[i].correct = 0;
+});
+
+// Check if first section has a valid key
+const firstSec = SECTIONS[0];
+if(!firstSec.key) {
+  renderNoModule(firstSec);
+} else {
+  renderQuestion();
+}
+</script>
+</body>
+</html>
