@@ -51,7 +51,7 @@ main{flex:1;max-width:760px;margin:0 auto;width:100%;padding:40px 20px 60px;disp
 
 /* SCALE BAR */
 .scale-wrap{position:relative;padding-top:28px;padding-bottom:20px}
-.scale-bar{height:10px;background:linear-gradient(90deg,#E5E7EB 0%,#D1FAE5 50%,var(--am) 80%,#EF4444 100%);border-radius:5px;position:relative}
+.scale-bar{height:10px;background:linear-gradient(90deg,#EF4444 0%,var(--am) 50%,#0049E3 100%);border-radius:5px;position:relative}
 .scale-marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:18px;height:18px;background:var(--an);border:3px solid white;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.25)}
 .scale-label{position:absolute;top:-24px;transform:translateX(-50%);font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:var(--an);white-space:nowrap;background:white;padding:2px 6px;border-radius:4px;border:1.5px solid var(--an)}
 .scale-edges{display:flex;justify-content:space-between;margin-top:6px}
@@ -92,6 +92,16 @@ main{flex:1;max-width:760px;margin:0 auto;width:100%;padding:40px 20px 60px;disp
 /* CTA SECTION */
 .cta-section{background:var(--an);padding:60px 24px;text-align:center}
 .cta-section .cta-label{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:12px}
+.exam-breakdown-info{font-size:13px;color:var(--ts);font-weight:600;margin-bottom:20px}
+.exam-sections{display:flex;flex-direction:column}
+.exam-sec{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid var(--li)}
+.exam-sec:last-child{border-bottom:none}
+.exam-sec-num{width:28px;height:28px;border-radius:50%;background:var(--an);color:white;font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.exam-sec-num.spec{background:var(--am);color:var(--an)}
+.exam-sec-body{flex:1;min-width:0}
+.exam-sec-name{font-size:14px;font-weight:700;color:var(--an);margin-bottom:3px}
+.exam-sec-desc{font-size:12px;color:var(--ts);line-height:1.5}
+.exam-sec-qs{font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;color:var(--ts);white-space:nowrap;flex-shrink:0;padding-top:3px}
 .cta-section h2{font-family:'Oswald',sans-serif;font-size:clamp(22px,4vw,36px);font-weight:700;text-transform:uppercase;color:white;line-height:1.15;margin-bottom:10px}
 .cta-section h2 em{color:var(--am);font-style:normal}
 .cta-section p{font-size:14px;color:rgba(255,255,255,.65);max-width:440px;margin:0 auto 32px;line-height:1.65}
@@ -126,7 +136,24 @@ main{flex:1;max-width:760px;margin:0 auto;width:100%;padding:40px 20px 60px;disp
 <div id="pageContent"></div>
 
 <script>
-const MODULOS_BASE = ["Pensamiento Matemático","Inglés","Comprensión Lectora","Redacción Indirecta"];
+const MODULOS_BASE = ["Pensamiento Matemático","Redacción Indirecta","Comprensión Lectora"];
+const MODULO_INFO = {
+  "Pensamiento Matemático":{desc:"Álgebra, geometría, probabilidad y razonamiento lógico"},
+  "Redacción Indirecta":{desc:"Ortografía, gramática y construcción de textos escritos"},
+  "Comprensión Lectora":{desc:"Análisis e interpretación de textos e ideas principales"},
+  "Administración":{desc:"Contabilidad, gestión empresarial y finanzas básicas"},
+  "Aritmética":{desc:"Operaciones, fracciones, porcentajes y proporciones"},
+  "Biología":{desc:"Célula, genética, ecología y fisiología humana"},
+  "Ciencias de la Salud":{desc:"Anatomía, salud pública, nutrición y primeros auxilios"},
+  "Derecho":{desc:"Fundamentos legales y derecho constitucional mexicano"},
+  "Física":{desc:"Mecánica, termodinámica, electricidad y óptica"},
+  "Historia":{desc:"Historia de México y del mundo contemporáneo"},
+  "Literatura":{desc:"Géneros literarios, corrientes y análisis de obras"},
+  "Probabilidad y Estadística":{desc:"Estadística descriptiva, probabilidad y análisis de datos"},
+  "Psicología":{desc:"Desarrollo humano, conducta y teorías psicológicas"},
+  "Química":{desc:"Tabla periódica, reacciones, estequiometría y orgánica"},
+  "Filosofía":{desc:"Pensamiento crítico, lógica formal e historia de la filosofía"},
+};
 
 const FACULTADES = {
   medicina:{
@@ -347,8 +374,21 @@ function renderPage(){
       <tbody>${progRows}</tbody>
     </table>` : '';
 
-  const baseChips = MODULOS_BASE.map(m=>`<span class="mod-chip">${m}</span>`).join('');
-  const specChips = fac.modulos.map(m=>`<span class="mod-chip highlight">${m}</span>`).join('');
+  const allSecs = [
+    ...MODULOS_BASE.map((m,i)=>({name:m,num:i+1,q:30,type:'base'})),
+    ...fac.modulos.map((m,i)=>({name:m,num:MODULOS_BASE.length+i+1,q:24,type:'spec'}))
+  ];
+  const secCards = allSecs.map(s=>{
+    const info = MODULO_INFO[s.name]||{desc:''};
+    return `<div class="exam-sec">
+      <div class="exam-sec-num${s.type==='spec'?' spec':''}">${s.num}</div>
+      <div class="exam-sec-body">
+        <div class="exam-sec-name">${s.name}</div>
+        <div class="exam-sec-desc">${info.desc}</div>
+      </div>
+      <div class="exam-sec-qs">${s.q} preg.</div>
+    </div>`;
+  }).join('');
 
   const waMsg = encodeURIComponent(`Hola, me interesa un diagnóstico para ingresar a la Facultad de ${fac.nombre} de la UANL.`);
 
@@ -386,31 +426,9 @@ function renderPage(){
 
       <!-- MÓDULOS -->
       <div class="card">
-        <div class="card-title">Módulos que debes preparar</div>
-        <div class="mod-group">
-          <div class="mod-group-label">Base — todos los sustentantes (4 módulos)</div>
-          <div class="mod-chips">${baseChips}</div>
-        </div>
-        <div class="mod-group">
-          <div class="mod-group-label">Específicos de tu facultad (2 módulos)</div>
-          <div class="mod-chips">${specChips}</div>
-        </div>
-        <p style="font-size:12px;color:var(--ts);margin-top:18px;line-height:1.65">
-          El EXANI-II tiene <strong>168 reactivos</strong> en total (4 módulos base + 2 específicos + 30 de ensayo sin puntaje). Duración: <strong>4h 30min</strong>.
-        </p>
-      </div>
-
-      <!-- CALCULADORA -->
-      <div class="card">
-        <div class="card-title">Calcula tu brecha</div>
-        <p style="font-size:14px;color:var(--ts);margin-bottom:16px;line-height:1.65">
-          ¿Tienes un resultado de simulacro? Ingresa tu puntaje y calcula cuánto te falta.
-        </p>
-        <div class="gap-input-row">
-          <input type="number" id="myScore" min="700" max="1300" placeholder="Tu puntaje" />
-          <button class="gap-btn" onclick="calcGap(${displayScore})">Calcular →</button>
-        </div>
-        <div class="gap-result" id="gapResult"></div>
+        <div class="card-title">Tu examen diagnóstico incluye</div>
+        <div class="exam-breakdown-info">5 secciones · 138 preguntas · ~45 min</div>
+        <div class="exam-sections">${secCards}</div>
       </div>
 
     </main>
