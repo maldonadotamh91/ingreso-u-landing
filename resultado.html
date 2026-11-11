@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tu diagnóstico — Ingreso U</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --am:#FFC000;
+  --az:#0049E3;
+  --an:#161C4D;
+  --bl:#FFFFFF;
+  --ts:#5A5F7A;
+  --li:rgba(0,0,0,.08);
+  --area-color:#EF4444;
+}
+body{font-family:'Montserrat',sans-serif;background:#F7F8FC;min-height:100vh;display:flex;flex-direction:column}
+
+/* NAV */
+nav{background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-bottom:3px solid var(--am);padding:12px 28px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:100}
+.nl{font-family:'Oswald',sans-serif;font-size:21px;font-weight:700;color:var(--an);text-transform:uppercase;letter-spacing:.04em;text-decoration:none}
+.nl em{color:var(--am);font-style:normal}
+.nav-back{margin-left:auto;font-size:12px;font-weight:600;color:var(--ts);text-decoration:none;display:flex;align-items:center;gap:6px}
+.nav-back:hover{color:var(--az)}
+
+/* PAGE HEADER */
+.pg-header{background:white;border-bottom:1px solid var(--li);padding:36px 24px 32px;text-align:center}
+.paso{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ts);margin-bottom:14px}
+.area-chip{display:inline-flex;align-items:center;gap:7px;background:rgba(0,0,0,.04);border-radius:20px;padding:5px 14px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ts);margin-bottom:14px}
+.area-chip .dot{width:8px;height:8px;border-radius:50%;background:var(--area-color)}
+h1{font-family:'Oswald',sans-serif;font-size:clamp(26px,5vw,48px);font-weight:700;text-transform:uppercase;color:var(--an);line-height:1.08;margin-bottom:0}
+h1 em{color:var(--am);font-style:normal}
+
+/* MAIN */
+main{flex:1;max-width:760px;margin:0 auto;width:100%;padding:40px 20px 60px;display:flex;flex-direction:column;gap:36px}
+
+/* CARD */
+.card{background:white;border:1.5px solid var(--li);border-radius:16px;padding:28px 24px}
+.card-title{font-family:'Oswald',sans-serif;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ts);margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.card-title::before{content:'';display:block;width:3px;height:16px;background:var(--am);border-radius:2px;flex-shrink:0}
+
+/* SCORE SECTION */
+.score-hero{text-align:center;margin-bottom:28px}
+.score-num{font-family:'Oswald',sans-serif;font-size:64px;font-weight:700;color:var(--an);line-height:1}
+.score-num span{color:var(--am)}
+.score-sub{font-size:12px;color:var(--ts);margin-top:4px;letter-spacing:.04em}
+
+/* SCALE BAR */
+.scale-wrap{position:relative;padding-top:28px;padding-bottom:20px}
+.scale-bar{height:10px;background:linear-gradient(90deg,#E5E7EB 0%,#D1FAE5 50%,var(--am) 80%,#EF4444 100%);border-radius:5px;position:relative}
+.scale-marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:18px;height:18px;background:var(--an);border:3px solid white;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.scale-label{position:absolute;top:-24px;transform:translateX(-50%);font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:var(--an);white-space:nowrap;background:white;padding:2px 6px;border-radius:4px;border:1.5px solid var(--an)}
+.scale-edges{display:flex;justify-content:space-between;margin-top:6px}
+.scale-edge{font-size:11px;color:var(--ts);font-weight:600}
+.scale-mid{font-size:11px;color:var(--ts);font-weight:600;position:absolute;left:50%;transform:translateX(-50%);margin-top:6px}
+
+/* PROGRAMS TABLE */
+.prog-table{width:100%;border-collapse:collapse;margin-top:4px}
+.prog-table th{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ts);text-align:left;padding:0 8px 10px;border-bottom:1.5px solid var(--li)}
+.prog-table th:last-child{text-align:right}
+.prog-table td{font-size:13px;color:var(--an);padding:10px 8px;border-bottom:1px solid var(--li);line-height:1.4}
+.prog-table tr:last-child td{border-bottom:none}
+.prog-table .pts{font-family:'Oswald',sans-serif;font-size:16px;font-weight:700;color:var(--am);text-align:right;white-space:nowrap}
+
+/* MODULES */
+.mod-group{margin-bottom:20px}
+.mod-group:last-child{margin-bottom:0}
+.mod-group-label{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ts);margin-bottom:10px}
+.mod-chips{display:flex;flex-wrap:wrap;gap:8px}
+.mod-chip{background:#F3F4F6;border-radius:8px;padding:8px 14px;font-size:12.5px;font-weight:600;color:var(--an)}
+.mod-chip.highlight{background:var(--am);color:var(--an)}
+
+/* GAP CALCULATOR */
+.gap-input-row{display:flex;gap:10px;margin-top:4px}
+.gap-input-row input{flex:1;padding:12px 16px;border:1.5px solid var(--li);border-radius:10px;font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;color:var(--an);outline:none;transition:border-color .2s;text-align:center;min-width:0}
+.gap-input-row input:focus{border-color:var(--az)}
+.gap-input-row input::placeholder{color:#C5C7D4;font-weight:600}
+.gap-btn{background:var(--an);color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;padding:12px 22px;border-radius:10px;border:none;cursor:pointer;transition:background .2s;white-space:nowrap;flex-shrink:0}
+.gap-btn:hover{background:var(--az)}
+
+.gap-result{margin-top:16px;border-radius:10px;padding:16px 20px;font-size:14px;font-weight:600;display:none}
+.gap-result.show{display:block}
+.gap-result.ok{background:#D1FAE5;color:#065F46}
+.gap-result.close{background:#FEF3C7;color:#92400E}
+.gap-result.far{background:#FEE2E2;color:#991B1B}
+.gap-result .gap-num{font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;display:block;margin-top:4px}
+
+/* CTA SECTION */
+.cta-section{background:var(--an);padding:60px 24px;text-align:center}
+.cta-section .cta-label{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:12px}
+.cta-section h2{font-family:'Oswald',sans-serif;font-size:clamp(22px,4vw,36px);font-weight:700;text-transform:uppercase;color:white;line-height:1.15;margin-bottom:10px}
+.cta-section h2 em{color:var(--am);font-style:normal}
+.cta-section p{font-size:14px;color:rgba(255,255,255,.65);max-width:440px;margin:0 auto 32px;line-height:1.65}
+.wa-btn{display:inline-flex;align-items:center;gap:10px;background:var(--am);color:var(--an);font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;padding:16px 32px;border-radius:12px;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.wa-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,192,0,.4)}
+
+/* NOTA */
+.nota{font-size:11px;color:rgba(255,255,255,.35);margin-top:20px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto}
+
+/* ERROR STATE */
+.error-wrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 24px;text-align:center;gap:16px}
+.error-wrap h2{font-family:'Oswald',sans-serif;font-size:28px;color:var(--an);text-transform:uppercase}
+.error-wrap p{font-size:14px;color:var(--ts);max-width:360px;line-height:1.65}
+.error-wrap a{color:var(--az);font-weight:700;text-decoration:none}
+
+@media(max-width:500px){
+  .gap-input-row{flex-direction:column}
+  .prog-table th,.prog-table td{padding:8px 4px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="mockup-v2.html" class="nl">INGRESO <em>U</em></a>
+  <a href="facultad.html" class="nav-back" id="backBtn">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Cambiar facultad
+  </a>
+</nav>
+
+<div id="pageContent"></div>
+
+<script>
+const MODULOS_BASE = ["Pensamiento Matemático","Pensamiento Analítico","Comprensión Lectora","Redacción Indirecta"];
+
+const FACULTADES = {
+  medicina:{
+    nombre:"Medicina",area:"salud",areaLabel:"Área de Salud",areaColor:"#EF4444",
+    modulos:["Biología","Ciencias de la Salud"],
+    programas:[{nombre:"Médico Cirujano y Partero",score:1239}]
+  },
+  odontologia:{
+    nombre:"Odontología",area:"salud",areaLabel:"Área de Salud",areaColor:"#EF4444",
+    modulos:["Biología","Ciencias de la Salud"],
+    programas:[{nombre:"Medicina Odontológica",score:996}]
+  },
+  psicologia:{
+    nombre:"Psicología",area:"salud",areaLabel:"Área de Salud",areaColor:"#EF4444",
+    modulos:["Psicología","Ciencias de la Salud"],
+    programas:[{nombre:"Psicología",score:1139}]
+  },
+  enfermeria_uanl:{
+    nombre:"Enfermería UANL",area:"salud",areaLabel:"Área de Salud",areaColor:"#EF4444",
+    modulos:["Biología","Ciencias de la Salud"],
+    programas:[{nombre:"Licenciatura en Enfermería",score:974}]
+  },
+  enfermeria_imss:{
+    nombre:"Enfermería IMSS",area:"salud",areaLabel:"Área de Salud",areaColor:"#EF4444",
+    modulos:["Biología","Ciencias de la Salud"],
+    programas:[{nombre:"Licenciatura en Enfermería (IMSS)",score:935}]
+  },
+  nutricion:{
+    nombre:"Salud Pública y Nutrición",area:"salud",areaLabel:"Área de Salud",areaColor:"#EF4444",
+    modulos:["Química","Ciencias de la Salud"],
+    programas:[{nombre:"Nutrición",score:1000}]
+  },
+  veterinaria:{
+    nombre:"Medicina Veterinaria y Zootecnia",area:"salud",areaLabel:"Área de Salud",areaColor:"#EF4444",
+    modulos:["Biología","Química"],
+    programas:[{nombre:"Medicina Veterinaria y Zootecnia",score:1200}]
+  },
+  deportiva:{
+    nombre:"Organización Deportiva",area:"salud",areaLabel:"Área de Salud",areaColor:"#EF4444",
+    modulos:["Biología","Ciencias de la Salud"],
+    programas:[
+      {nombre:"Terapia Física y Rehabilitación",score:1096},
+      {nombre:"Actividad Física y Deporte",score:861}
+    ]
+  },
+  fime:{
+    nombre:"Ing. Mecánica y Eléctrica",area:"ing",areaLabel:"Ingeniería",areaColor:"#0049E3",
+    modulos:["Matemáticas Avanzadas","Física"],
+    nota:"Puntajes para Campus CU (Monterrey). Otros campuses pueden variar.",
+    programas:[
+      {nombre:"Inteligencia Artificial",score:1222},
+      {nombre:"Electromovilidad",score:1221},
+      {nombre:"Mecánica Empresarial",score:1211},
+      {nombre:"Aeronáutica",score:1204},
+      {nombre:"Biomédico",score:1200},
+      {nombre:"Mecatrónica y otras carreras (CU)",score:1078}
+    ]
+  },
+  civil:{
+    nombre:"Ingeniería Civil",area:"ing",areaLabel:"Ingeniería",areaColor:"#0049E3",
+    modulos:["Matemáticas Avanzadas","Física"],
+    programas:[{nombre:"Ingeniería Civil",score:1035}]
+  },
+  fisico_mat:{
+    nombre:"Ciencias Físico Matemáticas",area:"ing",areaLabel:"Ingeniería",areaColor:"#0049E3",
+    modulos:["Matemáticas Avanzadas","Física"],
+    programas:[
+      {nombre:"Matemáticas",score:970},
+      {nombre:"Física",score:896},
+      {nombre:"Ciencias Computacionales (Mixta)",score:900},
+      {nombre:"Ciencias Computacionales (No escolarizada)",score:920},
+      {nombre:"Actuaría",score:896},
+      {nombre:"Multimedia y Animación Digital",score:891},
+      {nombre:"Seguridad en Tecnología",score:922},
+      {nombre:"Ciberseguridad",score:900}
+    ]
+  },
+  ciencias_quimicas:{
+    nombre:"Ciencias Químicas",area:"ciencias",areaLabel:"Ciencias",areaColor:"#06B6D4",
+    modulos:["Aritmética","Química"],
+    programas:[{nombre:"Ing. Química, QFB, Ambiental y más",score:1100}]
+  },
+  ciencias_biologicas:{
+    nombre:"Ciencias Biológicas",area:"ciencias",areaLabel:"Ciencias",areaColor:"#06B6D4",
+    modulos:["Química","Biología"],
+    programas:[{nombre:"Biología, Biotecnología Genómica y más",score:1100}]
+  },
+  agronomia:{
+    nombre:"Agronomía",area:"ciencias",areaLabel:"Ciencias",areaColor:"#06B6D4",
+    modulos:["Biología","Química"],
+    programas:[
+      {nombre:"Ing. en Agronomía",score:861},
+      {nombre:"Ing. Industrias Alimentarias",score:874},
+      {nombre:"Ing. en Agronegocios",score:878}
+    ]
+  },
+  facpya:{
+    nombre:"Contaduría Pública y Administración",area:"eco",areaLabel:"Administrativo",areaColor:"#10B981",
+    modulos:["Administración","Probabilidad y Estadística"],
+    programas:[{nombre:"Contaduría, Administración, Finanzas y más",score:1074}]
+  },
+  economia:{
+    nombre:"Economía",area:"eco",areaLabel:"Administrativo",areaColor:"#10B981",
+    modulos:["Administración","Probabilidad y Estadística"],
+    programas:[{nombre:"Economía",score:1130}]
+  },
+  comunicacion:{
+    nombre:"Ciencias de la Comunicación",area:"eco",areaLabel:"Social",areaColor:"#10B981",
+    modulos:["Administración","Probabilidad y Estadística"],
+    programas:[{nombre:"Ciencias de la Comunicación",score:861}]
+  },
+  derecho:{
+    nombre:"Derecho y Criminología",area:"social",areaLabel:"Social",areaColor:"#8B5CF6",
+    modulos:["Derecho","Historia"],
+    programas:[{nombre:"Derecho (presencial, todas unidades)",score:1100}]
+  },
+  ciencias_politicas:{
+    nombre:"Ciencias Políticas y RR.II.",area:"social",areaLabel:"Social",areaColor:"#8B5CF6",
+    modulos:["Administración","Historia"],
+    programas:[{nombre:"Ciencias Políticas, RR.II., Administración Pública",score:865}]
+  },
+  filosofia:{
+    nombre:"Filosofía y Letras",area:"social",areaLabel:"Social",areaColor:"#8B5CF6",
+    modulos:["Literatura","Historia"],
+    programas:[
+      {nombre:"Filosofía",score:917},
+      {nombre:"Historia",score:891},
+      {nombre:"Letras Hispánicas",score:887},
+      {nombre:"Lingüística Aplicada",score:865},
+      {nombre:"Sociología",score:917},
+      {nombre:"Educación",score:874},
+      {nombre:"Educación y Procesos Formativos",score:904},
+      {nombre:"Edición y Gestión de la Cultura",score:952},
+      {nombre:"Gestión de la Información y Recursos Digitales",score:913}
+    ]
+  },
+  trabajo_social:{
+    nombre:"Trabajo Social y Desarrollo Humano",area:"social",areaLabel:"Social",areaColor:"#8B5CF6",
+    modulos:["Psicología","Probabilidad y Estadística"],
+    programas:[
+      {nombre:"Trabajo Social",score:1000},
+      {nombre:"Trabajo Social – Lic. Conjunta FACPYA",score:1000}
+    ]
+  },
+  arquitectura:{
+    nombre:"Arquitectura",area:"arte",areaLabel:"Arte y Diseño",areaColor:"#F59E0B",
+    modulos:["Aritmética","Historia"],
+    programas:[
+      {nombre:"Arquitectura",score:1100},
+      {nombre:"Diseño Industrial",score:1091}
+    ]
+  },
+  artes_visuales:{
+    nombre:"Artes Visuales",area:"arte",areaLabel:"Arte y Diseño",areaColor:"#F59E0B",
+    modulos:["Filosofía","Historia"],
+    programas:[
+      {nombre:"Artes Visuales",score:1113},
+      {nombre:"Lenguaje y Producción Audiovisual",score:1048},
+      {nombre:"Diseño Gráfico",score:1000},
+      {nombre:"Creación y Gestión de Contenidos Mediáticos",score:983}
+    ]
+  },
+  artes_escenicas:{
+    nombre:"Artes Escénicas",area:"arte",areaLabel:"Arte y Diseño",areaColor:"#F59E0B",
+    modulos:["Filosofía","Historia"],
+    programas:[
+      {nombre:"Arte Teatral",score:996},
+      {nombre:"Danza Contemporánea",score:913}
+    ]
+  },
+  musica:{
+    nombre:"Música",area:"arte",areaLabel:"Arte y Diseño",areaColor:"#F59E0B",
+    modulos:["Administración","Historia"],
+    programas:[{nombre:"Música y Música Popular Contemporánea",score:750}]
+  }
+};
+
+function fmt(n){return n.toLocaleString('es-MX')}
+
+function scorePct(s){return Math.round((s-700)/600*100)}
+
+function renderPage(){
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('fac');
+  const fac = FACULTADES[slug];
+  const content = document.getElementById('pageContent');
+
+  if(!fac){
+    content.innerHTML = `
+      <div class="error-wrap">
+        <h2>Facultad no encontrada</h2>
+        <p>El enlace no es válido. Regresa a la lista de facultades y elige la tuya.</p>
+        <a href="facultad.html">← Ir a facultades</a>
+      </div>`;
+    return;
+  }
+
+  document.title = fac.nombre + ' — Ingreso U';
+  document.documentElement.style.setProperty('--area-color', fac.areaColor);
+
+  const minScore = Math.min(...fac.programas.map(p=>p.score));
+  const maxScore = Math.max(...fac.programas.map(p=>p.score));
+  const hasMultiple = fac.programas.length > 1;
+  const displayScore = hasMultiple ? minScore : fac.programas[0].score;
+  const pct = scorePct(displayScore);
+  const midPct = scorePct(1000);
+
+  const progRows = fac.programas.map(p=>`
+    <tr>
+      <td>${p.nombre}</td>
+      <td class="pts">${fmt(p.score)}</td>
+    </tr>`).join('');
+
+  const progSection = hasMultiple ? `
+    <div class="card-title">Puntajes por carrera</div>
+    <table class="prog-table">
+      <thead><tr><th>Carrera</th><th>Puntaje mínimo</th></tr></thead>
+      <tbody>${progRows}</tbody>
+    </table>` : '';
+
+  const baseChips = MODULOS_BASE.map(m=>`<span class="mod-chip">${m}</span>`).join('');
+  const specChips = fac.modulos.map(m=>`<span class="mod-chip highlight">${m}</span>`).join('');
+
+  const waMsg = encodeURIComponent(`Hola, me interesa un diagnóstico para ingresar a la Facultad de ${fac.nombre} de la UANL.`);
+
+  content.innerHTML = `
+    <div class="pg-header">
+      <p class="paso">Paso 3 de 3 · EXANI-II · Facultad</p>
+      <div class="area-chip"><span class="dot"></span>${fac.areaLabel}</div>
+      <h1>Fac. de <em>${fac.nombre}</em></h1>
+    </div>
+
+    <main>
+
+      <!-- PUNTAJE -->
+      <div class="card">
+        <div class="card-title">Puntaje mínimo de ingreso</div>
+        <div class="score-hero">
+          <div class="score-num">${hasMultiple?'desde ':''}<span>${fmt(displayScore)}</span></div>
+          <div class="score-sub">puntos en escala 700–1,300</div>
+        </div>
+        <div class="scale-wrap">
+          <div class="scale-bar">
+            <div class="scale-marker" style="left:${pct}%">
+              <div class="scale-label">${hasMultiple?'desde ':''} ${fmt(displayScore)}</div>
+            </div>
+          </div>
+          <div class="scale-edges">
+            <span class="scale-edge">700</span>
+            <span class="scale-edge">1,000</span>
+            <span class="scale-edge">1,300</span>
+          </div>
+        </div>
+        ${progSection}
+        ${fac.nota?`<p style="font-size:11px;color:var(--ts);margin-top:16px;line-height:1.6">⚠️ ${fac.nota}</p>`:''}
+      </div>
+
+      <!-- MÓDULOS -->
+      <div class="card">
+        <div class="card-title">Módulos que debes preparar</div>
+        <div class="mod-group">
+          <div class="mod-group-label">Base — todos los sustentantes (4 módulos)</div>
+          <div class="mod-chips">${baseChips}</div>
+        </div>
+        <div class="mod-group">
+          <div class="mod-group-label">Específicos de tu facultad (2 módulos)</div>
+          <div class="mod-chips">${specChips}</div>
+        </div>
+        <p style="font-size:12px;color:var(--ts);margin-top:18px;line-height:1.65">
+          El EXANI-II tiene <strong>168 reactivos</strong> en total (4 módulos base + 2 específicos + 30 de ensayo sin puntaje). Duración: <strong>4h 30min</strong>.
+        </p>
+      </div>
+
+      <!-- CALCULADORA -->
+      <div class="card">
+        <div class="card-title">Calcula tu brecha</div>
+        <p style="font-size:14px;color:var(--ts);margin-bottom:16px;line-height:1.65">
+          ¿Tienes un resultado de simulacro? Ingresa tu puntaje y calcula cuánto te falta.
+        </p>
+        <div class="gap-input-row">
+          <input type="number" id="myScore" min="700" max="1300" placeholder="Tu puntaje" />
+          <button class="gap-btn" onclick="calcGap(${displayScore})">Calcular →</button>
+        </div>
+        <div class="gap-result" id="gapResult"></div>
+      </div>
+
+    </main>
+
+    <div class="cta-section">
+      <p class="cta-label">Diagnóstico gratuito</p>
+      <h2>¿Quieres saber exactamente<br>qué <em>repasar?</em></h2>
+      <p>Nuestros asesores analizan tu nivel actual en cada módulo y te dan un plan de estudio personalizado para alcanzar el puntaje que necesitas.</p>
+      <a href="https://wa.me/528118201968?text=${waMsg}" target="_blank" rel="noopener" class="wa-btn">
+        <svg width="20" height="20" viewBox="0 0 32 32" fill="white"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.738 5.47 2.028 7.773L0 32l8.473-2.009A15.937 15.937 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.278 13.278 0 01-6.802-1.868l-.487-.29-5.03 1.193 1.218-4.896-.318-.504A13.282 13.282 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.284-9.927c-.4-.2-2.364-1.165-2.73-1.299-.366-.133-.633-.2-.9.2-.266.4-1.033 1.299-1.265 1.565-.232.267-.465.3-.865.1-.4-.2-1.688-.622-3.215-1.983-1.188-1.06-1.99-2.37-2.223-2.77-.232-.4-.025-.616.175-.816.18-.18.4-.466.6-.7.199-.232.265-.4.398-.665.133-.267.067-.5-.033-.7-.1-.2-.9-2.167-1.233-2.966-.324-.78-.653-.674-.9-.686l-.765-.013c-.267 0-.7.1-1.067.5s-1.4 1.367-1.4 3.333 1.433 3.867 1.633 4.133c.2.267 2.82 4.3 6.832 6.033.954.413 1.7.66 2.28.844.958.305 1.83.262 2.52.159.769-.114 2.364-.966 2.698-1.9.332-.933.332-1.733.232-1.9-.099-.166-.365-.266-.765-.466z"/></svg>
+        Agenda tu diagnóstico gratis
+      </a>
+      <p class="nota">Puntajes de referencia obtenidos de exámenes aplicados en mayo–junio 2026 (Campus CU / Área Médica principal). Pueden variar en convocatorias futuras.</p>
+    </div>`;
+}
+
+function calcGap(cutoff){
+  const val = parseInt(document.getElementById('myScore').value);
+  const result = document.getElementById('gapResult');
+  if(!val || val < 700 || val > 1300){
+    result.className = 'gap-result show far';
+    result.innerHTML = 'Ingresa un puntaje válido entre 700 y 1,300.';
+    return;
+  }
+  const diff = cutoff - val;
+  if(diff <= 0){
+    result.className = 'gap-result show ok';
+    result.innerHTML = `¡Ya tienes el puntaje mínimo!<span class="gap-num">+${fmt(Math.abs(diff))} pts de ventaja</span>Estás ${fmt(Math.abs(diff))} puntos por encima del mínimo requerido.`;
+  } else if(diff <= 60){
+    result.className = 'gap-result show close';
+    result.innerHTML = `Estás muy cerca.<span class="gap-num">${fmt(diff)} pts de diferencia</span>Con un poco más de preparación en los módulos específicos puedes lograrlo.`;
+  } else {
+    result.className = 'gap-result show far';
+    result.innerHTML = `Te faltan ${fmt(diff)} puntos.<span class="gap-num">${fmt(diff)} pts de diferencia</span>Nuestro diagnóstico gratuito te indica exactamente qué repasar para cerrar esa brecha.`;
+  }
+}
+
+renderPage();
+</script>
+</body>
+</html>

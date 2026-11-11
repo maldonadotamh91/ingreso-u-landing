@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Selecciona tu facultad — Ingreso U</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --am:#FFC000;
+  --az:#0049E3;
+  --an:#161C4D;
+  --bl:#FFFFFF;
+  --ts:#5A5F7A;
+  --li:rgba(0,0,0,.08);
+}
+body{font-family:'Montserrat',sans-serif;background:#F7F8FC;min-height:100vh;display:flex;flex-direction:column}
+
+/* NAV */
+nav{background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-bottom:3px solid var(--am);padding:12px 28px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:100}
+.nl{font-family:'Oswald',sans-serif;font-size:21px;font-weight:700;color:var(--an);text-transform:uppercase;letter-spacing:.04em;text-decoration:none}
+.nl em{color:var(--am);font-style:normal}
+.nav-back{margin-left:auto;font-size:12px;font-weight:600;color:var(--ts);text-decoration:none;display:flex;align-items:center;gap:6px}
+.nav-back:hover{color:var(--az)}
+
+/* HEADER */
+.pg-header{background:white;border-bottom:1px solid var(--li);padding:36px 24px 32px;text-align:center}
+.paso{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ts);margin-bottom:12px}
+h1{font-family:'Oswald',sans-serif;font-size:clamp(22px,4vw,38px);font-weight:700;text-transform:uppercase;color:var(--an);line-height:1.1;margin-bottom:8px}
+h1 em{color:var(--am);font-style:normal}
+.sub{font-size:14px;color:var(--ts);max-width:460px;margin:0 auto 24px}
+
+/* BUSCADOR */
+.search-wrap{max-width:480px;margin:0 auto;position:relative}
+.search-wrap input{width:100%;padding:12px 16px 12px 44px;border:1.5px solid var(--li);border-radius:10px;font-family:'Montserrat',sans-serif;font-size:14px;color:var(--an);outline:none;transition:border-color .2s;background:white}
+.search-wrap input:focus{border-color:var(--az)}
+.search-wrap input::placeholder{color:var(--ts)}
+.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);pointer-events:none}
+
+/* GRID */
+main{flex:1;max-width:1080px;margin:0 auto;width:100%;padding:32px 20px 48px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+
+.fac-card{background:white;border:1.5px solid var(--li);border-radius:12px;padding:18px 16px;cursor:pointer;text-decoration:none;display:flex;align-items:center;gap:14px;transition:border-color .2s,box-shadow .2s,transform .15s}
+.fac-card:hover{border-color:var(--az);box-shadow:0 4px 20px rgba(0,73,227,.1);transform:translateY(-2px)}
+.fac-card.hidden{display:none}
+
+.fac-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.fac-info{flex:1;min-width:0}
+.fac-t{font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;text-transform:uppercase;color:var(--an);line-height:1.25}
+.fac-sig{font-size:11px;color:var(--ts);margin-top:3px;line-height:1.4}
+
+.fac-right{display:flex;flex-direction:column;align-items:flex-end;gap:2px;flex-shrink:0}
+.fac-pts{font-family:'Oswald',sans-serif;font-size:15px;font-weight:700;color:var(--am);line-height:1;white-space:nowrap}
+.fac-pts-label{font-size:9px;color:var(--ts);text-transform:uppercase;letter-spacing:.06em;line-height:1}
+
+/* AREA COLORS */
+.area-salud    .fac-dot{background:#EF4444}
+.area-ing      .fac-dot{background:#0049E3}
+.area-eco      .fac-dot{background:#10B981}
+.area-social   .fac-dot{background:#8B5CF6}
+.area-arte     .fac-dot{background:#F59E0B}
+.area-ciencias .fac-dot{background:#06B6D4}
+
+/* SIN RESULTADOS */
+.no-results{display:none;text-align:center;padding:48px 24px;color:var(--ts);font-size:14px}
+.no-results.show{display:block}
+
+/* FOOTER AYUDA */
+.ayuda{background:white;border-top:1px solid var(--li);padding:28px 24px;text-align:center}
+.ayuda p{font-size:13px;color:var(--ts);margin-bottom:14px}
+.ayuda-btn{display:inline-flex;align-items:center;gap:8px;border:2px solid var(--an);color:var(--an);font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;padding:10px 24px;border-radius:8px;text-decoration:none;transition:background .2s,color .2s}
+.ayuda-btn:hover{background:var(--an);color:white}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="mockup-v2.html" class="nl">INGRESO <em>U</em></a>
+  <a href="diagnostico.html" class="nav-back">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Cambiar tipo de examen
+  </a>
+</nav>
+
+<div class="pg-header">
+  <p class="paso">Paso 2 de 3 · EXANI-II · Facultad</p>
+  <h1>Selecciona la <em>facultad</em><br>de tu carrera</h1>
+  <p class="sub">Elige la facultad a la que quieres ingresar. Tu diagnóstico se personaliza según sus módulos y puntaje mínimo.</p>
+  <div class="search-wrap">
+    <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5A5F7A" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="text" id="buscador" placeholder="Buscar facultad o carrera..." autocomplete="off">
+  </div>
+</div>
+
+<main>
+  <div class="grid" id="grid">
+
+    <!-- SALUD -->
+    <a href="resultado.html?fac=medicina" class="fac-card area-salud" data-nombre="Medicina">
+      <span class="fac-dot"></span>
+      <div class="fac-info"><div class="fac-t">Medicina</div><div class="fac-sig">Biología · Ciencias de la Salud</div></div>
+      <div class="fac-right"><span class="fac-pts">1,239</span><span class="fac-pts-label">pts mín</span></div>
+    </a>
+    <a href="resultado.html?fac=odontologia" class="fac-card area-salud" data-nombre="Odontología">
+      <span class="fac-dot"></span>
+      <div class="fac-info"><div class="fac-t">Odontología</div><div class="fac-sig">Biología · Ciencias de la Salud</div></div>
+      <div class="fac-right"><span class="fac-pts">996</span><span class="fac-pts-label">pts mín</span></div>
+    </a>
+    <a href="resultado.html?fac=psicologia" class="fac-card area-salud" data-nombre="Psicología">
+      <span class="fac-dot"></span>
+      <div class="fac-info"><div class="fac-t">Psicología</div><div class="fac-sig">Psicología · Ciencias de la Salud</div></div>
+      <div class="fac-right"><span class="fac-pts">1,139</span><span class="fac-pts-label">pts mín</span></div>
+    </a>
+    <a href="resultado.html?fac=enfermeria_uanl" class="fac-card area-salud" data-nombre="Enfermería UANL">
+      <span class="fac-dot"></span>
+      <div class="fac-info"><div class="fac-t">Enfermería UANL</div><div class="fac-sig">Biología · Ciencias de la Salud</div></div>
+      <div class="fac-right"><span class="fac-pts">974</span><span class="fac-pts-label">pts mín</span></div>
+    </a>
+    <a href="resultado.html?fac=enfermeria_imss" class="fac-card area-salud" data-nombre="Enfermería IMSS">
+      <span class="fac-dot"></span>
+      <div class="fac-info"><div class="fac-t">Enfermería IMSS</div><div class="fac-sig">Biología · Ciencias de la Salud</div></div>
+      <div class="fac-right"><span class="fac-pts">935</span><span class="fac-pts-label">pts mín</span></div>
+    </a>
+    <a href="resultado.html?fac=nutricion" class="fac-card area-salud" data-nombre="Salud Pública y Nutrición">
+      <span class="fac-dot"></span>
+      <div class="fac-info"><div class="fac-t">Salud Pública y Nutrición</div><div class="fac-sig">Química · Ciencias de la Salud</div></div>
+      <div class="fac-right"><span class="fac-pts">1,000</span><span class="fac-pts-label">pts mín</span></div>
+    </a>
+    <a href="resultado.html?fac=veterinaria" class="fac-card area-salud" data-nombre="Medicina Veterinaria y Zootecnia">
+      <span class="fac-dot"></span>
+      <div class="fac-info"><div class="fac-t">Medicina Veterinaria y Zootecnia</div><div class="fac-sig">Biología · Química</div></div>
+      <div class="fac-right"><span class="fac-pts">1,200</span><span class="fac-pts-label">pts mín</span></div>
+    </a>
+    <a href="resultado.html?fac=deportiva" class="fac-card area-salud" data-nombre="Organización Deportiva Terapia Física Actividad Física">
+      <span class="fac-dot"></span>
+      <div class="fac-info"><div class="fac-t">Organización Deportiva</div><div class="fac-sig">Biología · Ciencias de la Salud</div></div>
+      <div class="fac-right"><span class="fac-pts">861</span><span class="fac-pts-label">pts mín</span></div>
+    </a>
+
+    <!-- INGENIERÍA -->
+    <a href="resultado.html?fac=fime" class="fac-card area-ing" data-nombre="Ingeniería Mecánica Eléctrica FIME Aeronáutica Biomédico IA">
+      <span class="fac-dot"></span>
+      <div class="fac-info"><div class="fac-t">Ing. Mecánica y Eléctrica</div><div class="fac-sig">FIME · Matemáticas Avanzadas · Física</div></div>
+      <div class="fac-right"><span class="fac-pts">1,078</span><span class="fac-pts-label">pts mín</span></div>
+    </a>
+    <a href="resultado.html?fac=civil" class="fac-card area-ing" data-nombre="Ingeniería Civil">
+      <span class="fac-dot"></span>
+      <div class="fac-info"><div class="fac-t">Ingeniería Civil</div><div class="fac-sig">Matemáticas Avanzadas · Física</div></div>
+      <div class="fac-right"><span class="fac-pts">1,035</span><span class="fac-pts-label">pts mín</span></div>
+    </a>
+    <a href="resultado.html?fac=fisico_mat" class="fac-card area-ing" data-nombre="Ciencias Físico Matemáticas Computacionales Actuaría Multimedia Ciberseguridad">
+      <span class="fac-dot"></span>
+      <div class="fac-info"><div class="fac-t">Ciencias Físico Matemáticas</div><div class="fac-sig">Matemáticas Avanzadas · Física</div></div>
+      <div class="fac-right"><span class="fac-pts">891</span><span class="fac-pts-label">pts mín</span></div>
+    </a>
+    <a href="resultado.html?fac=ciencias_quimicas" class="fac-card area-ciencias" data-nombre="Ciencias Químicas Química">
+      <span class="fac-dot"></span>
+      <div class="fac-info"><div class="fac-t">Ciencias Químicas</div><div class="fac-sig">Aritmética · Química</div></div>
+      <div class="fac-right"><span class="fac-pts">1,100</span><span class="fac-pts-label">pts mín</span></div>
+    </a>
+    <a href="resultado.html?fac=ciencias_biologicas" class="fac-card area-ciencias" data-nombre="Ciencias Biológicas Biología Biotecnología">
+      <span class="fac-dot"></span>
+      <div class="fac-info"><div class="fac-t">Ciencias Biológicas</div><div class="fac-sig">Química · Biología</div></div>
+      <div class="fac-right"><span class="fac-pts">1,100</span><span class="fac-pts-label">pts mín</span></div>
+    </a>
+    <a href="resultado.html?fac=agronomia" class="fac-card area-ciencias" data-nombre="Agronomía Agronegocios Industrias Alimentarias">
+      <span class="fac-dot"></span>
+      <div class="fac-info"><div class="fac-t">Agronomía</div><div class="fac-sig">Biología · Química</div></div>
+      <div class="fac-right"><span class="fac-pts">861</span><span class="fac-pts-label">pts mín</span></div>
+    </a>
+
+    <!-- ECONÓMICO-ADMINISTRATIVA -->
+    <a href="resultado.html?fac=facpya" class="fac-card area-eco" data-nombre="Contaduría Pública Administración FACPYA Finanzas Negocios">
+      <span class="fac-dot"></span>
+      <div class="fac-info"><div class="fac-t">Contaduría Pública y Administración</div><div class="fac-sig">FACPYA · Administración · Prob. y Estadística</div></div>
+      <div class="fac-right"><span class="fac-pts">1,074</span><span class="fac-pts-label">pts mín</span></div>
+    </a>
+    <a href="resultado.html?fac=economia" class="fac-card area-eco" data-nombre="Economía">
+      <span class="fac-dot"></span>
+      <div class="fac-info"><div class="fac-t">Economía</div><div class="fac-sig">Administración · Probabilidad y Estadística</div></div>
+      <div class="fac-right"><span class="fac-pts">1,130</span><span class="fac-pts-label">pts mín</span></div>
+    </a>
+    <a href="resultado.html?fac=comunicacion" class="fac-card area-eco" data-nombre="Ciencias de la Comunicación Periodismo Publicidad">
+      <span class="fac-dot"></span>
+      <div class="fac-info"><div class="fac-t">Ciencias de la Comunicación</div><div class="fac-sig">Administración · Probabilidad y Estadística</div></div>
+      <div class="fac-right"><span class="fac-pts">861</span><span class="fac-pts-label">pts mín</span></div>
+    </a>
+
+    <!-- SOCIAL Y HUMANIDADES -->
+    <a href="resultado.html?fac=derecho" class="fac-card area-social" data-nombre="Derecho Criminología">
+      <span class="fac-dot"></span>
+      <div class="fac-info"><div class="fac-t">Derecho y Criminología</div><div class="fac-sig">Derecho · Historia</div></div>
+      <div class="fac-right"><span class="fac-pts">1,100</span><span class="fac-pts-label">pts mín</span></div>
+    </a>
+    <a href="resultado.html?fac=ciencias_politicas" class="fac-card area-social" data-nombre="Ciencias Políticas Relaciones Internacionales Administración Pública">
+      <span class="fac-dot"></span>
+      <div class="fac-info"><div class="fac-t">Ciencias Políticas y RR.II.</div><div class="fac-sig">Administración · Historia</div></div>
+      <div class="fac-right"><span class="fac-pts">865</span><span class="fac-pts-label">pts mín</span></div>
+    </a>
+    <a href="resultado.html?fac=filosofia" class="fac-card area-social" data-nombre="Filosofía Historia Letras Sociología Lingüística Educación">
+      <span class="fac-dot"></span>
+      <div class="fac-info"><div class="fac-t">Filosofía y Letras</div><div class="fac-sig">Literatura · Historia</div></div>
+      <div class="fac-right"><span class="fac-pts">865</span><span class="fac-pts-label">pts mín</span></div>
+    </a>
+    <a href="resultado.html?fac=trabajo_social" class="fac-card area-social" data-nombre="Trabajo Social Desarrollo Humano">
+      <span class="fac-dot"></span>
+      <div class="fac-info"><div class="fac-t">Trabajo Social y Desarrollo Humano</div><div class="fac-sig">Psicología · Probabilidad y Estadística</div></div>
+      <div class="fac-right"><span class="fac-pts">1,000</span><span class="fac-pts-label">pts mín</span></div>
+    </a>
+
+    <!-- ARTE Y DISEÑO -->
+    <a href="resultado.html?fac=arquitectura" class="fac-card area-arte" data-nombre="Arquitectura Diseño Industrial Urbanismo">
+      <span class="fac-dot"></span>
+      <div class="fac-info"><div class="fac-t">Arquitectura</div><div class="fac-sig">Aritmética · Historia</div></div>
+      <div class="fac-right"><span class="fac-pts">1,091</span><span class="fac-pts-label">pts mín</span></div>
+    </a>
+    <a href="resultado.html?fac=artes_visuales" class="fac-card area-arte" data-nombre="Artes Visuales Diseño Gráfico Audiovisual Contenidos">
+      <span class="fac-dot"></span>
+      <div class="fac-info"><div class="fac-t">Artes Visuales</div><div class="fac-sig">Filosofía · Historia</div></div>
+      <div class="fac-right"><span class="fac-pts">983</span><span class="fac-pts-label">pts mín</span></div>
+    </a>
+    <a href="resultado.html?fac=artes_escenicas" class="fac-card area-arte" data-nombre="Artes Escénicas Teatro Danza Teatral Contemporánea">
+      <span class="fac-dot"></span>
+      <div class="fac-info"><div class="fac-t">Artes Escénicas</div><div class="fac-sig">Filosofía · Historia</div></div>
+      <div class="fac-right"><span class="fac-pts">913</span><span class="fac-pts-label">pts mín</span></div>
+    </a>
+    <a href="resultado.html?fac=musica" class="fac-card area-arte" data-nombre="Música">
+      <span class="fac-dot"></span>
+      <div class="fac-info"><div class="fac-t">Música</div><div class="fac-sig">Administración · Historia</div></div>
+      <div class="fac-right"><span class="fac-pts">750</span><span class="fac-pts-label">pts mín</span></div>
+    </a>
+
+  </div>
+
+  <div class="no-results" id="noResults">
+    No encontramos esa facultad. Usa el botón de abajo para buscarla en la UANL.
+  </div>
+</main>
+
+<div class="ayuda">
+  <p>¿No encuentras tu facultad o no sabes a cuál pertenece tu carrera?</p>
+  <a href="https://www.uanl.mx/oferta-educativa/" target="_blank" rel="noopener" class="ayuda-btn">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    Ver oferta educativa en uanl.mx
+  </a>
+</div>
+
+<script>
+const input = document.getElementById('buscador');
+const cards = document.querySelectorAll('.fac-card');
+const noResults = document.getElementById('noResults');
+
+input.addEventListener('input', () => {
+  const q = input.value.toLowerCase().trim();
+  let visible = 0;
+  cards.forEach(c => {
+    const nombre = c.dataset.nombre.toLowerCase();
+    const sig = c.querySelector('.fac-sig').textContent.toLowerCase();
+    const match = nombre.includes(q) || sig.includes(q);
+    c.classList.toggle('hidden', !match);
+    if (match) visible++;
+  });
+  noResults.classList.toggle('show', visible === 0 && q.length > 0);
+});
+</script>
+
+</body>
+</html>

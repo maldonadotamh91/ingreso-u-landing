@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Diagnóstico — Ingreso U</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --am:#FFC000;
+  --az:#0049E3;
+  --an:#161C4D;
+  --bl:#FFFFFF;
+  --ts:#5A5F7A;
+}
+body{font-family:'Montserrat',sans-serif;background:var(--bl);min-height:100vh;display:flex;flex-direction:column}
+
+/* NAV */
+nav{background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-bottom:3px solid var(--am);padding:12px 28px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:100}
+.nl{font-family:'Oswald',sans-serif;font-size:21px;font-weight:700;color:var(--an);text-transform:uppercase;letter-spacing:.04em;text-decoration:none}
+.nl em{color:var(--am);font-style:normal}
+
+/* MAIN */
+main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 24px}
+
+.paso{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ts);margin-bottom:16px;text-align:center}
+
+h1{font-family:'Oswald',sans-serif;font-size:clamp(28px,5vw,52px);font-weight:700;text-transform:uppercase;color:var(--an);text-align:center;line-height:1.08;margin-bottom:12px}
+h1 em{color:var(--am);font-style:normal}
+
+.sub{font-size:15px;color:var(--ts);text-align:center;max-width:420px;line-height:1.65;margin-bottom:52px}
+
+/* OPTION CARDS */
+.opciones{display:flex;gap:20px;width:100%;max-width:680px}
+
+.opcion{flex:1;border:2px solid rgba(0,0,0,.08);border-radius:16px;padding:36px 28px;cursor:pointer;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:16px;transition:border-color .2s,transform .2s,box-shadow .2s;background:white}
+.opcion:hover{border-color:var(--az);transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,73,227,.12)}
+
+.op-icon{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.op-icon.prepa{background:rgba(255,192,0,.15)}
+.op-icon.facu{background:rgba(0,73,227,.1)}
+
+.op-label{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ts)}
+
+.op-t{font-family:'Oswald',sans-serif;font-size:26px;font-weight:700;text-transform:uppercase;color:var(--an);text-align:center;line-height:1.1}
+
+.op-d{font-size:12.5px;color:var(--ts);text-align:center;line-height:1.6}
+
+.op-btn{margin-top:8px;background:var(--an);color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;padding:12px 28px;border-radius:8px;border:none;cursor:pointer;width:100%;transition:background .2s}
+.opcion:hover .op-btn{background:var(--az)}
+
+@media(max-width:560px){
+  .opciones{flex-direction:column;max-width:360px}
+  h1{font-size:28px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="mockup-v2.html" class="nl">INGRESO <em>U</em></a>
+</nav>
+
+<main>
+  <p class="paso">Paso 1 de 3 · Diagnóstico gratuito</p>
+  <h1>Elige el examen<br>al que <em>aplicarás.</em></h1>
+  <p class="sub">Tu diagnóstico es personalizado según el tipo de examen. Elige tu ruta.</p>
+
+  <div class="opciones">
+
+    <!-- PREPARATORIA -->
+    <a href="#" class="opcion">
+      <div class="op-icon prepa">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FFC000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+          <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+        </svg>
+      </div>
+      <span class="op-label">Educación Media Superior</span>
+      <h2 class="op-t">Preparatoria</h2>
+      <p class="op-d">Examen de admisión a las preparatorias de la UANL (EXANI-I).</p>
+      <button class="op-btn">Elegir Preparatoria →</button>
+    </a>
+
+    <!-- FACULTAD -->
+    <a href="facultad.html" class="opcion">
+      <div class="op-icon facu">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0049E3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="7" width="20" height="14" rx="2"/>
+          <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+          <line x1="12" y1="12" x2="12" y2="16"/>
+          <line x1="10" y1="14" x2="14" y2="14"/>
+        </svg>
+      </div>
+      <span class="op-label">Educación Superior</span>
+      <h2 class="op-t">Facultad</h2>
+      <p class="op-d">Examen de admisión a licenciatura en facultades de la UANL (EXANI-II).</p>
+      <button class="op-btn">Elegir Facultad →</button>
+    </a>
+
+  </div>
+</main>
+
+</body>
+</html>
