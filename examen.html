@@ -203,7 +203,7 @@ const FACULTADES = {
 };
 
 // ── INIT ─────────────────────────────────────────────────────────────────────
-const params = new URLSearchParams(location.search);
+const params = new URLSearchParams(location.hash.slice(1));
 const facSlug = params.get('fac') || 'medicina';
 const fac = FACULTADES[facSlug] || FACULTADES.medicina;
 
