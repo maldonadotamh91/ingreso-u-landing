@@ -63,11 +63,31 @@ main{flex:1;max-width:720px;margin:0 auto;width:100%;padding:24px 16px 100px}
 .opt-btn:disabled{cursor:default}
 .opt-letter{font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:var(--ts);flex-shrink:0;min-width:16px}
 
-.opt-btn.selected{border-color:var(--az);background:#EEF2FF}
-.opt-btn.correct{border-color:var(--ok)!important;background:#F0FDF4!important}
-.opt-btn.correct .opt-letter{color:var(--ok)}
-.opt-btn.wrong{border-color:var(--err)!important;background:#FEF2F2!important}
-.opt-btn.wrong .opt-letter{color:var(--err)}
+.opt-btn.selected{border-color:var(--am);background:#FFFBEB;font-weight:600}
+.opt-btn.selected .opt-letter{color:var(--an)}
+
+/* ── RESULTS BAR ── */
+.res-score-card{background:white;border:1.5px solid var(--li);border-radius:14px;padding:28px 24px;text-align:center}
+.res-score-big{font-family:'Oswald',sans-serif;font-size:68px;font-weight:700;color:var(--am);line-height:1}
+.res-score-sub{font-size:12px;color:var(--ts);margin:4px 0 32px;letter-spacing:.04em}
+.res-bar-outer{position:relative;padding:36px 0 40px}
+.res-bar{height:10px;background:linear-gradient(90deg,#EF4444 0%,var(--am) 50%,#0049E3 100%);border-radius:5px;position:relative}
+.res-bar-tick{position:absolute;top:-4px;bottom:-4px;width:3px;border-radius:2px;transform:translateX(-50%)}
+.res-bar-tick.student{background:var(--am);border:1.5px solid var(--an)}
+.res-bar-tick.min-t{background:var(--an)}
+.res-bar-top-label{position:absolute;top:-36px;transform:translateX(-50%);text-align:center;white-space:nowrap}
+.res-bar-top-label .s{font-family:'Oswald',sans-serif;font-size:16px;font-weight:700;color:var(--am)}
+.res-bar-top-label .l{font-size:9px;color:var(--ts);text-transform:uppercase;letter-spacing:.06em}
+.res-bar-bot-label{position:absolute;top:14px;transform:translateX(-50%);text-align:center;white-space:nowrap}
+.res-bar-bot-label .s{font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:var(--an)}
+.res-bar-bot-label .l{font-size:9px;color:var(--ts);text-transform:uppercase;letter-spacing:.06em}
+.res-bar-edges{display:flex;justify-content:space-between;font-size:11px;color:var(--ts)}
+.res-phrase{font-size:17px;font-weight:700;color:var(--an);margin-top:20px;line-height:1.5;padding:16px;background:#F7F8FC;border-radius:10px}
+
+/* ── READING SAME ── */
+.reading-box.reading-same{background:#E8F0FE;border-color:#93C5FD}
+.reading-box details summary{font-size:12px;font-weight:700;color:var(--az);cursor:pointer;list-style:none;padding:4px 0}
+.reading-box details summary::-webkit-details-marker{display:none}
 
 /* ── FOOTER ── */
 .exam-footer{position:fixed;bottom:0;left:0;right:0;background:white;border-top:1px solid var(--li);padding:12px 20px;display:flex;align-items:center;gap:14px}
@@ -154,31 +174,31 @@ const MOD_KEY = {
 
 // ── FACULTY DATA ─────────────────────────────────────────────────────────────
 const FACULTADES = {
-  medicina:{nombre:"Medicina",modulos:["Biología","Ciencias de la Salud"]},
-  odontologia:{nombre:"Odontología",modulos:["Biología","Ciencias de la Salud"]},
-  psicologia:{nombre:"Psicología",modulos:["Psicología","Ciencias de la Salud"]},
-  enfermeria_uanl:{nombre:"Enfermería UANL",modulos:["Biología","Ciencias de la Salud"]},
-  enfermeria_imss:{nombre:"Enfermería IMSS",modulos:["Biología","Ciencias de la Salud"]},
-  nutricion:{nombre:"Salud Pública y Nutrición",modulos:["Química","Ciencias de la Salud"]},
-  veterinaria:{nombre:"Medicina Veterinaria y Zootecnia",modulos:["Aritmética","Biología"]},
-  deportiva:{nombre:"Organización Deportiva",modulos:["Biología","Ciencias de la Salud"]},
-  fime:{nombre:"Ing. Mecánica y Eléctrica",modulos:["Aritmética","Física"]},
-  civil:{nombre:"Ingeniería Civil",modulos:["Aritmética","Física"]},
-  fisico_mat:{nombre:"Ciencias Físico Matemáticas",modulos:["Aritmética","Probabilidad y Estadística"]},
-  ciencias_quimicas:{nombre:"Ciencias Químicas",modulos:["Aritmética","Química"]},
-  ciencias_biologicas:{nombre:"Ciencias Biológicas",modulos:["Química","Biología"]},
-  agronomia:{nombre:"Agronomía",modulos:["Biología","Química"]},
-  facpya:{nombre:"FACPYA",modulos:["Administración","Probabilidad y Estadística"]},
-  economia:{nombre:"Economía",modulos:["Administración","Probabilidad y Estadística"]},
-  comunicacion:{nombre:"Ciencias de la Comunicación",modulos:["Administración","Probabilidad y Estadística"]},
-  derecho:{nombre:"Derecho y Criminología",modulos:["Derecho","Historia"]},
-  ciencias_politicas:{nombre:"Ciencias Políticas y RR.II.",modulos:["Administración","Historia"]},
-  filosofia:{nombre:"Filosofía y Letras",modulos:["Literatura","Historia"]},
-  trabajo_social:{nombre:"Trabajo Social y Desarrollo Humano",modulos:["Psicología","Probabilidad y Estadística"]},
-  arquitectura:{nombre:"Arquitectura",modulos:["Aritmética","Historia"]},
-  artes_visuales:{nombre:"Artes Visuales",modulos:["Filosofía","Historia"]},
-  artes_escenicas:{nombre:"Artes Escénicas",modulos:["Filosofía","Historia"]},
-  musica:{nombre:"Música",modulos:["Administración","Historia"]}
+  medicina:         {nombre:"Medicina",                        modulos:["Biología","Ciencias de la Salud"],            minScore:1239},
+  odontologia:      {nombre:"Odontología",                     modulos:["Biología","Ciencias de la Salud"],            minScore:996},
+  psicologia:       {nombre:"Psicología",                      modulos:["Psicología","Ciencias de la Salud"],          minScore:1139},
+  enfermeria_uanl:  {nombre:"Enfermería UANL",                 modulos:["Biología","Ciencias de la Salud"],            minScore:974},
+  enfermeria_imss:  {nombre:"Enfermería IMSS",                 modulos:["Biología","Ciencias de la Salud"],            minScore:935},
+  nutricion:        {nombre:"Salud Pública y Nutrición",       modulos:["Química","Ciencias de la Salud"],             minScore:1000},
+  veterinaria:      {nombre:"Medicina Veterinaria y Zootecnia",modulos:["Aritmética","Biología"],                      minScore:1200},
+  deportiva:        {nombre:"Organización Deportiva",          modulos:["Biología","Ciencias de la Salud"],            minScore:861},
+  fime:             {nombre:"Ing. Mecánica y Eléctrica",       modulos:["Aritmética","Física"],                        minScore:1078},
+  civil:            {nombre:"Ingeniería Civil",                modulos:["Aritmética","Física"],                        minScore:1035},
+  fisico_mat:       {nombre:"Ciencias Físico Matemáticas",     modulos:["Aritmética","Probabilidad y Estadística"],    minScore:891},
+  ciencias_quimicas:{nombre:"Ciencias Químicas",               modulos:["Aritmética","Química"],                       minScore:1100},
+  ciencias_biologicas:{nombre:"Ciencias Biológicas",           modulos:["Química","Biología"],                         minScore:1100},
+  agronomia:        {nombre:"Agronomía",                       modulos:["Biología","Química"],                         minScore:861},
+  facpya:           {nombre:"FACPYA",                          modulos:["Administración","Probabilidad y Estadística"],minScore:1074},
+  economia:         {nombre:"Economía",                        modulos:["Administración","Probabilidad y Estadística"],minScore:1130},
+  comunicacion:     {nombre:"Ciencias de la Comunicación",     modulos:["Administración","Probabilidad y Estadística"],minScore:861},
+  derecho:          {nombre:"Derecho y Criminología",          modulos:["Derecho","Historia"],                         minScore:1100},
+  ciencias_politicas:{nombre:"Ciencias Políticas y RR.II.",    modulos:["Administración","Historia"],                  minScore:865},
+  filosofia:        {nombre:"Filosofía y Letras",              modulos:["Literatura","Historia"],                      minScore:865},
+  trabajo_social:   {nombre:"Trabajo Social y Desarrollo Humano",modulos:["Psicología","Probabilidad y Estadística"],  minScore:1000},
+  arquitectura:     {nombre:"Arquitectura",                    modulos:["Aritmética","Historia"],                      minScore:1091},
+  artes_visuales:   {nombre:"Artes Visuales",                  modulos:["Filosofía","Historia"],                       minScore:983},
+  artes_escenicas:  {nombre:"Artes Escénicas",                 modulos:["Filosofía","Historia"],                       minScore:913},
+  musica:           {nombre:"Música",                          modulos:["Administración","Historia"],                  minScore:750},
 };
 
 // ── INIT ─────────────────────────────────────────────────────────────────────
@@ -206,9 +226,10 @@ const TOTAL_Q = SECTIONS.reduce((s, sec) => s + (sec.key ? (EXAMEN[sec.key] || [
 document.title = `Diagnóstico ${fac.nombre} — Ingreso U`;
 
 // ── STATE ─────────────────────────────────────────────────────────────────────
-let secIdx = 0;        // current section index
-let qIdx   = 0;        // current question within section
-let answered = false;  // has current q been answered?
+let secIdx = 0;
+let qIdx   = 0;
+let selectedAnswer = null;
+let lastReading = null;
 let secScores = SECTIONS.map(() => ({correct:0, total:0}));
 let totalAnswered = 0;
 
@@ -236,7 +257,7 @@ function renderQuestion() {
 
   if(!q) { renderSectionTransition(); return; }
 
-  answered = false;
+  selectedAnswer = null;
   document.getElementById('nextBtn').disabled = true;
   document.getElementById('nextBtn').textContent = (qIdx < qs.length - 1) ? 'Siguiente →' : 'Finalizar sección →';
 
@@ -247,7 +268,12 @@ function renderQuestion() {
     </div>`;
 
   if(q.r) {
-    html += `<div class="reading-box"><div class="reading-label">📄 Lectura</div>${escHtml(q.r)}</div>`;
+    if(q.r !== lastReading) {
+      lastReading = q.r;
+      html += `<div class="reading-box"><div class="reading-label">Texto de lectura</div>${escHtml(q.r)}</div>`;
+    } else {
+      html += `<div class="reading-box reading-same"><div class="reading-label">Mismo texto de lectura</div><details><summary>Ver texto completo</summary><div style="margin-top:10px">${escHtml(q.r)}</div></details></div>`;
+    }
   }
 
   html += `<div class="q-card">
@@ -314,18 +340,28 @@ function renderResults() {
     totalCorr += sc.correct;
     totalTot  += sc.total;
     const pct = sc.total > 0 ? Math.round(sc.correct / sc.total * 100) : 0;
-    const barW = pct;
     return `<div class="results-row">
       <div class="results-row-label">${sec.label}</div>
-      <div class="results-row-bar"><div class="results-row-bar-fill" style="width:${barW}%"></div></div>
+      <div class="results-row-bar"><div class="results-row-bar-fill" style="width:${pct}%"></div></div>
       <div class="results-row-pct">${pct}%</div>
       <div class="results-row-score">${sc.correct}/${sc.total}</div>
     </div>`;
   }).join('');
 
-  const totalPct = totalTot > 0 ? Math.round(totalCorr / totalTot * 100) : 0;
+  // Score calculation: 700–1300 scale
+  const score = totalTot > 0 ? Math.round(700 + (totalCorr / totalTot) * 600) : 700;
+  const minScore = fac.minScore || 1000;
+  const diff = minScore - score;
+  const sPct = Math.min(100, Math.max(0, Math.round((score - 700) / 600 * 100)));
+  const mPct = Math.min(100, Math.max(0, Math.round((minScore - 700) / 600 * 100)));
 
-  const waMsg = encodeURIComponent(`Hola, acabo de completar mi diagnóstico para la Facultad de ${fac.nombre} y obtuve ${totalCorr}/${totalTot} (${totalPct}%). Me interesa recibir asesoría personalizada.`);
+  let phrase;
+  if(score >= minScore) phrase = '¡Lo lograste, vamos por más!!';
+  else if(diff <= 50)   phrase = '¡Estuviste cerca!! Te ayudaremos a superarlo.';
+  else                  phrase = '¿Quieres que te ayude a llegar a la meta?';
+
+  const ptsTxt = diff > 0 ? `Me faltan ${diff} puntos para el mínimo.` : 'Ya superé el puntaje mínimo.';
+  const waMsg = encodeURIComponent(`Hola, terminé mi diagnóstico para ${fac.nombre} (UANL) y obtuve ${score}/1300. El mínimo es ${fmt(minScore)}. ${ptsTxt} Me gustaría recibir asesoría.`);
 
   document.getElementById('mainArea').innerHTML = `
     <div class="results-screen">
@@ -333,18 +369,33 @@ function renderResults() {
         <h1>Diagnóstico <em>completado</em></h1>
         <p>${fac.nombre} · Facultad UANL</p>
       </div>
+
       <div class="results-card">
         ${rows}
-        <div class="results-row total-row">
-          <div class="results-row-label">Total</div>
-          <div class="results-row-bar"><div class="results-row-bar-fill" style="width:${totalPct}%"></div></div>
-          <div class="results-row-pct">${totalPct}%</div>
-          <div class="results-row-score">${totalCorr}/${totalTot}</div>
-        </div>
       </div>
-      <div class="results-cta">
-        <h2>¿Listo para <em>mejorar</em> tu puntaje?</h2>
-        <p>Nuestros asesores analizan tu resultado y diseñan un plan de estudio personalizado para que alcances el puntaje mínimo de ingreso.</p>
+
+      <div class="res-score-card">
+        <div class="res-score-big">${score}</div>
+        <div class="res-score-sub">puntaje estimado / 1,300</div>
+        <div class="res-bar-outer">
+          <div class="res-bar">
+            <div class="res-bar-top-label" style="left:${sPct}%">
+              <div class="s">${score}</div>
+              <div class="l">tu resultado</div>
+            </div>
+            <div class="res-bar-tick student" style="left:${sPct}%"></div>
+            <div class="res-bar-tick min-t" style="left:${mPct}%"></div>
+            <div class="res-bar-bot-label" style="left:${mPct}%">
+              <div class="s">${fmt(minScore)}</div>
+              <div class="l">mínimo</div>
+            </div>
+          </div>
+        </div>
+        <div class="res-bar-edges"><span>700</span><span>1,000</span><span>1,300</span></div>
+        <div class="res-phrase">${phrase}</div>
+      </div>
+
+      <div class="results-cta" style="text-align:center;padding:8px 0 20px">
         <a href="https://wa.me/528118201968?text=${waMsg}" target="_blank" rel="noopener" class="wa-btn">
           <svg width="18" height="18" viewBox="0 0 32 32" fill="white"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.738 5.47 2.028 7.773L0 32l8.473-2.009A15.937 15.937 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.278 13.278 0 01-6.802-1.868l-.487-.29-5.03 1.193 1.218-4.896-.318-.504A13.282 13.282 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.284-9.927c-.4-.2-2.364-1.165-2.73-1.299-.366-.133-.633-.2-.9.2-.266.4-1.033 1.299-1.265 1.565-.232.267-.465.3-.865.1-.4-.2-1.688-.622-3.215-1.983-1.188-1.06-1.99-2.37-2.223-2.77-.232-.4-.025-.616.175-.816.18-.18.4-.466.6-.7.199-.232.265-.4.398-.665.133-.267.067-.5-.033-.7-.1-.2-.9-2.167-1.233-2.966-.324-.78-.653-.674-.9-.686l-.765-.013c-.267 0-.7.1-1.067.5s-1.4 1.367-1.4 3.333 1.433 3.867 1.633 4.133c.2.267 2.82 4.3 6.832 6.033.954.413 1.7.66 2.28.844.958.305 1.83.262 2.52.159.769-.114 2.364-.966 2.698-1.9.332-.933.332-1.733.232-1.9-.099-.166-.365-.266-.765-.466z"/></svg>
           Hablar con un asesor
@@ -355,34 +406,24 @@ function renderResults() {
 
 // ── INTERACTIONS ──────────────────────────────────────────────────────────────
 function selectAnswer(letter) {
-  if(answered) return;
-  answered = true;
-
-  const sec = SECTIONS[secIdx];
-  const qs  = EXAMEN[sec.key] || [];
-  const q   = qs[qIdx];
-
-  const isCorrect = letter === q.c;
-  if(isCorrect) secScores[secIdx].correct++;
-  secScores[secIdx].total++;
-  totalAnswered++;
-
-  // Update button styles
+  selectedAnswer = letter;
   document.querySelectorAll('.opt-btn').forEach(btn => {
-    btn.disabled = true;
-    const l = btn.dataset.letter;
-    if(l === q.c)   btn.classList.add('correct');
-    if(l === letter && letter !== q.c) btn.classList.add('wrong');
+    btn.classList.toggle('selected', btn.dataset.letter === letter);
   });
-
   document.getElementById('nextBtn').disabled = false;
-  renderProgress();
 }
 
 function handleNext() {
-  if(!answered) return;
+  if(selectedAnswer === null) return;
   const sec = SECTIONS[secIdx];
-  const qs  = sec.key ? (EXAMEN[sec.key] || []) : [];
+  const qs  = EXAMEN[sec.key] || [];
+  const q   = qs[qIdx];
+  if(q) {
+    if(selectedAnswer === q.c) secScores[secIdx].correct++;
+    secScores[secIdx].total++;
+    totalAnswered++;
+  }
+  selectedAnswer = null;
   qIdx++;
   if(qIdx >= qs.length) {
     renderSectionTransition();
@@ -394,6 +435,7 @@ function handleNext() {
 function advanceSection() {
   secIdx++;
   qIdx = 0;
+  lastReading = null;
   if(secIdx >= SECTIONS.length) {
     renderResults();
     return;
@@ -405,6 +447,8 @@ function advanceSection() {
     renderQuestion();
   }
 }
+
+function fmt(n){return n.toLocaleString('es-MX')}
 
 function escHtml(s) {
   return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
