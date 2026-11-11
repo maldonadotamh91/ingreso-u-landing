@@ -24,10 +24,16 @@ body{font-family:'Montserrat',sans-serif;color:var(--ti);background:var(--bl);ov
 .mbadge{position:fixed;top:14px;right:14px;z-index:200;background:var(--an);color:white;font-size:10px;font-weight:800;letter-spacing:.12em;padding:6px 14px;border-radius:20px;text-transform:uppercase}
 
 /* NAV */
-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-bottom:3px solid var(--am);padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
-.nl{font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;color:var(--an);text-transform:uppercase;letter-spacing:.04em}
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-bottom:3px solid var(--am);padding:12px 20px;display:flex;align-items:center;gap:16px}
+.nl{font-family:'Oswald',sans-serif;font-size:21px;font-weight:700;color:var(--an);text-transform:uppercase;letter-spacing:.04em;text-decoration:none;flex-shrink:0}
 .nl em{color:var(--am);font-style:normal}
+.nav-links{list-style:none;display:flex;align-items:center;gap:0;margin:0;padding:0;flex:1}
+.nav-links a{font-family:'Montserrat',sans-serif;font-size:12.5px;font-weight:600;color:var(--an);text-decoration:none;padding:6px 10px;border-radius:6px;transition:background .15s,color .15s;white-space:nowrap}
+.nav-links a:hover{background:rgba(0,73,227,.08);color:var(--az)}
+.nav-wa{display:inline-flex;align-items:center;gap:7px;background:#25D366;color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;padding:8px 16px;border-radius:50px;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background .2s}
+.nav-wa:hover{background:#1ebe59}
 .nb{background:var(--az);color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;padding:10px 20px;border:none;border-radius:8px;cursor:pointer}
+@media(max-width:500px){.nav-links{display:none}.nav-wa span{display:none}.nav-wa{padding:9px 12px}}
 
 /* Contenedor */
 .c{width:100%;max-width:1080px;margin:0 auto;padding:0 24px}
@@ -107,23 +113,42 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-
 .inicio-cierre{text-align:center;margin-top:40px;font-size:18px;font-weight:800;color:var(--an);max-width:560px;margin-left:auto;margin-right:auto}
 .inicio-cierre em{color:var(--az);font-style:normal}
 
+/* Para el viaje — sección amarilla */
+.viaje{padding:64px 0 80px;background:var(--am)}
+.viaje .necesita-titulo{color:var(--an)}
+.viaje .nc{background:var(--az);border-color:transparent}
+.viaje .nc-ic{background:rgba(255,255,255,.18)}
+.viaje .nc-ic svg{stroke:white}
+.viaje .nc-tx{color:white}
+.viaje .nc-tx small{color:rgba(255,255,255,.65)}
+.viaje .inicio-cierre{color:var(--an)}
+.viaje .inicio-cierre em{color:var(--az)}
+
 /* ══════════ 03 — HERRAMIENTAS (Kit de navegación) ══════════ */
-.tools{padding:80px 0;background:var(--am)}
-.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:1080px;margin:0 auto}
-.tc{background:var(--bl);border-radius:14px;padding:28px 22px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden}
-.tc::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--az)}
-.tc-badge{display:inline-block;background:rgba(0,73,227,.1);color:var(--az);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:20px;align-self:flex-start}
+.tools{padding:80px 0;background:var(--bl)}
+.tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1080px;margin:0 auto}
+@media(max-width:700px){.tools-grid{grid-template-columns:1fr}}
+.tc{background:var(--am);border-radius:14px;padding:28px 22px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden}
+.tc::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--an)}
+.tc-badge{display:inline-block;background:rgba(22,28,77,.12);color:var(--an);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:20px;align-self:flex-start}
 .tc-ic{flex-shrink:0}
 .tc-t{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;text-transform:uppercase;color:var(--an)}
-.tc-d{font-size:13px;color:var(--ts);line-height:1.6;flex:1}
-.tc-btn{background:var(--az);color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;padding:12px;border:none;border-radius:8px;cursor:pointer;text-align:center}
+.tc-d{font-size:13px;color:rgba(22,28,77,.65);line-height:1.6;flex:1}
+.tc-btn{background:var(--an);color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;padding:12px;border:none;border-radius:8px;cursor:pointer;text-align:center}
 
-/* ══════════ 04 — CITA IMPACTO ══════════ */
-.cita{padding:80px 24px;background:var(--an);text-align:center}
-.cita-label{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--am);margin-bottom:24px}
-.cita-q{font-family:'Oswald',sans-serif;font-size:clamp(22px,3.5vw,38px);font-weight:700;text-transform:uppercase;max-width:760px;margin:0 auto 20px;line-height:1.2;color:white}
-.cita-q em{color:var(--am);font-style:normal}
-.cita-a{font-size:14px;color:rgba(255,255,255,.6)}
+/* ══════════ 04 — CASOS DE ÉXITO ══════════ */
+.cita{padding:80px 0;background:var(--am)}
+.cita-titulo{text-align:center;margin-bottom:48px;padding:0 24px}
+.cita-label{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--an);opacity:.6;display:block;margin-bottom:16px}
+.cita-h{font-family:'Oswald',sans-serif;font-size:clamp(26px,3.5vw,42px);font-weight:700;text-transform:uppercase;color:var(--an);margin:0;line-height:1.1}
+.cita-h em{color:var(--az);font-style:normal}
+.exito-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1080px;margin:0 auto;padding:0 24px}
+.ex-card{background:white;border:1px solid rgba(0,0,0,.09);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:12px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.ex-q{font-size:14px;color:var(--an);line-height:1.7;flex:1;font-style:italic}
+.ex-sep{height:1px;background:rgba(255,192,0,.5)}
+.ex-name{font-size:12px;font-weight:700;color:var(--az);letter-spacing:.04em;text-transform:uppercase}
+.ex-esc{font-size:11px;color:rgba(0,0,0,.4);margin-top:3px}
+@media(max-width:700px){.exito-grid{grid-template-columns:1fr}}
 
 /* ══════════ 05 — EL GUÍA / LA BRÚJULA ══════════ */
 .guia{padding:80px 0;background:var(--bl)}
@@ -154,18 +179,53 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-
 .tc2-badge{display:inline-block;background:rgba(255,192,0,.2);color:var(--an);font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:20px}
 .tc2-name{font-weight:700;font-size:14px;color:var(--an)}
 
+/* ══════════ 07 — METODOLOGÍA (ESCALONES) ══════════ */
+.metodo{padding:80px 0 0;background:var(--bl)}
+.metodo .sn{color:rgba(22,28,77,.4);text-align:center}
+.metodo .st{color:var(--an);text-align:center}
+.metodo .st em{color:var(--am);font-style:normal}
+.stairs{display:flex;align-items:flex-end;justify-content:center;gap:10px;max-width:1080px;margin:56px auto 0;padding:0 24px}
+.stair{flex:1;border-radius:14px 14px 0 0;padding:28px 20px 36px;display:flex;flex-direction:column;gap:10px;position:relative;transform:translateY(120px);opacity:0;transition:transform .9s cubic-bezier(.22,1,.36,1),opacity .7s ease}
+.stair.on{transform:translateY(0);opacity:1}
+.stair:nth-child(1){min-height:200px;background:rgba(255,192,0,.1);border:1.5px solid rgba(255,192,0,.35);border-bottom:none;transition-delay:.0s}
+.stair:nth-child(2){min-height:280px;background:rgba(0,73,227,.08);border:1.5px solid rgba(0,73,227,.25);border-bottom:none;transition-delay:.18s}
+.stair:nth-child(3){min-height:360px;background:rgba(139,92,246,.08);border:1.5px solid rgba(139,92,246,.25);border-bottom:none;transition-delay:.36s}
+.stair:nth-child(4){min-height:440px;background:var(--am);border:none;border-bottom:none;transition-delay:.56s;align-items:center;text-align:center;overflow:visible}
+.stair::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;border-radius:14px 14px 0 0}
+.stair:nth-child(1)::before{background:var(--am)}
+.stair:nth-child(2)::before{background:var(--az)}
+.stair:nth-child(3)::before{background:#8B5CF6}
+.stair:nth-child(4)::before{display:none}
+.stair-ic{margin-bottom:4px}
+.stair-t{font-family:'Oswald',sans-serif;font-size:17px;font-weight:700;text-transform:uppercase;color:var(--an);line-height:1.2}
+.stair:nth-child(4) .stair-t{color:var(--an);font-size:24px}
+.stair-d{font-size:12px;color:var(--ts);line-height:1.65}
+.stair:nth-child(4) .stair-d{color:rgba(22,28,77,.65)}
+.meta-tag{display:inline-block;margin-top:10px;background:var(--an);color:white;font-family:'Oswald',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 16px;border-radius:20px}
+.meta-monito{position:absolute;top:-96px;left:50%;transform:translateX(-50%);animation:monito-bounce .9s ease-in-out infinite alternate;z-index:2}
+@keyframes monito-bounce{0%{transform:translateY(0) translateX(-50%)}100%{transform:translateY(-8px) translateX(-50%)}}
+@media(max-width:700px){.stairs{flex-direction:column;align-items:stretch;gap:12px}.stair{min-height:unset!important;border-radius:12px;border-bottom:1px solid rgba(0,0,0,.06)!important}.stair::before{border-radius:12px 12px 0 0}}
+
 /* ══════════ 08 — INVERSIÓN ══════════ */
-.inv{padding:80px 0;background:var(--am)}
-.roi-note{text-align:center;font-size:15px;color:var(--ti);max-width:520px;margin:0 auto 40px;background:rgba(255,255,255,.5);padding:16px 24px;border-radius:8px;font-weight:600}
-.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;max-width:720px;margin:0 auto}
-.pc{background:var(--bl);border-radius:14px;padding:30px 24px;display:flex;flex-direction:column;gap:14px;border:2px solid transparent}
-.pc--d{border-color:var(--az);position:relative}
-.pc--d::before{content:'MÁS ELEGIDO';position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--az);color:white;font-size:10px;font-weight:800;letter-spacing:.1em;padding:4px 16px;border-radius:20px;white-space:nowrap}
-.pc-t{font-family:'Oswald',sans-serif;font-size:21px;font-weight:700;text-transform:uppercase;color:var(--an)}
-.pc-m{font-family:'Oswald',sans-serif;font-size:50px;font-weight:700;color:var(--az);line-height:1}
-.pc-m span{font-size:16px;color:var(--ts);font-family:'Montserrat',sans-serif}
-.pc-d{font-size:13px;color:var(--ts);line-height:1.55}
-.pc-btn{background:var(--az);color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;padding:13px;border:none;border-radius:8px;cursor:pointer;margin-top:auto}
+.inv{padding:80px 0;background:var(--an)}
+.inv .sn{color:rgba(255,255,255,.55)}
+.inv .st{color:white}
+.inv .st em{color:var(--am);font-style:normal}
+.inv-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:800px;margin:0 auto 48px;padding:0 24px}
+.inv-card{background:white;border:1.5px solid rgba(0,0,0,.08);border-radius:14px;padding:28px 24px;box-shadow:0 2px 14px rgba(0,0,0,.05)}
+.inv-card-label{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--az);margin-bottom:6px}
+.inv-card-t{font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;text-transform:uppercase;color:var(--an);margin:0 0 10px}
+.inv-card-d{font-size:13px;color:var(--ts);line-height:1.6;margin-bottom:20px}
+.inv-prices{display:flex;gap:10px}
+.inv-price-pill{flex:1;background:var(--am);border-radius:10px;padding:12px 8px;text-align:center}
+.inv-price-mode{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--an);margin-bottom:4px}
+.inv-price-num{font-family:'Oswald',sans-serif;font-size:24px;font-weight:700;color:var(--an);line-height:1}
+.inv-price-num span{font-size:11px;color:rgba(22,28,77,.6);font-family:'Montserrat',sans-serif}
+.wa-cta{text-align:center;margin-top:0;padding:0 24px}
+.wa-btn{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;padding:14px 36px;border-radius:50px;text-decoration:none;transition:background .2s}
+.wa-btn:hover{background:#1ebe59}
+.wa-btn svg{flex-shrink:0}
+@media(max-width:600px){.inv-cards{grid-template-columns:1fr}}
 
 /* ══════════ 09 — CIERRE ══════════ */
 .cierre{padding:100px 24px;background:var(--an);text-align:center;position:relative;overflow:hidden}
@@ -200,12 +260,21 @@ footer{background:var(--bl);border-top:3px solid var(--am);padding:40px 24px;tex
 
 <!-- NAV -->
 <nav>
-  <div class="nl">INGRESO <em>U</em></div>
-  <button class="nb">Diagnóstico gratis</button>
+  <a href="#sec-inicio" class="nl">INGRESO <em>U</em></a>
+  <ul class="nav-links">
+    <li><a href="#sec-inicio">Inicio</a></li>
+    <li><a href="#sec-quienes">Quiénes somos</a></li>
+    <li><a href="#sec-cursos">Cursos</a></li>
+    <li><a href="#sec-sucursales">Sucursales</a></li>
+  </ul>
+  <a href="https://wa.me/528118201968" class="nav-wa" target="_blank" rel="noopener">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.561 4.14 1.535 5.874L.057 23.012a.75.75 0 0 0 .93.93l5.138-1.478A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.653-.516-5.17-1.413l-.37-.219-3.834 1.103 1.103-3.834-.22-.37A9.958 9.958 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    <span>WhatsApp</span>
+  </a>
 </nav>
 
 <!-- ══ 01 · HERO — El sueño ══ -->
-<section class="hero">
+<section class="hero" id="sec-inicio">
 
   <!-- Brújula decorativa -->
   <div class="compass">
@@ -331,7 +400,7 @@ footer{background:var(--bl);border-top:3px solid var(--am);padding:40px 24px;tex
 </section>
 
 <!-- ══ 02 · ASÍ EMPIEZA TU HISTORIA ══ -->
-<section class="inicio">
+<section class="inicio" id="sec-quienes">
   <div class="c">
     <div class="sh r">
       <p class="sn">02 · Así empieza toda gran historia</p>
@@ -374,32 +443,37 @@ footer{background:var(--bl);border-top:3px solid var(--am);padding:40px 24px;tex
       </div>
     </div>
 
-    <!-- Lo que necesitas para el viaje -->
+  </div>
+</section>
+
+<!-- ══ 02b · PARA EL VIAJE ══ -->
+<section class="viaje">
+  <div class="c">
     <h3 class="necesita-titulo r">Para el viaje, necesitas</h3>
     <div class="necesita-grid">
       <div class="nc r d1">
         <div class="nc-ic">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#161C4D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#161C4D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
         </div>
-        <div class="nc-tx">Un mapa claro de temas<small>Saber qué entra al examen y cómo priorizarlo</small></div>
+        <div class="nc-tx">Un mapa claro de los temas<small>Saber y dominar el contenido del examen de admisión</small></div>
       </div>
       <div class="nc r d2">
         <div class="nc-ic">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#161C4D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         </div>
-        <div class="nc-tx">Un plan semana a semana<small>Aprovechar cada día disponible antes del examen</small></div>
+        <div class="nc-tx">Seguimiento semana tras semana<small>Lo que no se mide, no mejora</small></div>
       </div>
       <div class="nc r d3">
         <div class="nc-ic">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#161C4D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
         </div>
-        <div class="nc-tx">Un guía que ya conoce el camino<small>Maestros universitarios que saben qué entra</small></div>
+        <div class="nc-tx">Un guía que ya conoce el camino<small>Docentes de la UANL expertos en las materias que imparten</small></div>
       </div>
       <div class="nc r d1">
         <div class="nc-ic">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#161C4D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
         </div>
-        <div class="nc-tx">Un puntaje objetivo claro<small>Saber exactamente cuánto necesitas para tu carrera</small></div>
+        <div class="nc-tx">Un puntaje objetivo claro<small>Tener noción del puntaje mínimo requerido</small></div>
       </div>
       <div class="nc r d2">
         <div class="nc-ic">
@@ -411,7 +485,7 @@ footer{background:var(--bl);border-top:3px solid var(--am);padding:40px 24px;tex
         <div class="nc-ic">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#161C4D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
-        <div class="nc-tx">Confianza para el día del examen<small>Llegar sabiendo que hiciste todo lo necesario</small></div>
+        <div class="nc-tx">Confianza para el día del examen<small>Técnicas para controlar las emociones al momento de presentar</small></div>
       </div>
     </div>
     <p class="inicio-cierre r">Ingreso U tiene todo eso. <em>Y tú ya tienes el sueño.</em></p>
@@ -428,183 +502,217 @@ footer{background:var(--bl);border-top:3px solid var(--am);padding:40px 24px;tex
     </div>
     <div class="tools-grid">
       <div class="tc r d1">
-        <div class="tc-badge">Gratis · 5 min</div>
+        <div class="tc-badge">Tómate tu tiempo</div>
         <div class="tc-ic">
           <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#0049E3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
         </div>
         <h3 class="tc-t">Diagnóstico de nivel</h3>
-        <p class="tc-d">Descubre tu nivel actual por área y ve exactamente a cuántos puntos estás de tu carrera objetivo. Tu punto de partida real.</p>
+        <p class="tc-d">Descubre tu nivel actual por área y ve exactamente a cuántos puntos estás de tu escuela objetivo. Tu punto de partida real.</p>
         <button class="tc-btn">Hacer el diagnóstico →</button>
       </div>
       <div class="tc r d2">
-        <div class="tc-badge">Gratis · Actualizado</div>
+        <div class="tc-badge">Investiga</div>
         <div class="tc-ic">
           <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#0049E3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
         </div>
-        <h3 class="tc-t">Puntajes por carrera</h3>
-        <p class="tc-d">Busca tu carrera y conoce el puntaje mínimo histórico para ingresar. Saber tu destino exacto lo cambia todo.</p>
-        <button class="tc-btn">Ver mi carrera →</button>
+        <h3 class="tc-t">Puntajes por escuela</h3>
+        <p class="tc-d">Busca tu escuela y conoce el puntaje mínimo para ingresar. Saber tu destino exacto lo cambia todo.</p>
+        <button class="tc-btn">Ver puntajes →</button>
       </div>
       <div class="tc r d3">
-        <div class="tc-badge">Gratis · 3 min</div>
+        <div class="tc-badge">IA · Personalizado</div>
         <div class="tc-ic">
-          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#0049E3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <h3 class="tc-t">Orientación vocacional</h3>
-        <p class="tc-d">¿Ya sabes a dónde vas? Si aún no estás seguro, 10 preguntas rápidas te muestran qué carreras van mejor contigo.</p>
-        <button class="tc-btn">Encontrar mi carrera →</button>
-      </div>
-      <div class="tc r d1">
-        <div class="tc-badge">Gratis · Personalizado</div>
-        <div class="tc-ic">
-          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#0049E3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#0049E3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/></svg>
         </div>
         <h3 class="tc-t">Plan de estudio</h3>
-        <p class="tc-d">Dinos cuántos días tienes y te generamos un plan semana por semana. Tu ruta personalizada, lista para seguir.</p>
-        <button class="tc-btn">Crear mi plan →</button>
-      </div>
-      <div class="tc r d2">
-        <div class="tc-badge">Gratis · 100 preguntas</div>
-        <div class="tc-ic">
-          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#0049E3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
-        <h3 class="tc-t">Simulador de examen</h3>
-        <p class="tc-d">Practica con preguntas del mismo estilo que el UANL. Calcula tu puntaje estimado y llega al examen real sin sorpresas.</p>
-        <button class="tc-btn">Simular el examen →</button>
+        <p class="tc-d">Con base en tu nivel, tu escuela objetivo y el tiempo disponible, generamos tu plan semana a semana. Inteligencia artificial al servicio de tu ingreso.</p>
+        <button class="tc-btn">Generar mi plan →</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ 04 · CITA IMPACTO ══ -->
+<!-- ══ 04 · CASOS DE ÉXITO ══ -->
 <section class="cita">
-  <p class="cita-label r">La historia de un héroe que ya llegó</p>
-  <blockquote class="cita-q r d1">
-    "Reprobé la primera vez. Me sentí la peor del mundo.
-    Con Ingreso U no solo entré a <em>Medicina</em> —
-    entré con 15 puntos arriba del mínimo."
-  </blockquote>
-  <p class="cita-a r d2">— Andrea G., Facultad de Medicina UANL · Generación 2024</p>
-</section>
-
-<!-- ══ 05 · LA BRÚJULA — Ingreso U ══ -->
-<section class="guia">
-  <div class="c">
-    <div class="guia__intro r">
-      <p class="sn" style="text-align:center">05 · El guía — nosotros no somos el héroe</p>
-      <h2 class="st">Una brújula no camina por ti.<br>Te muestra el norte.</h2>
-      <p class="guia__frase">Te acompaña en el camino. Te da las herramientas. Y te celebra cuando llegas. <em>Eso es Ingreso U.</em></p>
+  <div class="cita-titulo r">
+    <span class="cita-label">04 · Casos de éxito</span>
+    <h2 class="cita-h">Ellos ya llegaron.<br><em>Tú puedes ser el siguiente.</em></h2>
+  </div>
+  <div class="exito-grid">
+    <div class="ex-card r d1">
+      <p class="ex-q">"Sin duda, no pude encontrar mejores asesorías. Mil gracias — desde el día uno le comentaba a mis papás que me gustaron mucho. Excelente trabajo."</p>
+      <div class="ex-sep"></div>
+      <div>
+        <div class="ex-name">Karen Arely R.</div>
+        <div class="ex-esc">Lic. en Derecho · Fac. de Derecho y Criminología</div>
+      </div>
     </div>
-    <div class="stats-row">
-      <div class="scard r d1">
-        <span class="scard-num" data-pre="+" data-to="6300">0</span>
-        <span class="scard-lab">Alumnos que llegaron</span>
+    <div class="ex-card r d2">
+      <p class="ex-q">"Muchas gracias por todas las asesorías. Todo muy completo y muy buenas las maestras. ¡Quedé en la facultad que tanto deseaba!"</p>
+      <div class="ex-sep"></div>
+      <div>
+        <div class="ex-name">Sayuri C.</div>
+        <div class="ex-esc">Ingeniería Civil · Fac. de Ingeniería Civil</div>
       </div>
-      <div class="scard r d2">
-        <span class="scard-num" data-pre="+" data-to="10">0</span>
-        <span class="scard-lab">Años en el mercado</span>
+    </div>
+    <div class="ex-card r d3">
+      <p class="ex-q">"Hoy recibí los resultados de mi examen: soy aceptada en la Facultad de Artes Visuales. Muchas gracias por el apoyo a lo largo del curso."</p>
+      <div class="ex-sep"></div>
+      <div>
+        <div class="ex-name">Andrea Michelle R.</div>
+        <div class="ex-esc">Diseño Gráfico · Fac. de Artes Visuales</div>
       </div>
-      <div class="scard r d3">
-        <span class="scard-num" data-pre="+" data-to="92" data-suf="%">0</span>
-        <span class="scard-lab">Ingresan a la primera</span>
+    </div>
+    <div class="ex-card r d1">
+      <p class="ex-q">"Gracias a ustedes obtuve este resultado. De verdad muchas gracias por la oportunidad que me dieron para estudiar."</p>
+      <div class="ex-sep"></div>
+      <div>
+        <div class="ex-name">Alexa Tavares S.</div>
+        <div class="ex-esc">Med. Veterinaria y Zootecnia · FMVZ UANL</div>
       </div>
-      <div class="scard r d4">
-        <span class="scard-num">100%</span>
-        <span class="scard-lab">Maestros universitarios</span>
+    </div>
+    <div class="ex-card r d2">
+      <p class="ex-q">"Quería agradecerle por su apoyo y asesoría sobre el examen. ¡Muchas gracias! — ¡Aceptado!"</p>
+      <div class="ex-sep"></div>
+      <div>
+        <div class="ex-name">Edgar H.</div>
+        <div class="ex-esc">Criminología · Fac. de Derecho y Criminología</div>
+      </div>
+    </div>
+    <div class="ex-card r d3">
+      <p class="ex-q">"Excelentes asesorías. Buen plan de estudios, excelentes profesores, atentos al estudiante, resolviendo dudas y motivándolos. ¡Mi nieta pasó para FACPYA!"</p>
+      <div class="ex-sep"></div>
+      <div>
+        <div class="ex-name">María Elena D.</div>
+        <div class="ex-esc">Abuela de alumna aceptada · FACPYA UANL</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ 06 · EL CAMINO — Cómo funciona ══ -->
-<section class="como">
+
+<!-- ══ 07 · METODOLOGÍA ══ -->
+<section class="metodo">
   <div class="c">
     <div class="sh r">
-      <p class="sn">06 · El camino — simple, claro, probado</p>
-      <h2 class="st">Tu ruta al ingreso</h2>
-    </div>
-    <div class="timeline">
-      <div class="tp r d1">
-        <div class="tp-num">1</div>
-        <div>
-          <p class="tp-t">Conoces tu punto de partida</p>
-          <p class="tp-d">El diagnóstico gratuito te dice exactamente dónde estás. Sin adivinar. Con datos reales que te dicen por dónde comenzar.</p>
-        </div>
-      </div>
-      <div class="tp r d2">
-        <div class="tp-num">2</div>
-        <div>
-          <p class="tp-t">Trazamos tu ruta</p>
-          <p class="tp-d">Diseñamos tu plan según tu carrera objetivo, tu nivel actual y el tiempo que tienes. No es un curso genérico. Es tu camino.</p>
-        </div>
-      </div>
-      <div class="tp r d3">
-        <div class="tp-num">3</div>
-        <div>
-          <p class="tp-t">Avanzas con guía experta</p>
-          <p class="tp-d">Clases con maestros universitarios, material específico por carrera y simulacros para que el día del examen no llegues a improvisar.</p>
-        </div>
-      </div>
-      <div class="tp r d4">
-        <div class="tp-num">4</div>
-        <div>
-          <p class="tp-t">Llegas a tu destino</p>
-          <p class="tp-d">El día del examen llegas preparado, con estrategia y con la certeza de que hiciste todo lo que estaba en tus manos. Ese es el plan. Eso es lo que pasa.</p>
-        </div>
-      </div>
+      <p class="sn">07 · Nuestra metodología</p>
+      <h2 class="st">Así atacamos<br><em>el examen.</em></h2>
     </div>
   </div>
-</section>
+  <div class="stairs">
 
-<!-- ══ 07 · ELLOS YA LLEGARON — Testimonios ══ -->
-<section class="testi">
-  <div class="c">
-    <div class="sh r">
-      <p class="sn">07 · Ellos ya llegaron</p>
-      <h2 class="st">Sus historias. Tu camino.</h2>
+    <div class="stair r d1">
+      <div class="stair-ic">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFC000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+      </div>
+      <h3 class="stair-t">Conocimiento del examen</h3>
+      <p class="stair-d">Clases con maestros de la UANL, expertos en las materias que presentas.</p>
     </div>
-    <div class="tgrid">
-      <div class="tc2 r d1">
-        <p class="tc2-q">Lo que más me ayudó fue saber exactamente qué puntaje necesitaba para Psicología. Estudié con un objetivo claro y entré con 10 puntos arriba del mínimo. Nunca pensé que fuera posible.</p>
-        <span class="tc2-badge">Psicología · UANL</span>
-        <p class="tc2-name">Daniela R., 18 años</p>
+
+    <div class="stair r d2">
+      <div class="stair-ic">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0049E3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
       </div>
-      <div class="tc2 r d2">
-        <p class="tc2-q">Mi hijo me decía que no le iba a alcanzar el tiempo. Con el plan de estudio de Ingreso U supo exactamente qué estudiar cada semana. Entró a Mecatrónica en FIME. Fue el mejor dinero que invertimos.</p>
-        <span class="tc2-badge">Ing. Mecatrónica · FIME · UANL</span>
-        <p class="tc2-name">Papá de Rodrigo, 17 años</p>
-      </div>
-      <div class="tc2 r d3">
-        <p class="tc2-q">Venía de una prepa donde no nos preparaban bien para el examen. En dos semanas con Ingreso U entendí lo que no aprendí en años. Entré a la Prepa 3 en mi primer intento.</p>
-        <span class="tc2-badge">Preparatoria #3 · UANL</span>
-        <p class="tc2-name">Carlos M., 15 años</p>
-      </div>
+      <h3 class="stair-t">Indicadores de avance</h3>
+      <p class="stair-d">Plataforma, exámenes parciales y simulacros reales del examen.</p>
     </div>
+
+    <div class="stair r d3">
+      <div class="stair-ic">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <h3 class="stair-t">Manejo de emociones</h3>
+      <p class="stair-d">Sesiones con nuestra psicóloga: técnicas de manejo de nervios y estrés.</p>
+    </div>
+
+    <div class="stair r d4">
+      <div class="meta-monito">
+        <svg width="64" height="90" viewBox="0 0 64 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Graduation cap — outline -->
+          <rect x="20" y="6" width="24" height="5" rx="2" fill="none" stroke="#161C4D" stroke-width="2"/>
+          <polygon points="32,2 44,8 32,14 20,8" fill="none" stroke="#161C4D" stroke-width="2" stroke-linejoin="round"/>
+          <line x1="44" y1="8" x2="44" y2="16" stroke="#161C4D" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="44" cy="17" r="2" fill="none" stroke="#161C4D" stroke-width="1.5"/>
+          <!-- Head — outline -->
+          <circle cx="32" cy="26" r="10" fill="none" stroke="#161C4D" stroke-width="2.5"/>
+          <!-- Eyes — small dots -->
+          <circle cx="28.5" cy="24.5" r="1.5" fill="#161C4D"/>
+          <circle cx="35.5" cy="24.5" r="1.5" fill="#161C4D"/>
+          <!-- Smile -->
+          <path d="M27.5 29 Q32 33.5 36.5 29" stroke="#161C4D" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <!-- Body -->
+          <line x1="32" y1="36" x2="32" y2="60" stroke="#161C4D" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Left arm raised -->
+          <line x1="32" y1="43" x2="14" y2="29" stroke="#161C4D" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Right arm raised -->
+          <line x1="32" y1="43" x2="50" y2="29" stroke="#161C4D" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Left leg -->
+          <line x1="32" y1="60" x2="20" y2="78" stroke="#161C4D" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Right leg -->
+          <line x1="32" y1="60" x2="44" y2="78" stroke="#161C4D" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Stars -->
+          <text x="4" y="20" font-size="10" fill="#161C4D" font-family="serif">✦</text>
+          <text x="50" y="17" font-size="8" fill="rgba(22,28,77,.5)" font-family="serif">✦</text>
+        </svg>
+      </div>
+      <h3 class="stair-t">¡Ingresaste!</h3>
+      <p class="stair-d">A la UANL</p>
+      <span class="meta-tag">¡Lo lograste!</span>
+    </div>
+
   </div>
 </section>
 
 <!-- ══ 08 · LA INVERSIÓN ══ -->
-<section class="inv">
+<section class="inv" id="sec-cursos">
   <div class="c">
     <div class="sh r">
-      <p class="sn">08 · La inversión — lo más pequeño del camino</p>
-      <h2 class="st">¿Cuánto vale tu destino?</h2>
+      <p class="sn">08 · La inversión</p>
+      <h2 class="st">Elige tu curso.</h2>
     </div>
-    <p class="roi-note r">Una carrera universitaria puede cambiar el rumbo de una vida. Este curso es la inversión más pequeña de ese camino.</p>
-    <div class="pgrid">
-      <div class="pc r d1">
-        <h3 class="pc-t">Preparatoria</h3>
-        <div class="pc-m">$2,500 <span>MXN</span></div>
-        <p class="pc-d">Curso completo + material + simulacros + asesoría personalizada para el examen de admisión a preparatoria UANL.</p>
-        <button class="pc-btn">Apartar mi lugar</button>
+    <div class="inv-cards">
+
+      <div class="inv-card r d1">
+        <p class="inv-card-label">Preparatoria UANL</p>
+        <h3 class="inv-card-t">Curso Prepa</h3>
+        <p class="inv-card-d">Preparación completa para el examen de admisión a preparatoria UANL: material, simulacros y seguimiento semana a semana.</p>
+        <div class="inv-prices">
+          <div class="inv-price-pill">
+            <div class="inv-price-mode">Presencial</div>
+            <div class="inv-price-num">$4,499<span> MXN</span></div>
+          </div>
+          <div class="inv-price-pill">
+            <div class="inv-price-mode">En línea</div>
+            <div class="inv-price-num">$3,599<span> MXN</span></div>
+          </div>
+        </div>
       </div>
-      <div class="pc pc--d r d2">
-        <h3 class="pc-t">Universidad</h3>
-        <div class="pc-m">$3,500 <span>MXN</span></div>
-        <p class="pc-d">Preparación completa para el EXANI-II a nivel facultad. Material específico por carrera, puntaje objetivo y seguimiento semanal.</p>
-        <button class="pc-btn">Apartar mi lugar</button>
+
+      <div class="inv-card r d2">
+        <p class="inv-card-label">Universidad UANL</p>
+        <h3 class="inv-card-t">Curso Facultad</h3>
+        <p class="inv-card-d">Preparación específica por carrera para el EXANI-II: material por área, puntaje objetivo y seguimiento personalizado.</p>
+        <div class="inv-prices">
+          <div class="inv-price-pill">
+            <div class="inv-price-mode">Presencial</div>
+            <div class="inv-price-num">$4,699<span> MXN</span></div>
+          </div>
+          <div class="inv-price-pill">
+            <div class="inv-price-mode">En línea</div>
+            <div class="inv-price-num">$3,699<span> MXN</span></div>
+          </div>
+        </div>
       </div>
+
     </div>
+
+    <div class="wa-cta r d3">
+      <a href="https://wa.me/528118201968?text=Quiero%20conocer%20los%20horarios" class="wa-btn" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Quiero conocer los horarios
+      </a>
+    </div>
+
   </div>
 </section>
 
@@ -634,7 +742,7 @@ footer{background:var(--bl);border-top:3px solid var(--am);padding:40px 24px;tex
 </section>
 
 <!-- PIE -->
-<footer>
+<footer id="sec-sucursales">
   <div class="fl">INGRESO <em>U</em></div>
   <p class="fleg">Ingreso U es un servicio independiente de asesorías y no está afiliado a la Universidad Autónoma de Nuevo León (UANL).</p>
 </footer>
@@ -666,6 +774,7 @@ const co=new IntersectionObserver(e=>{
   e.forEach(x=>{if(x.isIntersecting){animCount(x.target);co.unobserve(x.target)}});
 },{threshold:.5});
 document.querySelectorAll('[data-to]').forEach(el=>co.observe(el));
+
 
 // Hero figure animation — recorrido vertical (TÚ arriba → Brújula → Escuela abajo)
 (function(){
