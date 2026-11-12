@@ -167,7 +167,7 @@ main{flex:1;max-width:720px;margin:0 auto;width:100%;padding:24px 16px 100px}
     <div class="total-bar"><div class="total-fill" id="totalFill" style="width:0%"></div></div>
     <div class="total-label" id="totalLabel">0 de 138 preguntas</div>
   </div>
-  <button class="next-btn" id="nextBtn" disabled onclick="handleNext()">Siguiente � </button>
+  <button class="next-btn" id="nextBtn" disabled onclick="handleNext()">Siguiente →</button>
 </div>
 
 <script>
@@ -274,7 +274,7 @@ function renderQuestion() {
 
   selectedAnswer = null;
   document.getElementById('nextBtn').disabled = true;
-  document.getElementById('nextBtn').textContent = (qIdx < qs.length - 1) ? 'Siguiente � ' : 'Finalizar sección � ';
+  document.getElementById('nextBtn').textContent = (qIdx < qs.length - 1) ? 'Siguiente →' : 'Finalizar sección →';
 
   let html = `
     <div class="q-meta">
