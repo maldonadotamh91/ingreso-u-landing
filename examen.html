@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Examen diagnóstico � Ingreso U</title>
+<title>Examen diagnóstico — Ingreso U</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -238,7 +238,7 @@ const modSections = fac.modulos.map(m => ({
 const SECTIONS = [...BASE_SECTIONS, ...modSections];
 const TOTAL_Q = SECTIONS.reduce((s, sec) => s + (sec.key ? (EXAMEN[sec.key] || []).length : 0), 0);
 
-document.title = `Diagnóstico ${fac.nombre} � Ingreso U`;
+document.title = `Diagnóstico ${fac.nombre} — Ingreso U`;
 
 // ���� STATE ������������������������������������������������������������������������������������������������������������������������������������������
 let secIdx = 0;
@@ -314,7 +314,7 @@ function renderSectionTransition() {
   const isLast = secIdx >= SECTIONS.length - 1;
   const pct = sc.total > 0 ? Math.round(sc.correct / sc.total * 100) : 0;
 
-  const nextLabel = isLast ? 'Ver resultados � ' : `Continuar: ${SECTIONS[secIdx+1].label} � `;
+  const nextLabel = isLast ? 'Ver resultados →' : `Continuar: ${SECTIONS[secIdx+1].label} →`;
 
   let icon = `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>`;
 
@@ -339,7 +339,7 @@ function renderNoModule(sec) {
       <p>El módulo de <strong>${sec.moduleName}</strong> estará disponible pronto. Por ahora puedes continuar con las demás secciones o contactarnos para obtener materiales de estudio.</p>
     </div>
     <div style="text-align:center;margin-top:24px">
-      <button class="section-next-btn" onclick="advanceSection()">Continuar � </button>
+      <button class="section-next-btn" onclick="advanceSection()">Continuar →</button>
     </div>`;
   document.getElementById('examFooter').style.display = 'none';
   renderPills();
@@ -384,7 +384,7 @@ function renderResults() {
       <div class="results-title">
         <h1>Diagnóstico <em>completado</em></h1>
         <p>${fac.nombre} · Facultad UANL</p>
-        <p style="font-size:13px;color:var(--ts);margin-top:6px">� Tiempo transcurrido: <strong>${fmtTime(elapsedSecs)}</strong></p>
+        <p style="font-size:13px;color:var(--ts);margin-top:6px">⏱ Tiempo transcurrido: <strong>${fmtTime(elapsedSecs)}</strong></p>
       </div>
 
       <div class="results-card">
