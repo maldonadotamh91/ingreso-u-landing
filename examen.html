@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Examen diagnóstico — Ingreso U</title>
+<title>Examen diagnÃ³stico â€” Ingreso U</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
 }
 body{font-family:'Montserrat',sans-serif;background:#F7F8FC;min-height:100vh;display:flex;flex-direction:column}
 
-/* ── HEADER ── */
+/* â”€â”€ HEADER â”€â”€ */
 .exam-header{background:white;border-bottom:3px solid var(--am);padding:12px 20px;position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:12px}
 .exam-brand{font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;color:var(--an);text-transform:uppercase;text-decoration:none;flex-shrink:0}
 .exam-brand em{color:var(--am);font-style:normal}
@@ -32,8 +32,21 @@ body{font-family:'Montserrat',sans-serif;background:#F7F8FC;min-height:100vh;dis
 .pill.active{background:var(--am)}
 .pill.pending{background:#E5E7EB}
 .section-label{font-size:11px;font-weight:700;color:var(--ts);text-align:right;white-space:nowrap;flex-shrink:0;letter-spacing:.03em}
+.exam-timer{font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;color:var(--an);background:#F7F8FC;border:1.5px solid var(--li);border-radius:8px;padding:4px 10px;min-width:70px;text-align:center;flex-shrink:0}
+.exam-timer.warning{color:#DC2626;border-color:#DC2626}
+/* instructions */
+.instr-screen{max-width:600px;margin:0 auto;padding:40px 16px}
+.instr-screen h2{font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--an);text-transform:uppercase;margin-bottom:8px}
+.instr-screen .sub{font-size:13px;color:var(--ts);margin-bottom:28px}
+.instr-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:36px}
+.instr-list li{background:white;border:1.5px solid var(--li);border-radius:12px;padding:16px 18px;font-size:14px;color:var(--an);display:flex;gap:14px;align-items:flex-start}
+.instr-list li .num{background:var(--an);color:white;font-family:'Oswald',sans-serif;font-weight:700;font-size:13px;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.instr-list li strong{display:block;font-weight:700;margin-bottom:3px}
+.instr-list li span{color:var(--ts);font-size:13px}
+.instr-start-btn{width:100%;background:var(--an);color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;padding:18px;border-radius:14px;border:none;cursor:pointer;transition:background .2s}
+.instr-start-btn:hover{background:var(--az)}
 
-/* ── MAIN ── */
+/* â”€â”€ MAIN â”€â”€ */
 main{flex:1;max-width:720px;margin:0 auto;width:100%;padding:24px 16px 100px}
 
 /* section transition */
@@ -66,7 +79,7 @@ main{flex:1;max-width:720px;margin:0 auto;width:100%;padding:24px 16px 100px}
 .opt-btn.selected{border-color:var(--am);background:#FFFBEB;font-weight:600}
 .opt-btn.selected .opt-letter{color:var(--an)}
 
-/* ── RESULTS BAR ── */
+/* â”€â”€ RESULTS BAR â”€â”€ */
 .res-score-card{background:white;border:1.5px solid var(--li);border-radius:14px;padding:28px 24px;text-align:center}
 .res-score-big{font-family:'Oswald',sans-serif;font-size:68px;font-weight:700;color:var(--am);line-height:1}
 .res-score-sub{font-size:12px;color:var(--ts);margin:4px 0 32px;letter-spacing:.04em}
@@ -84,12 +97,12 @@ main{flex:1;max-width:720px;margin:0 auto;width:100%;padding:24px 16px 100px}
 .res-bar-edges{display:flex;justify-content:space-between;font-size:11px;color:var(--ts)}
 .res-phrase{font-size:17px;font-weight:700;color:var(--an);margin-top:20px;line-height:1.5;padding:16px;background:#F7F8FC;border-radius:10px}
 
-/* ── READING SAME ── */
+/* â”€â”€ READING SAME â”€â”€ */
 .reading-box.reading-same{background:#E8F0FE;border-color:#93C5FD}
 .reading-box details summary{font-size:12px;font-weight:700;color:var(--az);cursor:pointer;list-style:none;padding:4px 0}
 .reading-box details summary::-webkit-details-marker{display:none}
 
-/* ── FOOTER ── */
+/* â”€â”€ FOOTER â”€â”€ */
 .exam-footer{position:fixed;bottom:0;left:0;right:0;background:white;border-top:1px solid var(--li);padding:12px 20px;display:flex;align-items:center;gap:14px}
 .total-progress{flex:1}
 .total-bar{height:5px;background:#E5E7EB;border-radius:3px;overflow:hidden;margin-bottom:4px}
@@ -99,7 +112,7 @@ main{flex:1;max-width:720px;margin:0 auto;width:100%;padding:24px 16px 100px}
 .next-btn:hover:not(:disabled){background:var(--az)}
 .next-btn:disabled{opacity:.35;cursor:not-allowed}
 
-/* ── RESULTS ── */
+/* â”€â”€ RESULTS â”€â”€ */
 .results-screen{max-width:600px;margin:0 auto;padding:40px 16px 100px;display:flex;flex-direction:column;gap:24px}
 .results-title{text-align:center}
 .results-title h1{font-family:'Oswald',sans-serif;font-size:clamp(28px,5vw,44px);font-weight:700;text-transform:uppercase;color:var(--an)}
@@ -141,9 +154,10 @@ main{flex:1;max-width:720px;margin:0 auto;width:100%;padding:24px 16px 100px}
 <body>
 
 <header class="exam-header">
-  <a href="mockup-v2.html" class="exam-brand">INGRESO <em>U</em></a>
+  <a href="index.html" class="exam-brand">INGRESO <em>U</em></a>
   <div class="section-pills" id="sectionPills"></div>
   <div class="section-label" id="sectionLabel"></div>
+  <div class="exam-timer" id="examTimer" style="display:none">0:00:00</div>
 </header>
 
 <main id="mainArea"></main>
@@ -153,70 +167,70 @@ main{flex:1;max-width:720px;margin:0 auto;width:100%;padding:24px 16px 100px}
     <div class="total-bar"><div class="total-fill" id="totalFill" style="width:0%"></div></div>
     <div class="total-label" id="totalLabel">0 de 138 preguntas</div>
   </div>
-  <button class="next-btn" id="nextBtn" disabled onclick="handleNext()">Siguiente →</button>
+  <button class="next-btn" id="nextBtn" disabled onclick="handleNext()">Siguiente â†’</button>
 </div>
 
 <script>
-// ── MODULE KEY MAP ──────────────────────────────────────────────────────────
+// â”€â”€ MODULE KEY MAP â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const MOD_KEY = {
-  "Administración":"admin",
-  "Aritmética":"aritmetica",
-  "Biología":"biologia",
+  "AdministraciÃ³n":"admin",
+  "AritmÃ©tica":"aritmetica",
+  "BiologÃ­a":"biologia",
   "Ciencias de la Salud":"ciencias_salud",
   "Derecho":"derecho",
-  "Física":"fisica",
+  "FÃ­sica":"fisica",
   "Historia":"historia",
   "Literatura":"literatura",
-  "Probabilidad y Estadística":"probabilidad",
-  "Psicología":"psicologia",
-  "Química":"quimica",
-  "Filosofía":"filosofia"
+  "Probabilidad y EstadÃ­stica":"probabilidad",
+  "PsicologÃ­a":"psicologia",
+  "QuÃ­mica":"quimica",
+  "FilosofÃ­a":"filosofia"
 };
 
-// ── FACULTY DATA ─────────────────────────────────────────────────────────────
+// â”€â”€ FACULTY DATA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const FACULTADES = {
-  medicina:         {nombre:"Medicina",                        modulos:["Biología","Ciencias de la Salud"],            minScore:1239},
-  odontologia:      {nombre:"Odontología",                     modulos:["Biología","Ciencias de la Salud"],            minScore:996},
-  psicologia:       {nombre:"Psicología",                      modulos:["Psicología","Ciencias de la Salud"],          minScore:1139},
-  enfermeria_uanl:  {nombre:"Enfermería UANL",                 modulos:["Biología","Ciencias de la Salud"],            minScore:974},
-  enfermeria_imss:  {nombre:"Enfermería IMSS",                 modulos:["Biología","Ciencias de la Salud"],            minScore:935},
-  nutricion:        {nombre:"Salud Pública y Nutrición",       modulos:["Química","Ciencias de la Salud"],             minScore:1000},
-  veterinaria:      {nombre:"Medicina Veterinaria y Zootecnia",modulos:["Aritmética","Biología"],                      minScore:1200},
-  deportiva:        {nombre:"Organización Deportiva",          modulos:["Biología","Ciencias de la Salud"],            minScore:861},
-  fime:             {nombre:"Ing. Mecánica y Eléctrica",       modulos:["Aritmética","Física"],                        minScore:1078},
-  civil:            {nombre:"Ingeniería Civil",                modulos:["Aritmética","Física"],                        minScore:1035},
-  fisico_mat:       {nombre:"Ciencias Físico Matemáticas",     modulos:["Aritmética","Probabilidad y Estadística"],    minScore:891},
-  ciencias_quimicas:{nombre:"Ciencias Químicas",               modulos:["Aritmética","Química"],                       minScore:1100},
-  ciencias_biologicas:{nombre:"Ciencias Biológicas",           modulos:["Química","Biología"],                         minScore:1100},
-  agronomia:        {nombre:"Agronomía",                       modulos:["Biología","Química"],                         minScore:861},
-  facpya:           {nombre:"FACPYA",                          modulos:["Administración","Probabilidad y Estadística"],minScore:1074},
-  economia:         {nombre:"Economía",                        modulos:["Administración","Probabilidad y Estadística"],minScore:1130},
-  comunicacion:     {nombre:"Ciencias de la Comunicación",     modulos:["Administración","Probabilidad y Estadística"],minScore:861},
-  derecho:          {nombre:"Derecho y Criminología",          modulos:["Derecho","Historia"],                         minScore:1100},
-  ciencias_politicas:{nombre:"Ciencias Políticas y RR.II.",    modulos:["Administración","Historia"],                  minScore:865},
-  filosofia:        {nombre:"Filosofía y Letras",              modulos:["Literatura","Historia"],                      minScore:865},
-  trabajo_social:   {nombre:"Trabajo Social y Desarrollo Humano",modulos:["Psicología","Probabilidad y Estadística"],  minScore:1000},
-  arquitectura:     {nombre:"Arquitectura",                    modulos:["Aritmética","Historia"],                      minScore:1091},
-  artes_visuales:   {nombre:"Artes Visuales",                  modulos:["Filosofía","Historia"],                       minScore:983},
-  artes_escenicas:  {nombre:"Artes Escénicas",                 modulos:["Filosofía","Historia"],                       minScore:913},
-  musica:           {nombre:"Música",                          modulos:["Administración","Historia"],                  minScore:750},
+  medicina:         {nombre:"Medicina",                        modulos:["BiologÃ­a","Ciencias de la Salud"],            minScore:1239},
+  odontologia:      {nombre:"OdontologÃ­a",                     modulos:["BiologÃ­a","Ciencias de la Salud"],            minScore:996},
+  psicologia:       {nombre:"PsicologÃ­a",                      modulos:["PsicologÃ­a","Ciencias de la Salud"],          minScore:1139},
+  enfermeria_uanl:  {nombre:"EnfermerÃ­a UANL",                 modulos:["BiologÃ­a","Ciencias de la Salud"],            minScore:974},
+  enfermeria_imss:  {nombre:"EnfermerÃ­a IMSS",                 modulos:["BiologÃ­a","Ciencias de la Salud"],            minScore:935},
+  nutricion:        {nombre:"Salud PÃºblica y NutriciÃ³n",       modulos:["QuÃ­mica","Ciencias de la Salud"],             minScore:1000},
+  veterinaria:      {nombre:"Medicina Veterinaria y Zootecnia",modulos:["AritmÃ©tica","BiologÃ­a"],                      minScore:1200},
+  deportiva:        {nombre:"OrganizaciÃ³n Deportiva",          modulos:["BiologÃ­a","Ciencias de la Salud"],            minScore:861},
+  fime:             {nombre:"Ing. MecÃ¡nica y ElÃ©ctrica",       modulos:["AritmÃ©tica","FÃ­sica"],                        minScore:1078},
+  civil:            {nombre:"IngenierÃ­a Civil",                modulos:["AritmÃ©tica","FÃ­sica"],                        minScore:1035},
+  fisico_mat:       {nombre:"Ciencias FÃ­sico MatemÃ¡ticas",     modulos:["AritmÃ©tica","Probabilidad y EstadÃ­stica"],    minScore:891},
+  ciencias_quimicas:{nombre:"Ciencias QuÃ­micas",               modulos:["AritmÃ©tica","QuÃ­mica"],                       minScore:1100},
+  ciencias_biologicas:{nombre:"Ciencias BiolÃ³gicas",           modulos:["QuÃ­mica","BiologÃ­a"],                         minScore:1100},
+  agronomia:        {nombre:"AgronomÃ­a",                       modulos:["BiologÃ­a","QuÃ­mica"],                         minScore:861},
+  facpya:           {nombre:"FACPYA",                          modulos:["AdministraciÃ³n","Probabilidad y EstadÃ­stica"],minScore:1074},
+  economia:         {nombre:"EconomÃ­a",                        modulos:["AdministraciÃ³n","Probabilidad y EstadÃ­stica"],minScore:1130},
+  comunicacion:     {nombre:"Ciencias de la ComunicaciÃ³n",     modulos:["AdministraciÃ³n","Probabilidad y EstadÃ­stica"],minScore:861},
+  derecho:          {nombre:"Derecho y CriminologÃ­a",          modulos:["Derecho","Historia"],                         minScore:1100},
+  ciencias_politicas:{nombre:"Ciencias PolÃ­ticas y RR.II.",    modulos:["AdministraciÃ³n","Historia"],                  minScore:865},
+  filosofia:        {nombre:"FilosofÃ­a y Letras",              modulos:["Literatura","Historia"],                      minScore:865},
+  trabajo_social:   {nombre:"Trabajo Social y Desarrollo Humano",modulos:["PsicologÃ­a","Probabilidad y EstadÃ­stica"],  minScore:1000},
+  arquitectura:     {nombre:"Arquitectura",                    modulos:["AritmÃ©tica","Historia"],                      minScore:1091},
+  artes_visuales:   {nombre:"Artes Visuales",                  modulos:["FilosofÃ­a","Historia"],                       minScore:983},
+  artes_escenicas:  {nombre:"Artes EscÃ©nicas",                 modulos:["FilosofÃ­a","Historia"],                       minScore:913},
+  musica:           {nombre:"MÃºsica",                          modulos:["AdministraciÃ³n","Historia"],                  minScore:750},
 };
 
-// ── INIT ─────────────────────────────────────────────────────────────────────
+// â”€â”€ INIT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const params = new URLSearchParams(location.hash.slice(1));
 const facSlug = params.get('fac') || 'medicina';
 const fac = FACULTADES[facSlug] || FACULTADES.medicina;
 
 // Build sections array
 const BASE_SECTIONS = [
-  {key:'pensamiento_mat', label:'Pensamiento Matemático', short:'Pens. Matemático'},
-  {key:'redaccion',       label:'Redacción Indirecta',   short:'Redacción'},
-  {key:'comprension',     label:'Comprensión Lectora',   short:'Comprensión'},
+  {key:'pensamiento_mat', label:'Pensamiento MatemÃ¡tico', short:'Pens. MatemÃ¡tico'},
+  {key:'redaccion',       label:'RedacciÃ³n Indirecta',   short:'RedacciÃ³n'},
+  {key:'comprension',     label:'ComprensiÃ³n Lectora',   short:'ComprensiÃ³n'},
 ];
 
 const modSections = fac.modulos.map(m => ({
   key: MOD_KEY[m] || null,
-  label: 'Módulo ' + m,
+  label: 'MÃ³dulo ' + m,
   short: m,
   moduleName: m
 }));
@@ -224,9 +238,9 @@ const modSections = fac.modulos.map(m => ({
 const SECTIONS = [...BASE_SECTIONS, ...modSections];
 const TOTAL_Q = SECTIONS.reduce((s, sec) => s + (sec.key ? (EXAMEN[sec.key] || []).length : 0), 0);
 
-document.title = `Diagnóstico ${fac.nombre} — Ingreso U`;
+document.title = `DiagnÃ³stico ${fac.nombre} â€” Ingreso U`;
 
-// ── STATE ─────────────────────────────────────────────────────────────────────
+// â”€â”€ STATE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 let secIdx = 0;
 let qIdx   = 0;
 let selectedAnswer = null;
@@ -234,7 +248,7 @@ let lastReading = null;
 let secScores = SECTIONS.map(() => ({correct:0, total:0}));
 let totalAnswered = 0;
 
-// ── RENDER HELPERS ────────────────────────────────────────────────────────────
+// â”€â”€ RENDER HELPERS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function renderPills() {
   const pills = document.getElementById('sectionPills');
   pills.innerHTML = SECTIONS.map((s,i) => {
@@ -260,7 +274,7 @@ function renderQuestion() {
 
   selectedAnswer = null;
   document.getElementById('nextBtn').disabled = true;
-  document.getElementById('nextBtn').textContent = (qIdx < qs.length - 1) ? 'Siguiente →' : 'Finalizar sección →';
+  document.getElementById('nextBtn').textContent = (qIdx < qs.length - 1) ? 'Siguiente â†’' : 'Finalizar secciÃ³n â†’';
 
   let html = `
     <div class="q-meta">
@@ -300,7 +314,7 @@ function renderSectionTransition() {
   const isLast = secIdx >= SECTIONS.length - 1;
   const pct = sc.total > 0 ? Math.round(sc.correct / sc.total * 100) : 0;
 
-  const nextLabel = isLast ? 'Ver resultados →' : `Continuar: ${SECTIONS[secIdx+1].label} →`;
+  const nextLabel = isLast ? 'Ver resultados â†’' : `Continuar: ${SECTIONS[secIdx+1].label} â†’`;
 
   let icon = `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>`;
 
@@ -321,17 +335,18 @@ function renderSectionTransition() {
 function renderNoModule(sec) {
   document.getElementById('mainArea').innerHTML = `
     <div class="no-module">
-      <h3>Módulo próximamente</h3>
-      <p>El módulo de <strong>${sec.moduleName}</strong> estará disponible pronto. Por ahora puedes continuar con las demás secciones o contactarnos para obtener materiales de estudio.</p>
+      <h3>MÃ³dulo prÃ³ximamente</h3>
+      <p>El mÃ³dulo de <strong>${sec.moduleName}</strong> estarÃ¡ disponible pronto. Por ahora puedes continuar con las demÃ¡s secciones o contactarnos para obtener materiales de estudio.</p>
     </div>
     <div style="text-align:center;margin-top:24px">
-      <button class="section-next-btn" onclick="advanceSection()">Continuar →</button>
+      <button class="section-next-btn" onclick="advanceSection()">Continuar â†’</button>
     </div>`;
   document.getElementById('examFooter').style.display = 'none';
   renderPills();
 }
 
 function renderResults() {
+  stopTimer();
   document.getElementById('examFooter').style.display = 'none';
   renderPills();
 
@@ -349,7 +364,7 @@ function renderResults() {
     </div>`;
   }).join('');
 
-  // Score calculation: 700–1300 scale
+  // Score calculation: 700â€“1300 scale
   const score = totalTot > 0 ? Math.round(700 + (totalCorr / totalTot) * 600) : 700;
   const minScore = fac.minScore || 1000;
   const diff = minScore - score;
@@ -357,18 +372,19 @@ function renderResults() {
   const mPct = Math.min(100, Math.max(0, Math.round((minScore - 700) / 600 * 100)));
 
   let phrase;
-  if(score >= minScore) phrase = '¡Lo lograste, vamos por más!!';
-  else if(diff <= 50)   phrase = '¡Estuviste cerca!! Te ayudaremos a superarlo.';
-  else                  phrase = '¿Quieres que te ayude a llegar a la meta?';
+  if(score >= minScore) phrase = 'Â¡Lo lograste, vamos por mÃ¡s!!';
+  else if(diff <= 50)   phrase = 'Â¡Estuviste cerca!! Te ayudaremos a superarlo.';
+  else                  phrase = 'Â¿Quieres que te ayude a llegar a la meta?';
 
-  const ptsTxt = diff > 0 ? `Me faltan ${diff} puntos para el mínimo.` : 'Ya superé el puntaje mínimo.';
-  const waMsg = encodeURIComponent(`Hola, terminé mi diagnóstico para ${fac.nombre} (UANL) y obtuve ${score}/1300. El mínimo es ${fmt(minScore)}. ${ptsTxt} Me gustaría recibir asesoría.`);
+  const ptsTxt = diff > 0 ? `Me faltan ${diff} puntos para el mÃ­nimo.` : 'Ya superÃ© el puntaje mÃ­nimo.';
+  const waMsg = encodeURIComponent(`Hola, terminÃ© mi diagnÃ³stico para ${fac.nombre} (UANL) y obtuve ${score}/1300. El mÃ­nimo es ${fmt(minScore)}. ${ptsTxt} Me gustarÃ­a recibir asesorÃ­a.`);
 
   document.getElementById('mainArea').innerHTML = `
     <div class="results-screen">
       <div class="results-title">
-        <h1>Diagnóstico <em>completado</em></h1>
-        <p>${fac.nombre} · Facultad UANL</p>
+        <h1>DiagnÃ³stico <em>completado</em></h1>
+        <p>${fac.nombre} Â· Facultad UANL</p>
+        <p style="font-size:13px;color:var(--ts);margin-top:6px">⏱ Tiempo transcurrido: <strong>${fmtTime(elapsedSecs)}</strong></p>
       </div>
 
       <div class="results-card">
@@ -388,7 +404,7 @@ function renderResults() {
             <div class="res-bar-tick min-t" style="left:${mPct}%"></div>
             <div class="res-bar-bot-label" style="left:${mPct}%">
               <div class="s">${fmt(minScore)}</div>
-              <div class="l">mínimo</div>
+              <div class="l">mÃ­nimo</div>
             </div>
           </div>
         </div>
@@ -405,7 +421,7 @@ function renderResults() {
     </div>`;
 }
 
-// ── INTERACTIONS ──────────────────────────────────────────────────────────────
+// â”€â”€ INTERACTIONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function selectAnswer(letter) {
   selectedAnswer = letter;
   document.querySelectorAll('.opt-btn').forEach(btn => {
@@ -455,20 +471,76 @@ function escHtml(s) {
   return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-// ── START ─────────────────────────────────────────────────────────────────────
+// â”€â”€ START â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+
+// ── TIMER ───────────────────────────────────────────────────────────
+const MAX_SECS = 4.5 * 3600;
+let timerStart = null;
+let timerInterval = null;
+let elapsedSecs = 0;
+
+function fmtTime(secs) {
+  const h = Math.floor(secs / 3600);
+  const m = Math.floor((secs % 3600) / 60);
+  const s = secs % 60;
+  return h + ':' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+}
+
+function startTimer() {
+  timerStart = Date.now();
+  const el = document.getElementById('examTimer');
+  el.style.display = '';
+  timerInterval = setInterval(() => {
+    elapsedSecs = Math.floor((Date.now() - timerStart) / 1000);
+    el.textContent = fmtTime(elapsedSecs);
+    if(elapsedSecs >= MAX_SECS) el.classList.add('warning');
+  }, 1000);
+}
+
+function stopTimer() {
+  if(timerInterval) { clearInterval(timerInterval); timerInterval = null; }
+  elapsedSecs = timerStart ? Math.floor((Date.now() - timerStart) / 1000) : 0;
+  const el = document.getElementById('examTimer');
+  if(el) el.style.display = 'none';
+}
+
+// ── INSTRUCCIONES ─────────────────────────────────────────────
+function renderInstructions() {
+  document.getElementById('examFooter').style.display = 'none';
+  document.getElementById('mainArea').innerHTML = `
+    <div class="instr-screen">
+      <h2>Antes de comenzar</h2>
+      <p class="sub">Lee con atención las siguientes indicaciones</p>
+      <ul class="instr-list">
+        <li><div class="num">1</div><div><strong>Material necesario</strong><span>Lápiz, borrador, calculadora básica de bolsillo y hojas en blanco.</span></div></li>
+        <li><div class="num">2</div><div><strong>Duración máxima: 4.5 horas</strong><span>Ten en cuenta cuándo ir al baño para no interrumpir tu concentración.</span></div></li>
+        <li><div class="num">3</div><div><strong>Sin ayuda externa</strong><span>No uses material, internet, IA ni ninguna fuente. Solo lo que ya sabes.</span></div></li>
+        <li><div class="num">4</div><div><strong>Silencia tu celular</strong><span>Apágalo o actíva el modo avión para mantenerte enfocado.</span></div></li>
+        <li><div class="num">5</div><div><strong>Cómo responder</strong><span>Selecciona la respuesta correcta y da clic en <em>Siguiente</em> para avanzar.</span></div></li>
+        <li><div class="num">6</div><div><strong>Ambiente tranquilo</strong><span>Busca un lugar sin distracciones: sin TV, música ni ruidos.</span></div></li>
+      </ul>
+      <button class="instr-start-btn" onclick="startExam()">¡Comenzar examen! →</button>
+    </div>
+  `;
+}
+
+function startExam() {
+  document.getElementById('examFooter').style.display = '';
+  startTimer();
+  const firstSec = SECTIONS[0];
+  if(!firstSec.key) renderNoModule(firstSec);
+  else renderQuestion();
+}
 // Init section totals
 SECTIONS.forEach((sec, i) => {
   secScores[i].total = 0;
   secScores[i].correct = 0;
 });
 
-// Check if first section has a valid key
-const firstSec = SECTIONS[0];
-if(!firstSec.key) {
-  renderNoModule(firstSec);
-} else {
-  renderQuestion();
-}
+// Show instructions first
+renderInstructions();
 </script>
 </body>
 </html>
+
+

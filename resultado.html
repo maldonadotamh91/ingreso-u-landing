@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tu diagnóstico — Ingreso U</title>
+<title>Tu diagnÃ³stico â€” Ingreso U</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -132,7 +132,7 @@ main{flex:1;max-width:760px;margin:0 auto;width:100%;padding:40px 20px 60px;disp
 <body>
 
 <nav>
-  <a href="mockup-v2.html" class="nl">INGRESO <em>U</em></a>
+  <a href="index.html" class="nl">INGRESO <em>U</em></a>
   <a href="facultad.html" class="nav-back" id="backBtn">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
     Cambiar facultad
@@ -142,198 +142,198 @@ main{flex:1;max-width:760px;margin:0 auto;width:100%;padding:40px 20px 60px;disp
 <div id="pageContent"></div>
 
 <script>
-const MODULOS_BASE = ["Pensamiento Matemático","Redacción Indirecta","Comprensión Lectora"];
+const MODULOS_BASE = ["Pensamiento MatemÃ¡tico","RedacciÃ³n Indirecta","ComprensiÃ³n Lectora"];
 const MODULO_INFO = {
-  "Pensamiento Matemático":{desc:"Álgebra, geometría, probabilidad y razonamiento lógico"},
-  "Redacción Indirecta":{desc:"Ortografía, gramática y construcción de textos escritos"},
-  "Comprensión Lectora":{desc:"Análisis e interpretación de textos e ideas principales"},
-  "Administración":{desc:"Contabilidad, gestión empresarial y finanzas básicas"},
-  "Aritmética":{desc:"Operaciones, fracciones, porcentajes y proporciones"},
-  "Biología":{desc:"Célula, genética, ecología y fisiología humana"},
-  "Ciencias de la Salud":{desc:"Anatomía, salud pública, nutrición y primeros auxilios"},
+  "Pensamiento MatemÃ¡tico":{desc:"Ãlgebra, geometrÃ­a, probabilidad y razonamiento lÃ³gico"},
+  "RedacciÃ³n Indirecta":{desc:"OrtografÃ­a, gramÃ¡tica y construcciÃ³n de textos escritos"},
+  "ComprensiÃ³n Lectora":{desc:"AnÃ¡lisis e interpretaciÃ³n de textos e ideas principales"},
+  "AdministraciÃ³n":{desc:"Contabilidad, gestiÃ³n empresarial y finanzas bÃ¡sicas"},
+  "AritmÃ©tica":{desc:"Operaciones, fracciones, porcentajes y proporciones"},
+  "BiologÃ­a":{desc:"CÃ©lula, genÃ©tica, ecologÃ­a y fisiologÃ­a humana"},
+  "Ciencias de la Salud":{desc:"AnatomÃ­a, salud pÃºblica, nutriciÃ³n y primeros auxilios"},
   "Derecho":{desc:"Fundamentos legales y derecho constitucional mexicano"},
-  "Física":{desc:"Mecánica, termodinámica, electricidad y óptica"},
-  "Historia":{desc:"Historia de México y del mundo contemporáneo"},
-  "Literatura":{desc:"Géneros literarios, corrientes y análisis de obras"},
-  "Probabilidad y Estadística":{desc:"Estadística descriptiva, probabilidad y análisis de datos"},
-  "Psicología":{desc:"Desarrollo humano, conducta y teorías psicológicas"},
-  "Química":{desc:"Tabla periódica, reacciones, estequiometría y orgánica"},
-  "Filosofía":{desc:"Pensamiento crítico, lógica formal e historia de la filosofía"},
+  "FÃ­sica":{desc:"MecÃ¡nica, termodinÃ¡mica, electricidad y Ã³ptica"},
+  "Historia":{desc:"Historia de MÃ©xico y del mundo contemporÃ¡neo"},
+  "Literatura":{desc:"GÃ©neros literarios, corrientes y anÃ¡lisis de obras"},
+  "Probabilidad y EstadÃ­stica":{desc:"EstadÃ­stica descriptiva, probabilidad y anÃ¡lisis de datos"},
+  "PsicologÃ­a":{desc:"Desarrollo humano, conducta y teorÃ­as psicolÃ³gicas"},
+  "QuÃ­mica":{desc:"Tabla periÃ³dica, reacciones, estequiometrÃ­a y orgÃ¡nica"},
+  "FilosofÃ­a":{desc:"Pensamiento crÃ­tico, lÃ³gica formal e historia de la filosofÃ­a"},
 };
 
 const FACULTADES = {
   medicina:{
-    nombre:"Medicina",area:"salud",areaLabel:"Área de Salud",areaColor:"#10B981",
-    modulos:["Biología","Ciencias de la Salud"],
-    programas:[{nombre:"Médico Cirujano y Partero",score:1239}]
+    nombre:"Medicina",area:"salud",areaLabel:"Ãrea de Salud",areaColor:"#10B981",
+    modulos:["BiologÃ­a","Ciencias de la Salud"],
+    programas:[{nombre:"MÃ©dico Cirujano y Partero",score:1239}]
   },
   odontologia:{
-    nombre:"Odontología",area:"salud",areaLabel:"Área de Salud",areaColor:"#10B981",
-    modulos:["Biología","Ciencias de la Salud"],
-    programas:[{nombre:"Medicina Odontológica",score:996}]
+    nombre:"OdontologÃ­a",area:"salud",areaLabel:"Ãrea de Salud",areaColor:"#10B981",
+    modulos:["BiologÃ­a","Ciencias de la Salud"],
+    programas:[{nombre:"Medicina OdontolÃ³gica",score:996}]
   },
   psicologia:{
-    nombre:"Psicología",area:"salud",areaLabel:"Área de Salud",areaColor:"#10B981",
-    modulos:["Psicología","Ciencias de la Salud"],
-    programas:[{nombre:"Psicología",score:1139}]
+    nombre:"PsicologÃ­a",area:"salud",areaLabel:"Ãrea de Salud",areaColor:"#10B981",
+    modulos:["PsicologÃ­a","Ciencias de la Salud"],
+    programas:[{nombre:"PsicologÃ­a",score:1139}]
   },
   enfermeria_uanl:{
-    nombre:"Enfermería UANL",area:"salud",areaLabel:"Área de Salud",areaColor:"#10B981",
-    modulos:["Biología","Ciencias de la Salud"],
-    programas:[{nombre:"Licenciatura en Enfermería",score:974}]
+    nombre:"EnfermerÃ­a UANL",area:"salud",areaLabel:"Ãrea de Salud",areaColor:"#10B981",
+    modulos:["BiologÃ­a","Ciencias de la Salud"],
+    programas:[{nombre:"Licenciatura en EnfermerÃ­a",score:974}]
   },
   enfermeria_imss:{
-    nombre:"Enfermería IMSS",area:"salud",areaLabel:"Área de Salud",areaColor:"#10B981",
-    modulos:["Biología","Ciencias de la Salud"],
-    programas:[{nombre:"Licenciatura en Enfermería (IMSS)",score:935}]
+    nombre:"EnfermerÃ­a IMSS",area:"salud",areaLabel:"Ãrea de Salud",areaColor:"#10B981",
+    modulos:["BiologÃ­a","Ciencias de la Salud"],
+    programas:[{nombre:"Licenciatura en EnfermerÃ­a (IMSS)",score:935}]
   },
   nutricion:{
-    nombre:"Salud Pública y Nutrición",area:"salud",areaLabel:"Área de Salud",areaColor:"#10B981",
-    modulos:["Química","Ciencias de la Salud"],
-    programas:[{nombre:"Nutrición",score:1000}]
+    nombre:"Salud PÃºblica y NutriciÃ³n",area:"salud",areaLabel:"Ãrea de Salud",areaColor:"#10B981",
+    modulos:["QuÃ­mica","Ciencias de la Salud"],
+    programas:[{nombre:"NutriciÃ³n",score:1000}]
   },
   veterinaria:{
-    nombre:"Medicina Veterinaria y Zootecnia",area:"salud",areaLabel:"Área de Salud",areaColor:"#10B981",
-    modulos:["Aritmética","Biología"],
+    nombre:"Medicina Veterinaria y Zootecnia",area:"salud",areaLabel:"Ãrea de Salud",areaColor:"#10B981",
+    modulos:["AritmÃ©tica","BiologÃ­a"],
     programas:[{nombre:"Medicina Veterinaria y Zootecnia",score:1200}]
   },
   deportiva:{
-    nombre:"Organización Deportiva",area:"salud",areaLabel:"Área de Salud",areaColor:"#10B981",
-    modulos:["Biología","Ciencias de la Salud"],
+    nombre:"OrganizaciÃ³n Deportiva",area:"salud",areaLabel:"Ãrea de Salud",areaColor:"#10B981",
+    modulos:["BiologÃ­a","Ciencias de la Salud"],
     programas:[
-      {nombre:"Terapia Física y Rehabilitación",score:1096},
-      {nombre:"Actividad Física y Deporte",score:861}
+      {nombre:"Terapia FÃ­sica y RehabilitaciÃ³n",score:1096},
+      {nombre:"Actividad FÃ­sica y Deporte",score:861}
     ]
   },
   fime:{
-    nombre:"Ing. Mecánica y Eléctrica",area:"ing",areaLabel:"Ingeniería",areaColor:"#EF4444",
-    modulos:["Aritmética","Física"],
+    nombre:"Ing. MecÃ¡nica y ElÃ©ctrica",area:"ing",areaLabel:"IngenierÃ­a",areaColor:"#EF4444",
+    modulos:["AritmÃ©tica","FÃ­sica"],
     nota:"Puntajes para Campus CU (Monterrey). Otros campuses pueden variar.",
     programas:[
       {nombre:"Inteligencia Artificial",score:1222},
       {nombre:"Electromovilidad",score:1221},
-      {nombre:"Mecánica Empresarial",score:1211},
-      {nombre:"Aeronáutica",score:1204},
-      {nombre:"Biomédico",score:1200},
-      {nombre:"Mecatrónica y otras carreras (CU)",score:1078}
+      {nombre:"MecÃ¡nica Empresarial",score:1211},
+      {nombre:"AeronÃ¡utica",score:1204},
+      {nombre:"BiomÃ©dico",score:1200},
+      {nombre:"MecatrÃ³nica y otras carreras (CU)",score:1078}
     ]
   },
   civil:{
-    nombre:"Ingeniería Civil",area:"ing",areaLabel:"Ingeniería",areaColor:"#EF4444",
-    modulos:["Aritmética","Física"],
-    programas:[{nombre:"Ingeniería Civil",score:1035}]
+    nombre:"IngenierÃ­a Civil",area:"ing",areaLabel:"IngenierÃ­a",areaColor:"#EF4444",
+    modulos:["AritmÃ©tica","FÃ­sica"],
+    programas:[{nombre:"IngenierÃ­a Civil",score:1035}]
   },
   fisico_mat:{
-    nombre:"Ciencias Físico Matemáticas",area:"ing",areaLabel:"Ingeniería",areaColor:"#EF4444",
-    modulos:["Aritmética","Probabilidad y Estadística"],
+    nombre:"Ciencias FÃ­sico MatemÃ¡ticas",area:"ing",areaLabel:"IngenierÃ­a",areaColor:"#EF4444",
+    modulos:["AritmÃ©tica","Probabilidad y EstadÃ­stica"],
     programas:[
-      {nombre:"Matemáticas",score:970},
-      {nombre:"Física",score:896},
+      {nombre:"MatemÃ¡ticas",score:970},
+      {nombre:"FÃ­sica",score:896},
       {nombre:"Ciencias Computacionales (Mixta)",score:900},
       {nombre:"Ciencias Computacionales (No escolarizada)",score:920},
-      {nombre:"Actuaría",score:896},
-      {nombre:"Multimedia y Animación Digital",score:891},
-      {nombre:"Seguridad en Tecnología",score:922},
+      {nombre:"ActuarÃ­a",score:896},
+      {nombre:"Multimedia y AnimaciÃ³n Digital",score:891},
+      {nombre:"Seguridad en TecnologÃ­a",score:922},
       {nombre:"Ciberseguridad",score:900}
     ]
   },
   ciencias_quimicas:{
-    nombre:"Ciencias Químicas",area:"ciencias",areaLabel:"Ciencias",areaColor:"#06B6D4",
-    modulos:["Aritmética","Química"],
-    programas:[{nombre:"Ing. Química, QFB, Ambiental y más",score:1100}]
+    nombre:"Ciencias QuÃ­micas",area:"ciencias",areaLabel:"Ciencias",areaColor:"#06B6D4",
+    modulos:["AritmÃ©tica","QuÃ­mica"],
+    programas:[{nombre:"Ing. QuÃ­mica, QFB, Ambiental y mÃ¡s",score:1100}]
   },
   ciencias_biologicas:{
-    nombre:"Ciencias Biológicas",area:"ciencias",areaLabel:"Ciencias",areaColor:"#06B6D4",
-    modulos:["Química","Biología"],
-    programas:[{nombre:"Biología, Biotecnología Genómica y más",score:1100}]
+    nombre:"Ciencias BiolÃ³gicas",area:"ciencias",areaLabel:"Ciencias",areaColor:"#06B6D4",
+    modulos:["QuÃ­mica","BiologÃ­a"],
+    programas:[{nombre:"BiologÃ­a, BiotecnologÃ­a GenÃ³mica y mÃ¡s",score:1100}]
   },
   agronomia:{
-    nombre:"Agronomía",area:"ciencias",areaLabel:"Ciencias",areaColor:"#06B6D4",
-    modulos:["Biología","Química"],
+    nombre:"AgronomÃ­a",area:"ciencias",areaLabel:"Ciencias",areaColor:"#06B6D4",
+    modulos:["BiologÃ­a","QuÃ­mica"],
     programas:[
-      {nombre:"Ing. en Agronomía",score:861},
+      {nombre:"Ing. en AgronomÃ­a",score:861},
       {nombre:"Ing. Industrias Alimentarias",score:874},
       {nombre:"Ing. en Agronegocios",score:878}
     ]
   },
   facpya:{
-    nombre:"Contaduría Pública y Administración",area:"eco",areaLabel:"Administrativo",areaColor:"#0049E3",
-    modulos:["Administración","Probabilidad y Estadística"],
-    programas:[{nombre:"Contaduría, Administración, Finanzas y más",score:1074}]
+    nombre:"ContadurÃ­a PÃºblica y AdministraciÃ³n",area:"eco",areaLabel:"Administrativo",areaColor:"#0049E3",
+    modulos:["AdministraciÃ³n","Probabilidad y EstadÃ­stica"],
+    programas:[{nombre:"ContadurÃ­a, AdministraciÃ³n, Finanzas y mÃ¡s",score:1074}]
   },
   economia:{
-    nombre:"Economía",area:"eco",areaLabel:"Administrativo",areaColor:"#0049E3",
-    modulos:["Administración","Probabilidad y Estadística"],
-    programas:[{nombre:"Economía",score:1130}]
+    nombre:"EconomÃ­a",area:"eco",areaLabel:"Administrativo",areaColor:"#0049E3",
+    modulos:["AdministraciÃ³n","Probabilidad y EstadÃ­stica"],
+    programas:[{nombre:"EconomÃ­a",score:1130}]
   },
   comunicacion:{
-    nombre:"Ciencias de la Comunicación",area:"eco",areaLabel:"Social",areaColor:"#0049E3",
-    modulos:["Administración","Probabilidad y Estadística"],
-    programas:[{nombre:"Ciencias de la Comunicación",score:861}]
+    nombre:"Ciencias de la ComunicaciÃ³n",area:"eco",areaLabel:"Social",areaColor:"#0049E3",
+    modulos:["AdministraciÃ³n","Probabilidad y EstadÃ­stica"],
+    programas:[{nombre:"Ciencias de la ComunicaciÃ³n",score:861}]
   },
   derecho:{
-    nombre:"Derecho y Criminología",area:"social",areaLabel:"Social",areaColor:"#8B5CF6",
+    nombre:"Derecho y CriminologÃ­a",area:"social",areaLabel:"Social",areaColor:"#8B5CF6",
     modulos:["Derecho","Historia"],
     programas:[{nombre:"Derecho (presencial, todas unidades)",score:1100}]
   },
   ciencias_politicas:{
-    nombre:"Ciencias Políticas y RR.II.",area:"social",areaLabel:"Social",areaColor:"#8B5CF6",
-    modulos:["Administración","Historia"],
-    programas:[{nombre:"Ciencias Políticas, RR.II., Administración Pública",score:865}]
+    nombre:"Ciencias PolÃ­ticas y RR.II.",area:"social",areaLabel:"Social",areaColor:"#8B5CF6",
+    modulos:["AdministraciÃ³n","Historia"],
+    programas:[{nombre:"Ciencias PolÃ­ticas, RR.II., AdministraciÃ³n PÃºblica",score:865}]
   },
   filosofia:{
-    nombre:"Filosofía y Letras",area:"social",areaLabel:"Social",areaColor:"#8B5CF6",
+    nombre:"FilosofÃ­a y Letras",area:"social",areaLabel:"Social",areaColor:"#8B5CF6",
     modulos:["Literatura","Historia"],
     programas:[
-      {nombre:"Filosofía",score:917},
+      {nombre:"FilosofÃ­a",score:917},
       {nombre:"Historia",score:891},
-      {nombre:"Letras Hispánicas",score:887},
-      {nombre:"Lingüística Aplicada",score:865},
-      {nombre:"Sociología",score:917},
-      {nombre:"Educación",score:874},
-      {nombre:"Educación y Procesos Formativos",score:904},
-      {nombre:"Edición y Gestión de la Cultura",score:952},
-      {nombre:"Gestión de la Información y Recursos Digitales",score:913}
+      {nombre:"Letras HispÃ¡nicas",score:887},
+      {nombre:"LingÃ¼Ã­stica Aplicada",score:865},
+      {nombre:"SociologÃ­a",score:917},
+      {nombre:"EducaciÃ³n",score:874},
+      {nombre:"EducaciÃ³n y Procesos Formativos",score:904},
+      {nombre:"EdiciÃ³n y GestiÃ³n de la Cultura",score:952},
+      {nombre:"GestiÃ³n de la InformaciÃ³n y Recursos Digitales",score:913}
     ]
   },
   trabajo_social:{
     nombre:"Trabajo Social y Desarrollo Humano",area:"social",areaLabel:"Social",areaColor:"#8B5CF6",
-    modulos:["Psicología","Probabilidad y Estadística"],
+    modulos:["PsicologÃ­a","Probabilidad y EstadÃ­stica"],
     programas:[
       {nombre:"Trabajo Social",score:1000},
-      {nombre:"Trabajo Social – Lic. Conjunta FACPYA",score:1000}
+      {nombre:"Trabajo Social â€“ Lic. Conjunta FACPYA",score:1000}
     ]
   },
   arquitectura:{
-    nombre:"Arquitectura",area:"arte",areaLabel:"Arte y Diseño",areaColor:"#F59E0B",
-    modulos:["Aritmética","Historia"],
+    nombre:"Arquitectura",area:"arte",areaLabel:"Arte y DiseÃ±o",areaColor:"#F59E0B",
+    modulos:["AritmÃ©tica","Historia"],
     programas:[
       {nombre:"Arquitectura",score:1100},
-      {nombre:"Diseño Industrial",score:1091}
+      {nombre:"DiseÃ±o Industrial",score:1091}
     ]
   },
   artes_visuales:{
-    nombre:"Artes Visuales",area:"arte",areaLabel:"Arte y Diseño",areaColor:"#F59E0B",
-    modulos:["Filosofía","Historia"],
+    nombre:"Artes Visuales",area:"arte",areaLabel:"Arte y DiseÃ±o",areaColor:"#F59E0B",
+    modulos:["FilosofÃ­a","Historia"],
     programas:[
       {nombre:"Artes Visuales",score:1113},
-      {nombre:"Lenguaje y Producción Audiovisual",score:1048},
-      {nombre:"Diseño Gráfico",score:1000},
-      {nombre:"Creación y Gestión de Contenidos Mediáticos",score:983}
+      {nombre:"Lenguaje y ProducciÃ³n Audiovisual",score:1048},
+      {nombre:"DiseÃ±o GrÃ¡fico",score:1000},
+      {nombre:"CreaciÃ³n y GestiÃ³n de Contenidos MediÃ¡ticos",score:983}
     ]
   },
   artes_escenicas:{
-    nombre:"Artes Escénicas",area:"arte",areaLabel:"Arte y Diseño",areaColor:"#F59E0B",
-    modulos:["Filosofía","Historia"],
+    nombre:"Artes EscÃ©nicas",area:"arte",areaLabel:"Arte y DiseÃ±o",areaColor:"#F59E0B",
+    modulos:["FilosofÃ­a","Historia"],
     programas:[
       {nombre:"Arte Teatral",score:996},
-      {nombre:"Danza Contemporánea",score:913}
+      {nombre:"Danza ContemporÃ¡nea",score:913}
     ]
   },
   musica:{
-    nombre:"Música",area:"arte",areaLabel:"Arte y Diseño",areaColor:"#F59E0B",
-    modulos:["Administración","Historia"],
-    programas:[{nombre:"Música y Música Popular Contemporánea",score:750}]
+    nombre:"MÃºsica",area:"arte",areaLabel:"Arte y DiseÃ±o",areaColor:"#F59E0B",
+    modulos:["AdministraciÃ³n","Historia"],
+    programas:[{nombre:"MÃºsica y MÃºsica Popular ContemporÃ¡nea",score:750}]
   }
 };
 
@@ -351,13 +351,13 @@ function renderPage(){
     content.innerHTML = `
       <div class="error-wrap">
         <h2>Facultad no encontrada</h2>
-        <p>El enlace no es válido. Regresa a la lista de facultades y elige la tuya.</p>
-        <a href="facultad.html">← Ir a facultades</a>
+        <p>El enlace no es vÃ¡lido. Regresa a la lista de facultades y elige la tuya.</p>
+        <a href="facultad.html">â† Ir a facultades</a>
       </div>`;
     return;
   }
 
-  document.title = fac.nombre + ' — Ingreso U';
+  document.title = fac.nombre + ' â€” Ingreso U';
   document.documentElement.style.setProperty('--area-color', fac.areaColor);
 
   const minScore = Math.min(...fac.programas.map(p=>p.score));
@@ -376,7 +376,7 @@ function renderPage(){
   const progSection = hasMultiple ? `
     <div class="card-title">Puntajes por carrera</div>
     <table class="prog-table">
-      <thead><tr><th>Carrera</th><th>Puntaje mínimo</th></tr></thead>
+      <thead><tr><th>Carrera</th><th>Puntaje mÃ­nimo</th></tr></thead>
       <tbody>${progRows}</tbody>
     </table>` : '';
 
@@ -396,11 +396,11 @@ function renderPage(){
     </div>`;
   }).join('');
 
-  const waMsg = encodeURIComponent(`Hola, me interesa un diagnóstico para ingresar a la Facultad de ${fac.nombre} de la UANL.`);
+  const waMsg = encodeURIComponent(`Hola, me interesa un diagnÃ³stico para ingresar a la Facultad de ${fac.nombre} de la UANL.`);
 
   content.innerHTML = `
     <div class="pg-header">
-      <p class="paso">Paso 3 de 3 · EXANI-II · Facultad</p>
+      <p class="paso">Paso 3 de 3 Â· EXANI-II Â· Facultad</p>
       <div class="area-chip"><span class="dot"></span>${fac.areaLabel}</div>
       <h1>Fac. de <em>${fac.nombre}</em></h1>
     </div>
@@ -409,10 +409,10 @@ function renderPage(){
 
       <!-- PUNTAJE -->
       <div class="card">
-        <div class="card-title">Puntaje mínimo de ingreso</div>
+        <div class="card-title">Puntaje mÃ­nimo de ingreso</div>
         <div class="score-hero">
           <div class="score-num">${hasMultiple?'desde ':''}<span>${fmt(displayScore)}</span></div>
-          <div class="score-sub">puntos en escala 700–1,300</div>
+          <div class="score-sub">puntos en escala 700â€“1,300</div>
         </div>
         <div class="scale-wrap">
           <div class="scale-bar">
@@ -427,24 +427,24 @@ function renderPage(){
           </div>
         </div>
         ${progSection}
-        ${fac.nota?`<p style="font-size:11px;color:var(--ts);margin-top:16px;line-height:1.6">⚠️ ${fac.nota}</p>`:''}
+        ${fac.nota?`<p style="font-size:11px;color:var(--ts);margin-top:16px;line-height:1.6">âš ï¸ ${fac.nota}</p>`:''}
       </div>
 
-      <!-- MÓDULOS -->
+      <!-- MÃ“DULOS -->
       <div class="card">
-        <div class="card-title">Tu examen diagnóstico incluye</div>
-        <div class="exam-breakdown-info">5 secciones · 138 preguntas · ~45 min</div>
+        <div class="card-title">Tu examen diagnÃ³stico incluye</div>
+        <div class="exam-breakdown-info">5 secciones Â· 138 preguntas Â· ~45 min</div>
         <div class="exam-sections">${secCards}</div>
       </div>
 
       <!-- CTA -->
       <div class="begin-cta">
-        <h2>¿Listo para <em>comenzar</em> tu diagnóstico?</h2>
+        <h2>Â¿Listo para <em>comenzar</em> tu diagnÃ³stico?</h2>
         <a href="examen.html#fac=${slug}" class="begin-btn">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          Comenzar diagnóstico
+          Comenzar diagnÃ³stico
         </a>
-        <p class="begin-sub">138 preguntas · ~45 min</p>
+        <p class="begin-sub">138 preguntas Â· ~45 min</p>
       </div>
 
     </main>`;
@@ -455,19 +455,19 @@ function calcGap(cutoff){
   const result = document.getElementById('gapResult');
   if(!val || val < 700 || val > 1300){
     result.className = 'gap-result show far';
-    result.innerHTML = 'Ingresa un puntaje válido entre 700 y 1,300.';
+    result.innerHTML = 'Ingresa un puntaje vÃ¡lido entre 700 y 1,300.';
     return;
   }
   const diff = cutoff - val;
   if(diff <= 0){
     result.className = 'gap-result show ok';
-    result.innerHTML = `¡Ya tienes el puntaje mínimo!<span class="gap-num">+${fmt(Math.abs(diff))} pts de ventaja</span>Estás ${fmt(Math.abs(diff))} puntos por encima del mínimo requerido.`;
+    result.innerHTML = `Â¡Ya tienes el puntaje mÃ­nimo!<span class="gap-num">+${fmt(Math.abs(diff))} pts de ventaja</span>EstÃ¡s ${fmt(Math.abs(diff))} puntos por encima del mÃ­nimo requerido.`;
   } else if(diff <= 60){
     result.className = 'gap-result show close';
-    result.innerHTML = `Estás muy cerca.<span class="gap-num">${fmt(diff)} pts de diferencia</span>Con un poco más de preparación en los módulos específicos puedes lograrlo.`;
+    result.innerHTML = `EstÃ¡s muy cerca.<span class="gap-num">${fmt(diff)} pts de diferencia</span>Con un poco mÃ¡s de preparaciÃ³n en los mÃ³dulos especÃ­ficos puedes lograrlo.`;
   } else {
     result.className = 'gap-result show far';
-    result.innerHTML = `Te faltan ${fmt(diff)} puntos.<span class="gap-num">${fmt(diff)} pts de diferencia</span>Nuestro diagnóstico gratuito te indica exactamente qué repasar para cerrar esa brecha.`;
+    result.innerHTML = `Te faltan ${fmt(diff)} puntos.<span class="gap-num">${fmt(diff)} pts de diferencia</span>Nuestro diagnÃ³stico gratuito te indica exactamente quÃ© repasar para cerrar esa brecha.`;
   }
 }
 
