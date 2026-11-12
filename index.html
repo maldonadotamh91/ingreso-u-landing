@@ -1,567 +1,843 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ingreso U · Preparación para el examen de admisión UANL, prepa y facultad</title>
-  <meta name="description" content="Cursos presenciales y en línea para el examen de admisión a preparatoria y licenciatura de la UANL en Monterrey. Examen de diagnóstico gratis." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ingreso U — Mockup v2</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--am:#FFC000;--az:#0049E3;--an:#161C4D;--bl:#FFF;--ti:#0B1020;--ts:#4A5068;--li:#E0E4F0}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;color:var(--ti);background:var(--bl);overflow-x:hidden}
 
-  <!-- Open Graph / redes sociales -->
-  <meta property="og:title"       content="Ingreso U · Preparación para el examen de admisión UANL" />
-  <meta property="og:description" content="Cursos presenciales y en línea para el examen de admisión a preparatoria y licenciatura de la UANL en Monterrey. Examen de diagnóstico gratis." />
-  <meta property="og:image"       content="assets/marca/imagen-para-compartir.jpg" />
-  <meta property="og:type"        content="website" />
+/* Animaciones */
+.r{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.r.on{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
 
-  <!-- Favicon -->
-  <link rel="icon"             type="image/x-icon" href="assets/iconos/favicon.ico" />
-  <link rel="icon"             type="image/png" sizes="32x32" href="assets/iconos/icono-32.png" />
-  <link rel="apple-touch-icon" href="assets/iconos/icono-180.png" />
+/* Fade from left */
+.rl{opacity:0;transform:translateX(-28px);transition:opacity .7s ease,transform .7s ease}
+.rl.on{opacity:1;transform:translateX(0)}
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--am);z-index:300;width:0;transition:width .08s linear}
+.mbadge{position:fixed;top:14px;right:14px;z-index:200;background:var(--an);color:white;font-size:10px;font-weight:800;letter-spacing:.12em;padding:6px 14px;border-radius:20px;text-transform:uppercase}
 
-  <!-- Estilos -->
-  <link rel="stylesheet" href="css/tokens.css" />
-  <link rel="stylesheet" href="css/estilos.css" />
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-bottom:3px solid var(--am);padding:12px 20px;display:flex;align-items:center;gap:16px}
+.nl{font-family:'Oswald',sans-serif;font-size:21px;font-weight:700;color:var(--an);text-transform:uppercase;letter-spacing:.04em;text-decoration:none;flex-shrink:0}
+.nl em{color:var(--am);font-style:normal}
+.nav-links{list-style:none;display:flex;align-items:center;gap:0;margin:0;padding:0;flex:1}
+.nav-links a{font-family:'Montserrat',sans-serif;font-size:12.5px;font-weight:600;color:var(--an);text-decoration:none;padding:6px 10px;border-radius:6px;transition:background .15s,color .15s;white-space:nowrap}
+.nav-links a:hover{background:rgba(0,73,227,.08);color:var(--az)}
+.nav-wa{display:inline-flex;align-items:center;gap:7px;background:#25D366;color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;padding:8px 16px;border-radius:50px;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background .2s}
+.nav-wa:hover{background:#1ebe59}
+.nb{background:var(--az);color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;padding:10px 20px;border:none;border-radius:8px;cursor:pointer}
+@media(max-width:500px){.nav-links{display:none}.nav-wa span{display:none}.nav-wa{padding:9px 12px}}
+
+/* Contenedor */
+.c{width:100%;max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* Headers */
+.sn{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ts);margin-bottom:8px}
+.sh{text-align:center;margin-bottom:48px}
+.st{font-family:'Oswald',sans-serif;font-size:clamp(28px,4vw,46px);font-weight:700;text-transform:uppercase;color:var(--an);margin-bottom:12px;line-height:1.08}
+.ss{font-size:16px;color:var(--ts);max-width:540px;margin:0 auto;line-height:1.65}
+
+/* ══════════ 01 HERO — EL SUEÑO ══════════ */
+.hero{background:var(--am);min-height:92vh;display:flex;align-items:center;padding:80px 0 60px;position:relative;overflow:hidden}
+
+/* Brújula decorativa */
+.compass{position:absolute;right:-40px;top:50%;transform:translateY(-50%);opacity:.08;pointer-events:none}
+.compass svg{width:500px;height:500px}
+
+.hero .c{position:relative;z-index:1}
+.hero-left{padding-right:calc(clamp(260px,36vw,420px) + clamp(24px,4vw,56px))}
+.hero-anim{position:absolute;right:0;top:0;bottom:0;width:clamp(260px,36vw,420px);display:flex;align-items:center;justify-content:center}
+.hero__tag{display:inline-flex;align-items:center;gap:8px;background:var(--an);color:white;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:7px 16px;border-radius:20px;margin-bottom:20px}
+.hero__h1{font-family:'Oswald',sans-serif;font-size:clamp(36px,6.5vw,78px);font-weight:700;text-transform:uppercase;color:var(--an);line-height:1.03;margin-bottom:22px}
+.hero__h1 .hl{color:var(--az);display:block}
+.hero__p{font-size:17px;color:var(--ti);max-width:600px;line-height:1.65;margin-bottom:16px}
+.hero__brujula{font-size:17px;font-weight:800;color:var(--an);max-width:560px;margin-bottom:36px;display:flex;align-items:center;gap:10px}
+.hero__ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:0}
+.b-prim{background:var(--az);color:white;font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;padding:16px 30px;border:none;border-radius:8px;cursor:pointer}
+.b-sec{background:transparent;color:var(--an);font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;padding:14px 24px;border:2px solid var(--an);border-radius:8px;cursor:pointer}
+.hero__stats{display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start}
+.hs-num{font-family:'Oswald',sans-serif;font-size:34px;font-weight:700;color:var(--an);display:block}
+.hs-lab{font-size:11px;font-weight:700;color:var(--ti);text-transform:uppercase;letter-spacing:.06em}
+.stats-band{background:var(--am);border-top:1px solid rgba(22,28,77,.14);padding:36px 0 80px;position:relative;overflow:hidden}
+.stats-band::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:64px;background:var(--bl);clip-path:ellipse(55% 64px at 50% 64px)}
+.stats-band__inner{display:flex;justify-content:center;gap:clamp(40px,8vw,100px);text-align:center}
+
+/* ══════════ 02 — ASÍ EMPIEZA TU HISTORIA ══════════ */
+.inicio{padding:80px 0;background:var(--bl)}
+
+/* Bloque problema */
+.problema{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;max-width:820px;margin:0 auto 64px;background:var(--an);border-radius:16px;padding:36px 40px}
+.problema-stat{text-align:center;padding-right:32px;border-right:2px solid rgba(255,192,0,.25)}
+.prob-num{font-family:'Oswald',sans-serif;font-size:72px;font-weight:700;color:var(--am);line-height:1;display:inline-block}
+.prob-pct{font-family:'Oswald',sans-serif;font-size:36px;font-weight:700;color:rgba(255,255,255,.5);display:inline-block;vertical-align:top;margin-top:14px;margin-left:2px}
+.prob-lab{font-size:12px;font-weight:700;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em;display:block;margin-top:8px;max-width:120px}
+.problema-txt p{font-size:15px;color:rgba(255,255,255,.8);line-height:1.7;margin-bottom:12px}
+.problema-txt p:last-child{margin-bottom:0}
+.prob-giro{font-size:16px!important;font-weight:800!important;color:var(--am)!important}
+@media(max-width:600px){.problema{grid-template-columns:1fr;text-align:center}.problema-stat{border-right:none;border-bottom:2px solid rgba(255,192,0,.25);padding-right:0;padding-bottom:24px;margin-bottom:8px}.prob-lab{max-width:none}}
+
+/* Retos del examen */
+.retos-titulo{text-align:center;font-family:'Oswald',sans-serif;font-size:clamp(17px,2.4vw,24px);font-weight:700;text-transform:uppercase;color:var(--an);margin:48px 0 32px;letter-spacing:.03em}
+.retos{display:flex;justify-content:center;gap:clamp(24px,6vw,80px);max-width:800px;margin:0 auto 56px;text-align:center;flex-wrap:nowrap}
+.reto{display:flex;flex-direction:column;align-items:center;gap:12px;flex:1;max-width:200px;min-width:0}
+.reto-tx{font-size:clamp(13px,1.6vw,15px);font-weight:700;color:var(--az);line-height:1.35}
+
+/* Journey arc: 3 pasos visuales */
+.arc{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;max-width:900px;margin:0 auto;position:relative}
+.arc::before{content:'';position:absolute;top:60px;left:calc(16.6% + 24px);right:calc(16.6% + 24px);height:2px;background:linear-gradient(90deg,var(--am),var(--az));opacity:.3}
+
+.arc-paso{text-align:center;padding:32px 24px;position:relative;z-index:1}
+.arc-ic{width:72px;height:72px;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center}
+.arc-ic--sueño{background:var(--am)}
+.arc-ic--camino{background:var(--an)}
+.arc-ic--destino{background:var(--az)}
+.arc-paso h3{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;text-transform:uppercase;color:var(--an);margin-bottom:8px}
+.arc-paso p{font-size:14px;color:var(--ts);line-height:1.6;max-width:200px;margin:0 auto}
+
+/* Lo que un héroe necesita */
+.necesita-titulo{text-align:center;font-family:'Oswald',sans-serif;font-size:clamp(22px,3vw,32px);font-weight:700;text-transform:uppercase;color:var(--an);margin:56px 0 32px}
+.necesita-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;max-width:960px;margin:0 auto}
+.nc{background:var(--bl);border:1.5px solid var(--li);border-radius:12px;padding:20px;display:flex;align-items:center;gap:14px;transition:border-color .2s,transform .15s}
+.nc:hover{border-color:var(--az);transform:translateY(-2px)}
+.nc-ic{width:40px;height:40px;border-radius:10px;background:var(--am);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.nc-tx{font-weight:700;font-size:14px;color:var(--an);line-height:1.35}
+.nc-tx small{display:block;font-weight:400;font-size:12px;color:var(--ts);margin-top:2px}
+
+.inicio-cierre{text-align:center;margin-top:40px;font-size:18px;font-weight:800;color:var(--an);max-width:560px;margin-left:auto;margin-right:auto}
+.inicio-cierre em{color:var(--az);font-style:normal}
+
+/* Para el viaje — sección amarilla */
+.viaje{padding:64px 0 80px;background:var(--am)}
+.viaje .necesita-titulo{color:var(--an)}
+.viaje .nc{background:var(--az);border-color:transparent}
+.viaje .nc-ic{background:rgba(255,255,255,.18)}
+.viaje .nc-ic svg{stroke:white}
+.viaje .nc-tx{color:white}
+.viaje .nc-tx small{color:rgba(255,255,255,.65)}
+.viaje .inicio-cierre{color:var(--an)}
+.viaje .inicio-cierre em{color:var(--az)}
+
+/* ══════════ 03 — HERRAMIENTAS (Kit de navegación) ══════════ */
+.tools{padding:80px 0;background:var(--bl)}
+.tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1080px;margin:0 auto}
+@media(max-width:700px){.tools-grid{grid-template-columns:1fr}}
+.tc{background:var(--am);border-radius:14px;padding:28px 22px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden}
+.tc::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--an)}
+.tc-badge{display:inline-block;background:rgba(22,28,77,.12);color:var(--an);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:20px;align-self:flex-start}
+.tc-ic{flex-shrink:0}
+.tc-t{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;text-transform:uppercase;color:var(--an)}
+.tc-d{font-size:13px;color:rgba(22,28,77,.65);line-height:1.6;flex:1}
+.tc-btn{background:var(--an);color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;padding:12px;border:none;border-radius:8px;cursor:pointer;text-align:center}
+
+/* ══════════ 04 — CASOS DE ÉXITO ══════════ */
+.cita{padding:80px 0;background:var(--am)}
+.cita-titulo{text-align:center;margin-bottom:48px;padding:0 24px}
+.cita-label{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--an);opacity:.6;display:block;margin-bottom:16px}
+.cita-h{font-family:'Oswald',sans-serif;font-size:clamp(26px,3.5vw,42px);font-weight:700;text-transform:uppercase;color:var(--an);margin:0;line-height:1.1}
+.cita-h em{color:var(--az);font-style:normal}
+.exito-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1080px;margin:0 auto;padding:0 24px}
+.ex-card{background:white;border:1px solid rgba(0,0,0,.09);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:12px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.ex-q{font-size:14px;color:var(--an);line-height:1.7;flex:1;font-style:italic}
+.ex-sep{height:1px;background:rgba(255,192,0,.5)}
+.ex-name{font-size:12px;font-weight:700;color:var(--az);letter-spacing:.04em;text-transform:uppercase}
+.ex-esc{font-size:11px;color:rgba(0,0,0,.4);margin-top:3px}
+@media(max-width:700px){.exito-grid{grid-template-columns:1fr}}
+
+/* ══════════ 05 — EL GUÍA / LA BRÚJULA ══════════ */
+.guia{padding:80px 0;background:var(--bl)}
+.guia__intro{max-width:700px;margin:0 auto 56px;text-align:center}
+.guia__intro .st{margin-bottom:16px}
+.guia__frase{font-size:18px;font-weight:600;color:var(--ti);line-height:1.65;margin-bottom:0}
+.guia__frase em{font-style:normal;color:var(--az);font-weight:800}
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;max-width:860px;margin:0 auto}
+.scard{text-align:center;padding:28px 16px;background:var(--am);border-radius:12px}
+.scard-num{font-family:'Oswald',sans-serif;font-size:46px;font-weight:700;color:var(--an);display:block}
+.scard-lab{font-size:12px;font-weight:700;color:var(--an);text-transform:uppercase;letter-spacing:.06em}
+
+/* ══════════ 06 — EL CAMINO ══════════ */
+.como{padding:80px 0;background:var(--am)}
+.timeline{display:flex;flex-direction:column;max-width:640px;margin:0 auto;position:relative}
+.timeline::before{content:'';position:absolute;left:23px;top:24px;bottom:24px;width:2px;background:var(--az);opacity:.18}
+.tp{display:flex;gap:20px;align-items:flex-start;padding:18px 0}
+.tp-num{width:48px;height:48px;border-radius:50%;background:var(--az);color:white;font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1}
+.tp-t{font-family:'Oswald',sans-serif;font-size:19px;font-weight:700;text-transform:uppercase;color:var(--an);margin-bottom:4px;padding-top:8px}
+.tp-d{font-size:14px;color:var(--ti);line-height:1.55}
+
+/* ══════════ 07 — TESTIMONIOS ══════════ */
+.testi{padding:80px 0;background:var(--bl)}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px;max-width:940px;margin:0 auto}
+.tc2{background:var(--bl);border:1.5px solid var(--li);border-radius:12px;padding:26px 22px;display:flex;flex-direction:column;gap:14px}
+.tc2-q{font-size:14px;color:var(--ti);line-height:1.65;flex:1}
+.tc2-q::before{content:'\201C';font-family:'Oswald',sans-serif;font-size:46px;color:var(--am);line-height:1;display:block;margin-bottom:-8px}
+.tc2-badge{display:inline-block;background:rgba(255,192,0,.2);color:var(--an);font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:20px}
+.tc2-name{font-weight:700;font-size:14px;color:var(--an)}
+
+/* ══════════ 07 — METODOLOGÍA (ESCALONES) ══════════ */
+.metodo{padding:80px 0 0;background:var(--bl)}
+.metodo .sn{color:rgba(22,28,77,.4);text-align:center}
+.metodo .st{color:var(--an);text-align:center}
+.metodo .st em{color:var(--am);font-style:normal}
+.stairs{display:flex;align-items:flex-end;justify-content:center;gap:10px;max-width:1080px;margin:56px auto 0;padding:0 24px}
+.stair{flex:1;border-radius:14px 14px 0 0;padding:28px 20px 36px;display:flex;flex-direction:column;gap:10px;position:relative;transform:translateY(120px);opacity:0;transition:transform .9s cubic-bezier(.22,1,.36,1),opacity .7s ease}
+.stair.on{transform:translateY(0);opacity:1}
+.stair:nth-child(1){min-height:200px;background:rgba(255,192,0,.1);border:1.5px solid rgba(255,192,0,.35);border-bottom:none;transition-delay:.0s}
+.stair:nth-child(2){min-height:280px;background:rgba(0,73,227,.08);border:1.5px solid rgba(0,73,227,.25);border-bottom:none;transition-delay:.18s}
+.stair:nth-child(3){min-height:360px;background:rgba(139,92,246,.08);border:1.5px solid rgba(139,92,246,.25);border-bottom:none;transition-delay:.36s}
+.stair:nth-child(4){min-height:440px;background:var(--am);border:none;border-bottom:none;transition-delay:.56s;align-items:center;text-align:center;overflow:visible}
+.stair::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;border-radius:14px 14px 0 0}
+.stair:nth-child(1)::before{background:var(--am)}
+.stair:nth-child(2)::before{background:var(--az)}
+.stair:nth-child(3)::before{background:#8B5CF6}
+.stair:nth-child(4)::before{display:none}
+.stair-ic{margin-bottom:4px}
+.stair-t{font-family:'Oswald',sans-serif;font-size:17px;font-weight:700;text-transform:uppercase;color:var(--an);line-height:1.2}
+.stair:nth-child(4) .stair-t{color:var(--an);font-size:24px}
+.stair-d{font-size:12px;color:var(--ts);line-height:1.65}
+.stair:nth-child(4) .stair-d{color:rgba(22,28,77,.65)}
+.meta-tag{display:inline-block;margin-top:10px;background:var(--an);color:white;font-family:'Oswald',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 16px;border-radius:20px}
+.meta-monito{position:absolute;top:-96px;left:50%;transform:translateX(-50%);animation:monito-bounce .9s ease-in-out infinite alternate;z-index:2}
+@keyframes monito-bounce{0%{transform:translateY(0) translateX(-50%)}100%{transform:translateY(-8px) translateX(-50%)}}
+@media(max-width:700px){.stairs{flex-direction:column;align-items:stretch;gap:12px}.stair{min-height:unset!important;border-radius:12px;border-bottom:1px solid rgba(0,0,0,.06)!important}.stair::before{border-radius:12px 12px 0 0}}
+
+/* ══════════ 08 — INVERSIÓN ══════════ */
+.inv{padding:80px 0;background:var(--an)}
+.inv .sn{color:rgba(255,255,255,.55)}
+.inv .st{color:white}
+.inv .st em{color:var(--am);font-style:normal}
+.inv-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:800px;margin:0 auto 48px;padding:0 24px}
+.inv-card{background:white;border:1.5px solid rgba(0,0,0,.08);border-radius:14px;padding:28px 24px;box-shadow:0 2px 14px rgba(0,0,0,.05)}
+.inv-card-label{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--az);margin-bottom:6px}
+.inv-card-t{font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;text-transform:uppercase;color:var(--an);margin:0 0 10px}
+.inv-card-d{font-size:13px;color:var(--ts);line-height:1.6;margin-bottom:20px}
+.inv-prices{display:flex;gap:10px}
+.inv-price-pill{flex:1;background:var(--am);border-radius:10px;padding:12px 8px;text-align:center}
+.inv-price-mode{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--an);margin-bottom:4px}
+.inv-price-num{font-family:'Oswald',sans-serif;font-size:24px;font-weight:700;color:var(--an);line-height:1}
+.inv-price-num span{font-size:11px;color:rgba(22,28,77,.6);font-family:'Montserrat',sans-serif}
+.wa-cta{text-align:center;margin-top:0;padding:0 24px}
+.wa-btn{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;padding:14px 36px;border-radius:50px;text-decoration:none;transition:background .2s}
+.wa-btn:hover{background:#1ebe59}
+.wa-btn svg{flex-shrink:0}
+@media(max-width:600px){.inv-cards{grid-template-columns:1fr}}
+
+/* ══════════ 09 — CIERRE ══════════ */
+.cierre{padding:100px 24px;background:var(--an);text-align:center;position:relative;overflow:hidden}
+.cierre-compass{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);opacity:.04;pointer-events:none}
+.cierre-compass svg{width:600px;height:600px}
+.cierre h2{font-family:'Oswald',sans-serif;font-size:clamp(32px,5vw,66px);font-weight:700;text-transform:uppercase;color:white;max-width:760px;margin:0 auto 20px;line-height:1.05;position:relative;z-index:1}
+.cierre h2 em{color:var(--am);font-style:normal}
+.cierre p{font-size:17px;color:rgba(255,255,255,.75);max-width:480px;margin:0 auto 40px;line-height:1.65;position:relative;z-index:1}
+.b-cierre{background:var(--am);color:var(--an);font-family:'Montserrat',sans-serif;font-weight:800;font-size:17px;padding:20px 48px;border:none;border-radius:8px;cursor:pointer;position:relative;z-index:1}
+
+/* PIE */
+footer{background:var(--bl);border-top:3px solid var(--am);padding:40px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px}
+.fl{font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;text-transform:uppercase;color:var(--an)}
+.fl em{color:var(--am);font-style:normal}
+.fleg{font-size:12px;color:var(--ts);max-width:580px;line-height:1.6}
+.f-sucursales{display:flex;gap:32px;flex-wrap:wrap;justify-content:center}
+.f-suc{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--an);text-align:center}
+.f-suc strong{font-weight:600}
+.f-suc span{color:var(--ts)}
+.f-suc a{color:var(--az);text-decoration:none;font-size:12px}
+.f-suc a:hover{text-decoration:underline}
+
+@media(max-width:600px){
+  .hero__ctas{flex-direction:column}
+  .hero-left{padding-right:0}
+  .hero-anim{display:none}
+  .timeline::before{display:none}
+  .arc::before{display:none}
+  .compass{display:none}
+  .stats-band__inner{flex-direction:column;align-items:center;gap:24px}
+}
+</style>
 </head>
 <body>
 
-  <!-- ══════════════════════════════════════
-       1. ENCABEZADO FIJO
-  ══════════════════════════════════════ -->
-  <header class="encabezado" role="banner">
-    <div class="contenedor encabezado__inner">
-      <a href="/" class="encabezado__logo-link" aria-label="Ingreso U – página de inicio">
-        <img
-          src="assets/logos/ingreso-u-horizontal-fondo-blanco-sin-fondo.svg"
-          alt="Ingreso U"
-          class="encabezado__logo"
-          width="160" height="40"
-        />
-      </a>
-      <a href="#" class="btn btn-primario js-wa-btn" data-mensaje="hola-info">
-        Escríbenos por WhatsApp
-      </a>
-    </div>
-  </header>
+<div id="prog"></div>
+<div class="mbadge">MOCKUP V2 · BRÚJULA</div>
 
-  <!-- Botón flotante WhatsApp — aparece al hacer scroll en celular -->
-  <a href="#" id="wa-flotante" class="wa-flotante js-wa-btn" data-mensaje="hola-info" aria-label="Escríbenos por WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="28" height="28" aria-hidden="true">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-    </svg>
+<!-- NAV -->
+<nav>
+  <a href="#sec-inicio" class="nl">INGRESO <em>U</em></a>
+  <ul class="nav-links">
+    <li><a href="#sec-inicio">Inicio</a></li>
+    <li><a href="#sec-quienes">Quiénes somos</a></li>
+    <li><a href="#sec-cursos">Cursos</a></li>
+    <li><a href="#sec-sucursales">Sucursales</a></li>
+  </ul>
+  <a href="https://wa.me/528118201968" class="nav-wa" target="_blank" rel="noopener">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.561 4.14 1.535 5.874L.057 23.012a.75.75 0 0 0 .93.93l5.138-1.478A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.653-.516-5.17-1.413l-.37-.219-3.834 1.103 1.103-3.834-.22-.37A9.958 9.958 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    <span>WhatsApp</span>
   </a>
+</nav>
 
-  <main>
+<!-- ══ 01 · HERO — El sueño ══ -->
+<section class="hero" id="sec-inicio">
 
-    <!-- ══════════════════════════════════════
-         2. PORTADA / HERO
-    ══════════════════════════════════════ -->
-    <section class="hero" aria-labelledby="hero-titular">
-      <div class="contenedor hero__inner">
-        <span class="etiqueta">EXAMEN DE ADMISIÓN UANL · PREPA Y FACULTAD</span>
-        <h1 id="hero-titular" class="titular-xl">VAMOS POR TU LUGAR EN LA PREPA O FACULTAD QUE QUIERES</h1>
-        <p class="hero__texto">
-          Te preparamos para el examen de admisión a preparatoria y licenciatura de la UANL,
-          presencial o en línea, con maestros universitarios, material con la misma estructura
-          y nivel del examen, y simulacros para que llegues con confianza.
-        </p>
-        <div class="hero__ctas">
-          <a href="#" class="btn btn-cta-hero js-wa-btn" data-mensaje="diagnostico">
-            Quiero mi examen de diagnóstico gratis
-          </a>
-          <a href="#precios" class="btn btn-secundario">
-            Ver modalidades y precios
-          </a>
+  <!-- Brújula decorativa -->
+  <div class="compass">
+    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="90" stroke="#161C4D" stroke-width="2"/>
+      <circle cx="100" cy="100" r="70" stroke="#161C4D" stroke-width="1"/>
+      <circle cx="100" cy="100" r="4" fill="#161C4D"/>
+      <!-- N S E W -->
+      <text x="100" y="22" text-anchor="middle" font-family="Oswald" font-size="14" font-weight="700" fill="#161C4D">N</text>
+      <text x="100" y="186" text-anchor="middle" font-family="Oswald" font-size="14" font-weight="700" fill="#161C4D">S</text>
+      <text x="178" y="104" text-anchor="middle" font-family="Oswald" font-size="14" font-weight="700" fill="#161C4D">E</text>
+      <text x="22" y="104" text-anchor="middle" font-family="Oswald" font-size="14" font-weight="700" fill="#161C4D">O</text>
+      <!-- Flecha norte -->
+      <polygon points="100,30 93,100 100,96 107,100" fill="#161C4D"/>
+      <!-- Flecha sur -->
+      <polygon points="100,170 93,100 100,104 107,100" fill="#FFC000"/>
+      <!-- Tick marks -->
+      <line x1="100" y1="12" x2="100" y2="20" stroke="#161C4D" stroke-width="1.5"/>
+      <line x1="100" y1="180" x2="100" y2="188" stroke="#161C4D" stroke-width="1.5"/>
+      <line x1="12" y1="100" x2="20" y2="100" stroke="#161C4D" stroke-width="1.5"/>
+      <line x1="180" y1="100" x2="188" y2="100" stroke="#161C4D" stroke-width="1.5"/>
+    </svg>
+  </div>
+
+  <div class="c">
+    <div class="hero-left">
+    <div class="sl" style="font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--an);opacity:.5;margin-bottom:12px">01 · Hero — el sueño</div>
+    <div class="hero__tag r">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+      Preparatoria · Universidad · UANL
+    </div>
+    <h1 class="hero__h1 r d1">
+      Tienes un sueño.
+      <span class="hl">Nosotros somos</span>
+      tu brújula.
+    </h1>
+    <p class="hero__p r d2">
+      En algún lugar del futuro, ya existe una versión de ti
+      que entró a la escuela que siempre quiso.
+      Nosotros somos el camino para llegar ahí.
+    </p>
+    <p class="hero__brujula r d3">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0049E3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+      El examen de admisión no es una muralla. Es una puerta.
+    </p>
+    <div class="hero__ctas r d3">
+      <a href="diagnostico.html" class="b-prim" style="text-decoration:none;display:inline-block">Descubre tu nivel gratis →</a>
+      <button class="b-sec">Ver el programa</button>
+    </div>
+    </div><!-- /hero-left -->
+    <div class="hero-anim">
+      <svg id="hasvg" viewBox="0 0 320 480" style="width:100%;height:100%;display:block;">
+        <!-- Camino horizontal punteado -->
+        <line x1="62" y1="252" x2="237" y2="252" stroke="#161C4D" stroke-width="2" stroke-dasharray="6 5" opacity=".18"/>
+        <!-- Marca de inicio: TÚ -->
+        <text x="42" y="298" text-anchor="middle" fill="#161C4D" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" letter-spacing="1" opacity=".35">TÚ</text>
+        <!-- Brújula — centro -->
+        <g transform="translate(160,232)">
+          <circle r="32" fill="rgba(255,255,255,.12)" stroke="#161C4D" stroke-width="2.5"/>
+          <line x1="0" y1="-30" x2="0" y2="-24" stroke="#161C4D" stroke-width="2" opacity=".45"/>
+          <line x1="0" y1="24" x2="0" y2="30" stroke="#161C4D" stroke-width="1.5" opacity=".3"/>
+          <line x1="30" y1="0" x2="24" y2="0" stroke="#0049E3" stroke-width="2.5"/>
+          <line x1="-24" y1="0" x2="-30" y2="0" stroke="#161C4D" stroke-width="1.5" opacity=".3"/>
+          <text x="0" y="-38" text-anchor="middle" fill="#161C4D" font-family="Oswald,sans-serif" font-size="9" font-weight="700" opacity=".55">N</text>
+          <text x="38" y="4" text-anchor="start" fill="#0049E3" font-family="Oswald,sans-serif" font-size="10" font-weight="700">E</text>
+          <g id="hndl">
+            <polygon points="0,-24 4,2 0,8 -4,2" fill="#0049E3"/>
+            <polygon points="0,24 -4,2 0,8 4,2" fill="#161C4D" opacity=".28"/>
+          </g>
+          <circle r="4.5" fill="#161C4D"/>
+          <circle r="2" fill="#FFC000"/>
+        </g>
+        <text x="160" y="280" text-anchor="middle" fill="#0049E3" font-family="Montserrat,sans-serif" font-size="10" font-weight="700" letter-spacing="1">INGRESO U</text>
+        <!-- TU ESCUELA — edificio derecha (meta) -->
+        <g transform="translate(278,197)">
+          <polygon points="-40,0 0,-26 40,0" fill="none" stroke="#161C4D" stroke-width="2.5" stroke-linejoin="round"/>
+          <rect x="-40" y="0" width="80" height="6" fill="#161C4D" opacity=".09"/>
+          <line x1="-40" y1="6" x2="40" y2="6" stroke="#161C4D" stroke-width="1.5" opacity=".22"/>
+          <line x1="-30" y1="6" x2="-30" y2="55" stroke="#161C4D" stroke-width="1.5" opacity=".32"/>
+          <line x1="-21" y1="6" x2="-21" y2="55" stroke="#161C4D" stroke-width="1.5" opacity=".32"/>
+          <line x1="21" y1="6" x2="21" y2="55" stroke="#161C4D" stroke-width="1.5" opacity=".32"/>
+          <line x1="30" y1="6" x2="30" y2="55" stroke="#161C4D" stroke-width="1.5" opacity=".32"/>
+          <path id="hdoor" d="M-11,55 L-11,33 Q-11,19 0,19 Q11,19 11,33 L11,55 Z" fill="#0049E3" fill-opacity=".18" stroke="#0049E3" stroke-width="2.5"/>
+          <line x1="-44" y1="55" x2="44" y2="55" stroke="#161C4D" stroke-width="2.5"/>
+          <rect x="-44" y="55" width="88" height="4" fill="#161C4D" opacity=".09"/>
+        </g>
+        <text x="278" y="298" text-anchor="middle" fill="#161C4D" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" letter-spacing="1" opacity=".55">TU ESCUELA</text>
+        <!-- Monito: camina de izquierda a derecha (figY fijo en 214) -->
+        <g id="hfig">
+          <!-- Estrella "TÚ" — flota sobre la cabeza, se desvanece al caminar -->
+          <path id="hdz" d="M0,-50 L2.2,-43.6 L9,-43.2 L4,-39 L5.6,-32.4 L0,-36 L-5.6,-32.4 L-4,-39 L-9,-43.2 L-2.2,-43.6 Z" fill="#0049E3" opacity="0"/>
+          <ellipse cx="0" cy="38" rx="13" ry="3" fill="#161C4D" opacity=".1"/>
+          <circle cx="0" cy="-14" r="12" fill="none" stroke="#161C4D" stroke-width="2.5"/>
+          <line x1="0" y1="-2" x2="0" y2="24" stroke="#161C4D" stroke-width="2.5" stroke-linecap="round"/>
+          <line id="hal" x1="0" y1="5" x2="-15" y2="19" stroke="#161C4D" stroke-width="2.5" stroke-linecap="round"/>
+          <line id="har" x1="0" y1="5" x2="15" y2="19" stroke="#161C4D" stroke-width="2.5" stroke-linecap="round"/>
+          <line id="hll" x1="0" y1="24" x2="-11" y2="38" stroke="#161C4D" stroke-width="2.5" stroke-linecap="round"/>
+          <line id="hlr" x1="0" y1="24" x2="11" y2="38" stroke="#161C4D" stroke-width="2.5" stroke-linecap="round"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATS BAND ══ -->
+<section class="stats-band">
+  <div class="c">
+    <div class="stats-band__inner">
+      <div>
+        <span class="hs-num" data-pre="+" data-to="6300">0</span>
+        <span class="hs-lab">Alumnos que ya llegaron</span>
+      </div>
+      <div>
+        <span class="hs-num" data-pre="+" data-to="10">0</span>
+        <span class="hs-lab">Años en el mercado</span>
+      </div>
+      <div>
+        <span class="hs-num" data-pre="+" data-to="92" data-suf="%">0</span>
+        <span class="hs-lab">Ingresan a la primera</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 02 · ASÍ EMPIEZA TU HISTORIA ══ -->
+<section class="inicio" id="sec-quienes">
+  <div class="c">
+    <div class="sh r">
+      <p class="sn">02 · Así empieza toda gran historia</p>
+      <h2 class="st">La realidad del camino.</h2>
+      <p class="ss">Avanzar sin conocer los retos, afecta más de lo que piensas.</p>
+    </div>
+
+    <!-- El problema — datos reales -->
+    <div class="problema r">
+      <div class="problema-stat">
+        <div style="white-space:nowrap"><span class="prob-num">+50</span><span class="prob-pct">%</span></div>
+        <span class="prob-lab">de aspirantes quedan fuera cada año</span>
+      </div>
+      <div class="problema-txt">
+        <p>Cada año, miles de alumnos presentan el examen sin saber exactamente cómo enfrentarlo. Más de la mitad quedan fuera. No porque no puedan — sino porque nadie les mostró el camino.</p>
+        <p class="prob-giro">Tú no tienes que ser parte de esa estadística.</p>
+      </div>
+    </div>
+
+    <!-- Los retos del examen -->
+    <h3 class="retos-titulo r">Los retos a los que se enfrentan</h3>
+    <div class="retos r">
+      <div class="reto d1">
+        <div style="width:113px;height:106px;display:flex;align-items:center;justify-content:center;">
+          <img src="/icons/reto-libros.png" alt="Libros" style="width:113px;height:113px;object-fit:contain;">
         </div>
-        <p class="nota hero__sesion-proxima">
-          ¿Quieres conocernos antes de inscribirte? <strong>Agenda tu sesión muestra gratis por WhatsApp.</strong>
-        </p>
+        <span class="reto-tx">Dominar el contenido del examen</span>
       </div>
-    </section>
-
-    <!-- ══════════════════════════════════════
-         3. SELECTOR DE NIVEL
-    ══════════════════════════════════════ -->
-    <section class="selector-nivel" aria-labelledby="selector-titular">
-      <div class="contenedor">
-        <h2 id="selector-titular" class="titular centrado">¿PARA QUÉ EXAMEN TE PREPARAS?</h2>
-        <p class="selector-nivel__subtitulo">
-          Elige tu nivel y los botones de esta página ajustarán su mensaje.
-        </p>
-        <div class="selector-nivel__tarjetas">
-
-          <button class="tarjeta-nivel" data-nivel="prepa" aria-pressed="false">
-            <div class="tarjeta-nivel__icono" aria-hidden="true">
-              <!-- Graduación / prepa -->
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="40" height="40">
-                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
-              </svg>
-            </div>
-            <strong class="tarjeta-nivel__nombre">Preparatoria</strong>
-            <p class="tarjeta-nivel__detalle">
-              Un examen al año. Te preparamos para llegar con el puntaje que pide la prepa que quieres.
-            </p>
-          </button>
-
-          <button class="tarjeta-nivel" data-nivel="facultad" aria-pressed="false">
-            <div class="tarjeta-nivel__icono" aria-hidden="true">
-              <!-- Universidad / facultad -->
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="40" height="40">
-                <path d="M2 20h20"/>
-                <path d="M5 20V8h14v12"/>
-                <path d="M5 8l7-6 7 6"/>
-                <path d="M9 20v-5h6v5"/>
-              </svg>
-            </div>
-            <strong class="tarjeta-nivel__nombre">Facultad</strong>
-            <p class="tarjeta-nivel__detalle">
-              Dos oportunidades al año. Material por módulos según la carrera que eliges.
-            </p>
-          </button>
-
+      <div class="reto d2">
+        <div style="width:113px;height:106px;display:flex;align-items:center;justify-content:center;">
+          <img src="/icons/reto-cronometro.png" alt="Cronómetro" style="width:113px;height:113px;object-fit:contain;">
         </div>
+        <span class="reto-tx">Tiempo límite</span>
       </div>
-    </section>
-
-    <!-- ══════════════════════════════════════
-         4. LO QUE HACE DIFÍCIL EL EXAMEN
-    ══════════════════════════════════════ -->
-    <section class="dificultades" aria-labelledby="dificultades-titular">
-      <div class="contenedor">
-        <h2 id="dificultades-titular" class="titular centrado">NO ES SOLO SABER, ES SABER RESPONDER A TIEMPO</h2>
-        <div class="dificultades__bloques">
-
-          <div class="dificultad-bloque">
-            <div class="dificultad-bloque__icono" aria-hidden="true">
-              <!-- Libro -->
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="36" height="36">
-                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-              </svg>
-            </div>
-            <h3 class="subtitulo">Dominar el contenido</h3>
-            <p>Matemáticas, comprensión lectora, redacción y las áreas de tu carrera.</p>
-          </div>
-
-          <div class="dificultad-bloque">
-            <div class="dificultad-bloque__icono" aria-hidden="true">
-              <!-- Reloj -->
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="36" height="36">
-                <circle cx="12" cy="12" r="10"/>
-                <polyline points="12 6 12 12 16 14"/>
-              </svg>
-            </div>
-            <h3 class="subtitulo">El tiempo límite</h3>
-            <p>Muchos saben la respuesta pero no alcanzan a terminar.</p>
-          </div>
-
-          <div class="dificultad-bloque">
-            <div class="dificultad-bloque__icono" aria-hidden="true">
-              <!-- Pulso -->
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="36" height="36">
-                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-              </svg>
-            </div>
-            <h3 class="subtitulo">La presión del día</h3>
-            <p>Los nervios hacen que fallen temas que sí sabían.</p>
-          </div>
-
+      <div class="reto d3">
+        <div style="width:113px;height:106px;overflow:hidden;">
+          <img src="/icons/reto-presion.png" alt="Presión" style="width:113px;height:auto;display:block;">
         </div>
-        <p class="dificultades__cierre">
-          Nuestro curso trabaja las tres cosas: <strong>contenido, estrategia de tiempo y manejo de estrés.</strong>
-        </p>
+        <span class="reto-tx">Presión psicológica</span>
       </div>
-    </section>
+    </div>
 
-    <!-- ══════════════════════════════════════
-         5. CÓMO FUNCIONA
-    ══════════════════════════════════════ -->
-    <section class="como-funciona" aria-labelledby="como-funciona-titular">
-      <div class="contenedor">
-        <h2 id="como-funciona-titular" class="titular centrado">CÓMO FUNCIONA</h2>
-        <ol class="pasos">
-          <li class="paso">
-            <span class="paso__numero" aria-hidden="true">1</span>
-            <div class="paso__contenido">
-              <h3 class="subtitulo">Presenta tu diagnóstico gratis</h3>
-              <p>Sabrás tu puntaje de hoy y qué tan lejos estás del que pide tu meta.</p>
-            </div>
-          </li>
-          <li class="paso">
-            <span class="paso__numero" aria-hidden="true">2</span>
-            <div class="paso__contenido">
-              <h3 class="subtitulo">Prepárate con método</h3>
-              <p>Clases por área, material por carrera, repasos y Pre-Matemáticas si lo necesitas.</p>
-            </div>
-          </li>
-          <li class="paso">
-            <span class="paso__numero" aria-hidden="true">3</span>
-            <div class="paso__contenido">
-              <h3 class="subtitulo">Practica con simulacros</h3>
-              <p>Llegas al examen habiendo resuelto uno igual en estructura y tiempo.</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
+  </div>
+</section>
 
-    <!-- ══════════════════════════════════════
-         6. QUÉ INCLUYE
-    ══════════════════════════════════════ -->
-    <section class="que-incluye" aria-labelledby="que-incluye-titular">
-      <div class="contenedor">
-        <h2 id="que-incluye-titular" class="titular centrado">QUÉ INCLUYE EL CURSO</h2>
-        <ul class="lista-incluye">
-          <li class="lista-incluye__item">
-            <svg class="icono-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            Curso completo de preparación
-          </li>
-          <li class="lista-incluye__item">
-            <svg class="icono-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            Material por módulos según tu carrera
-          </li>
-          <li class="lista-incluye__item">
-            <svg class="icono-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            Examen de diagnóstico
-          </li>
-          <li class="lista-incluye__item">
-            <svg class="icono-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            Examen de simulación
-          </li>
-          <li class="lista-incluye__item">
-            <svg class="icono-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            Curso Pre-Matemáticas
-          </li>
-          <li class="lista-incluye__item">
-            <svg class="icono-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            Sesiones de repaso
-          </li>
-          <li class="lista-incluye__item">
-            <svg class="icono-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            Asesoría para el proceso de admisión
-          </li>
-          <li class="lista-incluye__item">
-            <svg class="icono-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            Paquete de libros
-          </li>
-          <li class="lista-incluye__item">
-            <svg class="icono-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            Maestros universitarios expertos en cada área
-          </li>
-          <li class="lista-incluye__item">
-            <svg class="icono-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            Sesiones para manejar el estrés y los nervios
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════════
-         7. MODALIDADES Y PRECIOS
-    ══════════════════════════════════════ -->
-    <section class="precios" id="precios" aria-labelledby="precios-titular">
-      <div class="contenedor">
-        <h2 id="precios-titular" class="titular centrado">ELIGE CÓMO PREPARARTE</h2>
-        <div class="precios__tarjetas">
-
-          <div class="tarjeta-precio">
-            <div class="tarjeta-precio__encabezado">
-              <h3 class="tarjeta-precio__titulo">Presencial</h3>
-              <p class="tarjeta-precio__descripcion">En sucursal, con tus maestros frente a ti</p>
-            </div>
-            <div class="tarjeta-precio__monto">
-              <span class="tarjeta-precio__total">$4,499</span>
-              <span class="tarjeta-precio__divisa">MXN</span>
-            </div>
-            <p class="tarjeta-precio__forma-pago">Inscripción de $499 + 6 pagos semanales</p>
-            <a href="#" class="btn btn-primario js-wa-btn" data-mensaje="presencial">
-              Apartar mi lugar presencial
-            </a>
-          </div>
-
-          <div class="tarjeta-precio tarjeta-precio--destacada">
-            <div class="tarjeta-precio__encabezado">
-              <h3 class="tarjeta-precio__titulo">En línea</h3>
-              <p class="tarjeta-precio__descripcion">Clases en vivo desde casa (On-live)</p>
-            </div>
-            <div class="tarjeta-precio__monto">
-              <span class="tarjeta-precio__total">$3,599</span>
-              <span class="tarjeta-precio__divisa">MXN</span>
-            </div>
-            <p class="tarjeta-precio__forma-pago">Inscripción de $499 + 6 pagos semanales</p>
-            <a href="#" class="btn btn-primario js-wa-btn" data-mensaje="en-linea">
-              Apartar mi lugar en línea
-            </a>
-          </div>
-
+<!-- ══ 02b · PARA EL VIAJE ══ -->
+<section class="viaje">
+  <div class="c">
+    <h3 class="necesita-titulo r">Para el viaje, necesitas</h3>
+    <div class="necesita-grid">
+      <div class="nc r d1">
+        <div class="nc-ic">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#161C4D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
         </div>
-        <p class="precios__nota nota">Aparta tu lugar con la inscripción de $499.</p>
+        <div class="nc-tx">Un mapa claro de los temas<small>Saber y dominar el contenido del examen de admisión</small></div>
       </div>
-    </section>
-
-    <!-- ══════════════════════════════════════
-         8. HORARIOS Y SUCURSALES
-    ══════════════════════════════════════ -->
-    <section class="horarios" aria-labelledby="horarios-titular">
-      <div class="contenedor">
-        <h2 id="horarios-titular" class="titular centrado">HORARIOS Y SUCURSALES</h2>
-        <div class="horarios__grupos">
-
-          <div class="grupo-horario">
-            <h3 class="subtitulo">📍 Presencial · San Nicolás</h3>
-            <p><strong>Av. Central 734C, Col. Chapultepec</strong></p>
-            <p>Sabatino Matutino — inicia <strong>13 Mar</strong> · 9:30–1:30 pm</p>
-            <p>Sabatino Vespertino — inicia <strong>6 Mar</strong> · 1:30–4:30 pm</p>
-            <p>Entre semana (L–M–V) — inicia <strong>9 Abr</strong></p>
-            <p class="nota">Matutino 9:30–11:30 am · Vespertino 5:00–7:00 pm</p>
-          </div>
-
-          <div class="grupo-horario">
-            <h3 class="subtitulo">📍 Presencial · Mitras Norte</h3>
-            <p><strong>Colegio San Gabriel</strong></p>
-            <p>Sabatino — inicia <strong>13 Mar</strong> · 9:00–1:00 pm</p>
-            <p>Entre semana (L–M–V) — inicia <strong>9 Abr</strong> · 5:00–7:00 pm</p>
-          </div>
-
-          <div class="grupo-horario">
-            <h3 class="subtitulo">💻 On-Live (en vivo por internet)</h3>
-            <p>Sabatino — inicia <strong>13 Mar</strong> · 9:00–1:00 pm</p>
-            <p>Dominical — inicia <strong>14 Mar</strong> · 9:00–1:00 pm</p>
-            <p>Entre semana (L–M–V) — inicia <strong>9 Abr</strong></p>
-            <p class="nota">Matutino 9:00–11:00 am · Vespertino 5:00–7:00 pm</p>
-          </div>
-
+      <div class="nc r d2">
+        <div class="nc-ic">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#161C4D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         </div>
-        <div class="horarios__sucursales">
-          <h3 class="subtitulo">Sucursales</h3>
-          <div class="sucursales__lista">
-            <div class="sucursal">
-              <strong class="sucursal__nombre">San Nicolás</strong>
-              <p class="nota">Av. Central 734C, Col. Chapultepec</p>
-              <a href="https://bit.ly/3rWbiYW" target="_blank" rel="noopener" class="enlace sucursal__mapa">Ver en Google Maps →</a>
-            </div>
-            <div class="sucursal">
-              <strong class="sucursal__nombre">Mitras Norte</strong>
-              <p class="nota">Colegio San Gabriel</p>
-              <a href="https://maps.app.goo.gl/1ozGBP1BuCdd3B9m9" target="_blank" rel="noopener" class="enlace sucursal__mapa">Ver en Google Maps →</a>
-            </div>
-          </div>
+        <div class="nc-tx">Seguimiento semana tras semana<small>Lo que no se mide, no mejora</small></div>
+      </div>
+      <div class="nc r d3">
+        <div class="nc-ic">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#161C4D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
         </div>
+        <div class="nc-tx">Un guía que ya conoce el camino<small>Docentes de la UANL expertos en las materias que imparten</small></div>
       </div>
-    </section>
-
-    <!-- ══════════════════════════════════════
-         9. SESIÓN MUESTRA GRATUITA
-    ══════════════════════════════════════ -->
-    <section class="sesion-muestra" aria-labelledby="sesion-titular">
-      <div class="contenedor sesion-muestra__inner">
-        <h2 id="sesion-titular" class="titular">CONÓCENOS ANTES DE INSCRIBIRTE</h2>
-        <p class="sesion-muestra__texto">
-          Una sesión gratuita en línea de una hora: presentas tu examen de diagnóstico,
-          te explicamos cómo es el examen sección por sección y tomas una clase muestra.
-          Te recomendamos verla junto con tu mamá o tu papá.
-        </p>
-        <p class="sesion-muestra__horarios">
-          Coordínala directamente por WhatsApp en el horario que te acomode.
-        </p>
-        <a href="#" class="btn btn-sesion js-wa-btn" data-mensaje="sesion">
-          Apartar mi lugar en la sesión
-        </a>
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════════
-         10. TESTIMONIOS
-    ══════════════════════════════════════ -->
-    <section class="testimonios" aria-labelledby="testimonios-titular">
-      <div class="contenedor">
-        <h2 id="testimonios-titular" class="titular centrado">ELLOS YA ENTRARON</h2>
-        <!-- Fase 2: cargar desde data/testimonios.json con filtros por nivel y área -->
-        <div class="testimonios__grid">
-
-          <article class="testimonio testimonio--ejemplo">
-            <div class="testimonio__imagen-placeholder" aria-hidden="true"></div>
-            <div class="testimonio__contenido">
-              <p class="testimonio__texto">
-                [TESTIMONIO DE EJEMPLO, reemplazar] "Gracias a Ingreso U pude entrar a la carrera que siempre quise."
-              </p>
-              <footer class="testimonio__pie">
-                <strong class="testimonio__nombre">Nombre de pila</strong>
-                <span class="testimonio__carrera">Carrera · Facultad</span>
-              </footer>
-            </div>
-          </article>
-
-          <article class="testimonio testimonio--ejemplo">
-            <div class="testimonio__imagen-placeholder" aria-hidden="true"></div>
-            <div class="testimonio__contenido">
-              <p class="testimonio__texto">
-                [TESTIMONIO DE EJEMPLO, reemplazar] "El curso me ayudó a mejorar mi puntaje considerablemente."
-              </p>
-              <footer class="testimonio__pie">
-                <strong class="testimonio__nombre">Nombre de pila</strong>
-                <span class="testimonio__carrera">Carrera · Facultad</span>
-              </footer>
-            </div>
-          </article>
-
-          <article class="testimonio testimonio--ejemplo">
-            <div class="testimonio__imagen-placeholder" aria-hidden="true"></div>
-            <div class="testimonio__contenido">
-              <p class="testimonio__texto">
-                [TESTIMONIO DE EJEMPLO, reemplazar] "Los maestros explican muy bien y el material está completo."
-              </p>
-              <footer class="testimonio__pie">
-                <strong class="testimonio__nombre">Nombre de pila</strong>
-                <span class="testimonio__carrera">Preparatoria</span>
-              </footer>
-            </div>
-          </article>
-
+      <div class="nc r d1">
+        <div class="nc-ic">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#161C4D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
         </div>
+        <div class="nc-tx">Un puntaje objetivo claro<small>Tener noción del puntaje mínimo requerido</small></div>
       </div>
-    </section>
+      <div class="nc r d2">
+        <div class="nc-ic">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#161C4D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <div class="nc-tx">Práctica con simulacros reales<small>Entrenar bajo condiciones del examen real</small></div>
+      </div>
+      <div class="nc r d3">
+        <div class="nc-ic">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#161C4D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="nc-tx">Confianza para el día del examen<small>Técnicas para controlar las emociones al momento de presentar</small></div>
+      </div>
+    </div>
+    <p class="inicio-cierre r">Ingreso U tiene todo eso. <em>Y tú ya tienes el sueño.</em></p>
+  </div>
+</section>
 
-    <!-- ══════════════════════════════════════
-         11. PREGUNTAS FRECUENTES
-    ══════════════════════════════════════ -->
-    <section class="faq" aria-labelledby="faq-titular">
-      <div class="contenedor">
-        <h2 id="faq-titular" class="titular centrado">PREGUNTAS FRECUENTES</h2>
-        <div class="faq__lista">
+<!-- ══ 03 · KIT DE NAVEGACIÓN — Herramientas gratuitas ══ -->
+<section class="tools">
+  <div class="c">
+    <div class="sh r">
+      <p class="sn">03 · Tu kit de navegación — gratis, sin registro</p>
+      <h2 class="st">Antes de cualquier paso,<br>te damos el mapa</h2>
+      <p class="ss">Una brújula de verdad te muestra dónde estás antes de decirte a dónde ir. Empieza aquí.</p>
+    </div>
+    <div class="tools-grid">
+      <div class="tc r d1">
+        <div class="tc-badge">Tómate tu tiempo</div>
+        <div class="tc-ic">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#0049E3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h3 class="tc-t">Diagnóstico de nivel</h3>
+        <p class="tc-d">Descubre tu nivel actual por área y ve exactamente a cuántos puntos estás de tu escuela objetivo. Tu punto de partida real.</p>
+        <a href="diagnostico.html" class="tc-btn" style="text-decoration:none;display:block;text-align:center">Hacer el diagnóstico →</a>
+      </div>
+      <div class="tc r d2">
+        <div class="tc-badge">Investiga</div>
+        <div class="tc-ic">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#0049E3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+        </div>
+        <h3 class="tc-t">Puntajes por escuela</h3>
+        <p class="tc-d">Busca tu escuela y conoce el puntaje mínimo para ingresar. Saber tu destino exacto lo cambia todo.</p>
+        <button class="tc-btn">Ver puntajes →</button>
+      </div>
+      <div class="tc r d3">
+        <div class="tc-badge">IA · Personalizado</div>
+        <div class="tc-ic">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#0049E3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/></svg>
+        </div>
+        <h3 class="tc-t">Plan de estudio</h3>
+        <p class="tc-d">Con base en tu nivel, tu escuela objetivo y el tiempo disponible, generamos tu plan semana a semana. Inteligencia artificial al servicio de tu ingreso.</p>
+        <button class="tc-btn">Generar mi plan →</button>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <div class="faq__item">
-            <h3 class="faq__encabezado">
-              <button class="faq__pregunta" aria-expanded="false" aria-controls="faq-1">
-                ¿Y si no es bueno para matemáticas?
-                <svg class="faq__flecha" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-            </h3>
-            <div id="faq-1" class="faq__respuesta" hidden>
-              <p>El curso incluye Pre-Matemáticas para reforzar las bases antes de los temas del examen. Muchos de nuestros alumnos aceptados empezaron así.</p>
-            </div>
+<!-- ══ 04 · CASOS DE ÉXITO ══ -->
+<section class="cita">
+  <div class="cita-titulo r">
+    <span class="cita-label">04 · Casos de éxito</span>
+    <h2 class="cita-h">Ellos ya llegaron.<br><em>Tú puedes ser el siguiente.</em></h2>
+  </div>
+  <div class="exito-grid">
+    <div class="ex-card r d1">
+      <p class="ex-q">"Sin duda, no pude encontrar mejores asesorías. Mil gracias — desde el día uno le comentaba a mis papás que me gustaron mucho. Excelente trabajo."</p>
+      <div class="ex-sep"></div>
+      <div>
+        <div class="ex-name">Karen Arely R.</div>
+        <div class="ex-esc">Lic. en Derecho · Fac. de Derecho y Criminología</div>
+      </div>
+    </div>
+    <div class="ex-card r d2">
+      <p class="ex-q">"Muchas gracias por todas las asesorías. Todo muy completo y muy buenas las maestras. ¡Quedé en la facultad que tanto deseaba!"</p>
+      <div class="ex-sep"></div>
+      <div>
+        <div class="ex-name">Sayuri C.</div>
+        <div class="ex-esc">Ingeniería Civil · Fac. de Ingeniería Civil</div>
+      </div>
+    </div>
+    <div class="ex-card r d3">
+      <p class="ex-q">"Hoy recibí los resultados de mi examen: soy aceptada en la Facultad de Artes Visuales. Muchas gracias por el apoyo a lo largo del curso."</p>
+      <div class="ex-sep"></div>
+      <div>
+        <div class="ex-name">Andrea Michelle R.</div>
+        <div class="ex-esc">Diseño Gráfico · Fac. de Artes Visuales</div>
+      </div>
+    </div>
+    <div class="ex-card r d1">
+      <p class="ex-q">"Gracias a ustedes obtuve este resultado. De verdad muchas gracias por la oportunidad que me dieron para estudiar."</p>
+      <div class="ex-sep"></div>
+      <div>
+        <div class="ex-name">Alexa Tavares S.</div>
+        <div class="ex-esc">Med. Veterinaria y Zootecnia · FMVZ UANL</div>
+      </div>
+    </div>
+    <div class="ex-card r d2">
+      <p class="ex-q">"Quería agradecerle por su apoyo y asesoría sobre el examen. ¡Muchas gracias! — ¡Aceptado!"</p>
+      <div class="ex-sep"></div>
+      <div>
+        <div class="ex-name">Edgar H.</div>
+        <div class="ex-esc">Criminología · Fac. de Derecho y Criminología</div>
+      </div>
+    </div>
+    <div class="ex-card r d3">
+      <p class="ex-q">"Excelentes asesorías. Buen plan de estudios, excelentes profesores, atentos al estudiante, resolviendo dudas y motivándolos. ¡Mi nieta pasó para FACPYA!"</p>
+      <div class="ex-sep"></div>
+      <div>
+        <div class="ex-name">María Elena D.</div>
+        <div class="ex-esc">Abuela de alumna aceptada · FACPYA UANL</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ 07 · METODOLOGÍA ══ -->
+<section class="metodo">
+  <div class="c">
+    <div class="sh r">
+      <p class="sn">07 · Nuestra metodología</p>
+      <h2 class="st">Así atacamos<br><em>el examen.</em></h2>
+    </div>
+  </div>
+  <div class="stairs">
+
+    <div class="stair r d1">
+      <div class="stair-ic">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFC000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+      </div>
+      <h3 class="stair-t">Conocimiento del examen</h3>
+      <p class="stair-d">Clases con maestros de la UANL, expertos en las materias que presentas.</p>
+    </div>
+
+    <div class="stair r d2">
+      <div class="stair-ic">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0049E3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
+      </div>
+      <h3 class="stair-t">Indicadores de avance</h3>
+      <p class="stair-d">Plataforma, exámenes parciales y simulacros reales del examen.</p>
+    </div>
+
+    <div class="stair r d3">
+      <div class="stair-ic">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <h3 class="stair-t">Manejo de emociones</h3>
+      <p class="stair-d">Sesiones con nuestra psicóloga: técnicas de manejo de nervios y estrés.</p>
+    </div>
+
+    <div class="stair r d4">
+      <div class="meta-monito">
+        <svg width="64" height="90" viewBox="0 0 64 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Graduation cap — outline -->
+          <rect x="20" y="6" width="24" height="5" rx="2" fill="none" stroke="#161C4D" stroke-width="2"/>
+          <polygon points="32,2 44,8 32,14 20,8" fill="none" stroke="#161C4D" stroke-width="2" stroke-linejoin="round"/>
+          <line x1="44" y1="8" x2="44" y2="16" stroke="#161C4D" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="44" cy="17" r="2" fill="none" stroke="#161C4D" stroke-width="1.5"/>
+          <!-- Head — outline -->
+          <circle cx="32" cy="26" r="10" fill="none" stroke="#161C4D" stroke-width="2.5"/>
+          <!-- Eyes — small dots -->
+          <circle cx="28.5" cy="24.5" r="1.5" fill="#161C4D"/>
+          <circle cx="35.5" cy="24.5" r="1.5" fill="#161C4D"/>
+          <!-- Smile -->
+          <path d="M27.5 29 Q32 33.5 36.5 29" stroke="#161C4D" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <!-- Body -->
+          <line x1="32" y1="36" x2="32" y2="60" stroke="#161C4D" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Left arm raised -->
+          <line x1="32" y1="43" x2="14" y2="29" stroke="#161C4D" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Right arm raised -->
+          <line x1="32" y1="43" x2="50" y2="29" stroke="#161C4D" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Left leg -->
+          <line x1="32" y1="60" x2="20" y2="78" stroke="#161C4D" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Right leg -->
+          <line x1="32" y1="60" x2="44" y2="78" stroke="#161C4D" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Stars -->
+          <text x="4" y="20" font-size="10" fill="#161C4D" font-family="serif">✦</text>
+          <text x="50" y="17" font-size="8" fill="rgba(22,28,77,.5)" font-family="serif">✦</text>
+        </svg>
+      </div>
+      <h3 class="stair-t">¡Ingresaste!</h3>
+      <p class="stair-d">A la UANL</p>
+      <span class="meta-tag">¡Lo lograste!</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ 08 · LA INVERSIÓN ══ -->
+<section class="inv" id="sec-cursos">
+  <div class="c">
+    <div class="sh r">
+      <p class="sn">08 · La inversión</p>
+      <h2 class="st">Elige tu curso.</h2>
+    </div>
+    <div class="inv-cards">
+
+      <div class="inv-card r d1">
+        <p class="inv-card-label">Preparatoria UANL</p>
+        <h3 class="inv-card-t">Curso Prepa</h3>
+        <p class="inv-card-d">Preparación completa para el examen de admisión a preparatoria UANL: material, simulacros y seguimiento semana a semana.</p>
+        <div class="inv-prices">
+          <div class="inv-price-pill">
+            <div class="inv-price-mode">Presencial</div>
+            <div class="inv-price-num">$4,499<span> MXN</span></div>
           </div>
-
-          <div class="faq__item">
-            <h3 class="faq__encabezado">
-              <button class="faq__pregunta" aria-expanded="false" aria-controls="faq-2">
-                ¿Cómo se paga?
-                <svg class="faq__flecha" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-            </h3>
-            <div id="faq-2" class="faq__respuesta" hidden>
-              <p>Inscripción de $499 para apartar tu lugar y el resto en 6 pagos semanales. Escríbenos por WhatsApp para confirmar las formas de pago disponibles.</p>
-            </div>
+          <div class="inv-price-pill">
+            <div class="inv-price-mode">En línea</div>
+            <div class="inv-price-num">$3,599<span> MXN</span></div>
           </div>
-
-          <div class="faq__item">
-            <h3 class="faq__encabezado">
-              <button class="faq__pregunta" aria-expanded="false" aria-controls="faq-3">
-                ¿Presencial o en línea?
-                <svg class="faq__flecha" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-            </h3>
-            <div id="faq-3" class="faq__respuesta" hidden>
-              <p>Las dos modalidades llevan el mismo contenido y material. En línea las clases son en vivo; presencial, en sucursal.</p>
-            </div>
-          </div>
-
-          <div class="faq__item">
-            <h3 class="faq__encabezado">
-              <button class="faq__pregunta" aria-expanded="false" aria-controls="faq-4">
-                ¿Qué pasa si falto a una clase?
-                <svg class="faq__flecha" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-            </h3>
-            <div id="faq-4" class="faq__respuesta" hidden>
-              <p>Por el momento todas las clases son en vivo. Si faltaste, contáctanos por WhatsApp y te orientamos sobre los temas que se cubrieron.</p>
-            </div>
-          </div>
-
-          <div class="faq__item">
-            <h3 class="faq__encabezado">
-              <button class="faq__pregunta" aria-expanded="false" aria-controls="faq-5">
-                ¿Garantizan el ingreso?
-                <svg class="faq__flecha" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-            </h3>
-            <div id="faq-5" class="faq__respuesta" hidden>
-              <p>Nadie puede garantizar un resultado: depende del puntaje de cada alumno y del cupo de cada escuela. Lo que sí garantizamos es preparación completa, material actualizado y acompañamiento hasta el día del examen.</p>
-            </div>
-          </div>
-
-          <div class="faq__item">
-            <h3 class="faq__encabezado">
-              <button class="faq__pregunta" aria-expanded="false" aria-controls="faq-6">
-                ¿Puedo conocer la forma de enseñar antes de pagar?
-                <svg class="faq__flecha" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-            </h3>
-            <div id="faq-6" class="faq__respuesta" hidden>
-              <p>Sí: en la sesión muestra gratuita tomas una clase de prueba.</p>
-            </div>
-          </div>
-
         </div>
       </div>
-    </section>
 
-    <!-- ══════════════════════════════════════
-         12. CIERRE
-    ══════════════════════════════════════ -->
-    <section class="cierre" aria-label="Cierre">
-      <div class="contenedor cierre__inner">
-        <h2 class="titular-xl">TU LUGAR SE PREPARA DESDE HOY</h2>
-        <a href="#" class="btn btn-cta-cierre js-wa-btn" data-mensaje="diagnostico">
-          Quiero mi examen de diagnóstico gratis
-        </a>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ══════════════════════════════════════
-       PIE DE PÁGINA
-  ══════════════════════════════════════ -->
-  <footer class="pie" role="contentinfo">
-    <div class="contenedor pie__inner">
-
-      <div class="pie__marca">
-        <img
-          src="assets/logos/ingreso-u-horizontal-fondo-blanco-sin-fondo.svg"
-          alt="Ingreso U"
-          class="pie__logo"
-          width="140" height="auto"
-        />
-        <p class="pie__descriptor">ASESORÍAS · EXAMEN DE ADMISIÓN</p>
-      </div>
-
-      <div class="pie__contacto">
-        <p class="pie__titulo-col">Contacto</p>
-        <a href="#" class="btn btn-wa-pie js-wa-btn" data-mensaje="hola-info">WhatsApp</a>
-        <!-- Redes sociales: agregar cuando estén disponibles -->
-      </div>
-
-      <div class="pie__sucursales">
-        <p class="pie__titulo-col">Sucursales</p>
-        <p class="nota"><strong>San Nicolás:</strong> Av. Central 734C, Col. Chapultepec</p>
-        <p class="nota"><strong>Mitras Norte:</strong> Colegio San Gabriel</p>
+      <div class="inv-card r d2">
+        <p class="inv-card-label">Universidad UANL</p>
+        <h3 class="inv-card-t">Curso Facultad</h3>
+        <p class="inv-card-d">Preparación específica por carrera para el EXANI-II: material por área, puntaje objetivo y seguimiento personalizado.</p>
+        <div class="inv-prices">
+          <div class="inv-price-pill">
+            <div class="inv-price-mode">Presencial</div>
+            <div class="inv-price-num">$4,699<span> MXN</span></div>
+          </div>
+          <div class="inv-price-pill">
+            <div class="inv-price-mode">En línea</div>
+            <div class="inv-price-num">$3,699<span> MXN</span></div>
+          </div>
+        </div>
       </div>
 
     </div>
-    <div class="pie__legal">
-      <div class="contenedor">
-        <p>Ingreso U es un servicio independiente de asesorías y no está afiliado a la Universidad Autónoma de Nuevo León (UANL).</p>
-        <p><a href="aviso-privacidad.html" class="pie__aviso">Aviso de privacidad</a></p>
-      </div>
-    </div>
-  </footer>
 
-  <script src="js/config.js"></script>
-  <script src="js/main.js"></script>
+    <div class="wa-cta r d3">
+      <a href="https://wa.me/528118201968?text=Quiero%20conocer%20los%20horarios" class="wa-btn" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Quiero conocer los horarios
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ 09 · CIERRE ══ -->
+<section class="cierre">
+  <div class="cierre-compass">
+    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="90" stroke="white" stroke-width="1.5"/>
+      <circle cx="100" cy="100" r="70" stroke="white" stroke-width="1"/>
+      <circle cx="100" cy="100" r="4" fill="white"/>
+      <text x="100" y="22" text-anchor="middle" font-family="Oswald" font-size="14" font-weight="700" fill="white">N</text>
+      <text x="100" y="186" text-anchor="middle" font-family="Oswald" font-size="14" font-weight="700" fill="white">S</text>
+      <text x="178" y="104" text-anchor="middle" font-family="Oswald" font-size="14" font-weight="700" fill="white">E</text>
+      <text x="22" y="104" text-anchor="middle" font-family="Oswald" font-size="14" font-weight="700" fill="white">O</text>
+      <polygon points="100,30 93,100 100,96 107,100" fill="white"/>
+      <polygon points="100,170 93,100 100,104 107,100" fill="#FFC000"/>
+    </svg>
+  </div>
+  <p class="sn r" style="color:rgba(255,255,255,.4);text-align:center">09 · El cierre — tu decisión</p>
+  <h2 class="r d1">
+    Tu destino ya existe.<br>
+    Tu carrera también.<br>
+    <em>Empieza a caminar.</em>
+  </h2>
+  <p class="r d2">La brújula ya está lista. El camino ya existe. Solo falta que des el primer paso. Es gratis. Es ahora.</p>
+  <a href="diagnostico.html" class="b-cierre r d3" style="text-decoration:none;display:inline-block">Descubre tu nivel gratis →</a>
+</section>
+
+<!-- PIE -->
+<footer id="sec-sucursales">
+  <div class="fl">INGRESO <em>U</em></div>
+  <div class="f-sucursales">
+    <div class="f-suc">
+      <strong>San Nicolás</strong>
+      <span>Av. Central 734C, Col. Chapultepec</span>
+      <a href="https://bit.ly/3rWbiYW" target="_blank" rel="noopener">Ver en Google Maps →</a>
+    </div>
+    <div class="f-suc">
+      <strong>Mitras Norte</strong>
+      <span>Colegio San Gabriel</span>
+      <a href="https://maps.app.goo.gl/1ozGBP1BuCdd3B9m9" target="_blank" rel="noopener">Ver en Google Maps →</a>
+    </div>
+  </div>
+  <p class="fleg">Ingreso U es un servicio independiente de asesorías y no está afiliado a la Universidad Autónoma de Nuevo León (UANL). · <a href="aviso-privacidad.html" style="color:inherit;opacity:.7">Aviso de privacidad</a></p>
+</footer>
+
+<script>
+// Progress bar
+window.addEventListener('scroll',()=>{
+  const p=(document.documentElement.scrollTop/(document.documentElement.scrollHeight-window.innerHeight))*100;
+  document.getElementById('prog').style.width=p+'%';
+});
+
+// Scroll reveal
+const obs=new IntersectionObserver(e=>{
+  e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');obs.unobserve(x.target)}});
+},{threshold:.12});
+document.querySelectorAll('.r,.rl').forEach(el=>obs.observe(el));
+
+// Hero reveals immediately
+document.querySelectorAll('.hero .r,.hero .rl').forEach(el=>el.classList.add('on'));
+
+// Counter animation
+function animCount(el){
+  const to=parseInt(el.dataset.to),pre=el.dataset.pre||'',suf=el.dataset.suf||'';
+  if(!to)return;
+  let cur=0;const step=to/(1400/16);
+  const t=setInterval(()=>{cur+=step;if(cur>=to){cur=to;clearInterval(t)}el.textContent=pre+Math.floor(cur).toLocaleString('es-MX')+suf;},16);
+}
+const co=new IntersectionObserver(e=>{
+  e.forEach(x=>{if(x.isIntersecting){animCount(x.target);co.unobserve(x.target)}});
+},{threshold:.5});
+document.querySelectorAll('[data-to]').forEach(el=>co.observe(el));
+
+
+// Hero figure animation — recorrido vertical (TÚ arriba → Brújula → Escuela abajo)
+(function(){
+  var fig=document.getElementById('hfig'),
+      al=document.getElementById('hal'),ar=document.getElementById('har'),
+      ll=document.getElementById('hll'),lr=document.getElementById('hlr'),
+      ndl=document.getElementById('hndl'),
+      dz=document.getElementById('hdz'),
+      door=document.getElementById('hdoor');
+  if(!fig)return;
+  var CYCLE=7200,t0=null;
+  function limb(el,ox,oy,deg,len){
+    var r=deg*Math.PI/180;
+    el.setAttribute('x1',ox);el.setAttribute('y1',oy);
+    el.setAttribute('x2',ox+Math.sin(r)*len);
+    el.setAttribute('y2',oy+Math.cos(r)*len);
+  }
+  function frame(ts){
+    if(!t0)t0=ts;
+    var p=((ts-t0)%CYCLE)/CYCLE,s=ts/1000;
+    var figX,figOp;
+    if(p<0.14){figX=62;figOp=p<0.03?p/0.03:1;}
+    else if(p<0.78){figX=62+(p-0.14)/0.64*166;figOp=1;}
+    else if(p<0.90){figX=228;figOp=1-(p-0.78)/0.12;}
+    else{figX=62;figOp=0;}
+    fig.setAttribute('transform','translate('+figX+',214)');
+    fig.style.opacity=figOp;
+    var walking=p>=0.14&&p<0.90;
+    if(walking){
+      var sw=Math.sin(s*Math.PI*3.2)*28;
+      limb(al,0,4,-sw*0.6,18);limb(ar,0,4,sw*0.6,18);
+      limb(ll,0,23,sw,24);limb(lr,0,23,-sw,24);
+    }else{
+      var idle=Math.sin(s*Math.PI*0.9)*6;
+      limb(al,0,4,-10+idle,18);limb(ar,0,4,10-idle,18);
+      limb(ll,0,23,-3,24);limb(lr,0,23,3,24);
+    }
+    var deg=p<0.11?(s*165)%360:90;
+    ndl.setAttribute('transform','rotate('+deg+')');
+    dz.style.opacity=p<0.11?1:Math.max(0,1-(p-0.11)/0.08);
+    door.setAttribute('fill-opacity',p>0.72&&p<0.92?0.18+Math.sin((p-0.72)/0.20*Math.PI)*0.52:0.18);
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
 </body>
 </html>
