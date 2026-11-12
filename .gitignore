@@ -1,5 +1,12 @@
 # Claude Code internos
 .claude/
+CLAUDE.md
+PRIMER-MENSAJE.txt
+
+# Documentos internos
+docs/
+*.docx
+uanl-data.js
 
 # Sistema operativo
 .DS_Store
